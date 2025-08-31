@@ -1,4 +1,6 @@
 C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/connection_test.dir
+C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/database_test.dir
 C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/api_test.dir
+C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/integrated_test.dir
 C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/ALL_BUILD.dir
 C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/ZERO_CHECK.dir
