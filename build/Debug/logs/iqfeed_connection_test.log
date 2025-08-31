@@ -1,0 +1,180 @@
+[DEBUG] 2025-08-30 14:24:28 - Winsock initialized successfully
+[INFO] 2025-08-30 14:24:28 - === IQFeed Connection Test Started ===
+[INFO] 2025-08-30 14:24:28 - Product ID: Elias_Rostane_51184
+[INFO] 2025-08-30 14:24:28 - Login ID: 523576
+[INFO] 2025-08-30 14:24:28 - Version: 1.0.0.0
+[STEP] 2025-08-30 14:24:28 - 🔄 Launching IQConnect.exe with credentials...
+[DEBUG] 2025-08-30 14:24:28 - Command line: IQConnect.exe -product Elias_Rostane_51184 -version 1.0.0.0 -login 523576 -password 56719893 -autoconnect
+[INFO] 2025-08-30 14:24:38 - IQConnect.exe process started, waiting 5 seconds for initialization...
+[SUCCESS] 2025-08-30 14:24:43 - ✅ Step 1: IQConnect launched successfully
+[STEP] 2025-08-30 14:24:43 - 🔄 Connecting to Admin port 9300...
+[INFO] 2025-08-30 14:24:43 - Connected to Admin port successfully
+[SUCCESS] 2025-08-30 14:24:43 - ✅ Step 2: Connected to Admin port
+[STEP] 2025-08-30 14:24:43 - 🔄 Setting protocol to 6.2...
+[DEBUG] 2025-08-30 14:24:43 - Protocol response: S,CURRENT PROTOCOL,6.2,
+
+[DEBUG] 2025-08-30 14:24:43 - Protocol 6.2 confirmed
+[SUCCESS] 2025-08-30 14:24:43 - ✅ Step 3: Protocol set successfully
+[STEP] 2025-08-30 14:24:43 - 🔄 Setting client name...
+[DEBUG] 2025-08-30 14:24:43 - Client name command sent successfully
+[SUCCESS] 2025-08-30 14:24:43 - ✅ Step 4: Client name set successfully
+[STEP] 2025-08-30 14:24:43 - 🔄 Waiting for IQFeed to connect to servers...
+[DEBUG] 2025-08-30 14:24:43 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.02,0.02,0.01,
+
+[INFO] 2025-08-30 14:24:43 - IQFeed successfully connected to servers
+[SUCCESS] 2025-08-30 14:24:43 - ✅ Step 5: Connected to IQ servers
+[STEP] 2025-08-30 14:24:43 - 🔄 Connecting to Lookup port 9100...
+[ERROR] 2025-08-30 14:24:45 - Failed to connect to lookup port. Error: 10061
+[ERROR] 2025-08-30 14:24:45 - ❌ Failed at Step 6: Connect to Lookup port
+[INFO] 2025-08-30 14:24:45 - Disconnected from IQFeed
+[DEBUG] 2025-08-30 14:24:45 - Winsock cleaned up
+[DEBUG] 2025-08-30 14:33:19 - Winsock initialized successfully
+[INFO] 2025-08-30 14:33:19 - === IQFeed Connection Test Started ===
+[INFO] 2025-08-30 14:33:19 - Product ID: Elias_Rostane_51184
+[INFO] 2025-08-30 14:33:19 - Login ID: 523576
+[INFO] 2025-08-30 14:33:19 - Version: 1.0.0.0
+[STEP] 2025-08-30 14:33:19 - 🔄 Launching IQConnect.exe with credentials...
+[DEBUG] 2025-08-30 14:33:19 - Command line: IQConnect.exe -product Elias_Rostane_51184 -version 1.0.0.0 -login 523576 -password 56719893 -autoconnect
+[INFO] 2025-08-30 14:33:19 - IQConnect.exe process started, waiting 5 seconds for initialization...
+[SUCCESS] 2025-08-30 14:33:24 - ✅ Step 1: IQConnect launched successfully
+[STEP] 2025-08-30 14:33:24 - 🔄 Connecting to Admin port 9300...
+[INFO] 2025-08-30 14:33:24 - Connected to Admin port successfully
+[SUCCESS] 2025-08-30 14:33:24 - ✅ Step 2: Connected to Admin port
+[STEP] 2025-08-30 14:33:24 - 🔄 Setting protocol to 6.2...
+[DEBUG] 2025-08-30 14:33:24 - Protocol response: S,CURRENT PROTOCOL,6.2,
+
+[DEBUG] 2025-08-30 14:33:24 - Protocol 6.2 confirmed
+[SUCCESS] 2025-08-30 14:33:24 - ✅ Step 3: Protocol set successfully
+[STEP] 2025-08-30 14:33:24 - 🔄 Setting client name...
+[DEBUG] 2025-08-30 14:33:24 - Client name command sent successfully
+[SUCCESS] 2025-08-30 14:33:24 - ✅ Step 4: Client name set successfully
+[STEP] 2025-08-30 14:33:24 - 🔄 Waiting for IQFeed to connect to servers...
+[DEBUG] 2025-08-30 14:33:24 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.02,0.02,0.01,
+
+[INFO] 2025-08-30 14:33:24 - IQFeed successfully connected to servers
+[SUCCESS] 2025-08-30 14:33:24 - ✅ Step 5: Connected to IQ servers
+[STEP] 2025-08-30 14:33:24 - 🔄 Connecting to Lookup port 9100...
+[ERROR] 2025-08-30 14:33:26 - Failed to connect to lookup port. Error: 10061
+[ERROR] 2025-08-30 14:33:26 - ❌ Failed at Step 6: Connect to Lookup port
+[INFO] 2025-08-30 14:33:26 - Disconnected from IQFeed
+[DEBUG] 2025-08-30 14:33:26 - Winsock cleaned up
+[DEBUG] 2025-08-30 14:34:24 - Winsock initialized successfully
+[INFO] 2025-08-30 14:34:24 - === IQFeed Connection Test Started ===
+[INFO] 2025-08-30 14:34:24 - Product ID: Elias_Rostane_51184
+[INFO] 2025-08-30 14:34:24 - Login ID: 523576
+[INFO] 2025-08-30 14:34:24 - Version: 1.0.0.0
+[STEP] 2025-08-30 14:34:24 - 🔄 Launching IQConnect.exe with credentials...
+[DEBUG] 2025-08-30 14:34:24 - Command line: IQConnect.exe -product Elias_Rostane_51184 -version 1.0.0.0 -login 523576 -password 56719893 -autoconnect
+[INFO] 2025-08-30 14:34:24 - IQConnect.exe process started, waiting 5 seconds for initialization...
+[SUCCESS] 2025-08-30 14:34:29 - ✅ Step 1: IQConnect launched successfully
+[STEP] 2025-08-30 14:34:29 - 🔄 Connecting to Admin port 9300...
+[INFO] 2025-08-30 14:34:29 - Connected to Admin port successfully
+[SUCCESS] 2025-08-30 14:34:29 - ✅ Step 2: Connected to Admin port
+[STEP] 2025-08-30 14:34:29 - 🔄 Setting protocol to 6.2...
+[DEBUG] 2025-08-30 14:34:29 - Protocol response: S,CURRENT PROTOCOL,6.2,
+
+[DEBUG] 2025-08-30 14:34:29 - Protocol 6.2 confirmed
+[SUCCESS] 2025-08-30 14:34:29 - ✅ Step 3: Protocol set successfully
+[STEP] 2025-08-30 14:34:29 - 🔄 Setting client name...
+[DEBUG] 2025-08-30 14:34:29 - Client name command sent successfully
+[SUCCESS] 2025-08-30 14:34:29 - ✅ Step 4: Client name set successfully
+[STEP] 2025-08-30 14:34:29 - 🔄 Waiting for IQFeed to connect to servers...
+[DEBUG] 2025-08-30 14:34:29 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.02,0.02,0.01,
+
+[INFO] 2025-08-30 14:34:29 - IQFeed successfully connected to servers
+[SUCCESS] 2025-08-30 14:34:29 - ✅ Step 5: Connected to IQ servers
+[STEP] 2025-08-30 14:34:29 - 🔄 Connecting to Lookup port 9100...
+[ERROR] 2025-08-30 14:34:31 - Failed to connect to lookup port. Error: 10061
+[ERROR] 2025-08-30 14:34:31 - ❌ Failed at Step 6: Connect to Lookup port
+[INFO] 2025-08-30 14:34:31 - Disconnected from IQFeed
+[DEBUG] 2025-08-30 14:34:31 - Winsock cleaned up
+[DEBUG] 2025-08-30 14:34:34 - Winsock initialized successfully
+[INFO] 2025-08-30 14:34:34 - === IQFeed Connection Test Started ===
+[INFO] 2025-08-30 14:34:34 - Product ID: Elias_Rostane_51184
+[INFO] 2025-08-30 14:34:34 - Login ID: 523576
+[INFO] 2025-08-30 14:34:34 - Version: 1.0.0.0
+[STEP] 2025-08-30 14:34:34 - 🔄 Launching IQConnect.exe with credentials...
+[DEBUG] 2025-08-30 14:34:34 - Command line: IQConnect.exe -product Elias_Rostane_51184 -version 1.0.0.0 -login 523576 -password 56719893 -autoconnect
+[INFO] 2025-08-30 14:34:34 - IQConnect.exe process started, waiting 5 seconds for initialization...
+[SUCCESS] 2025-08-30 14:34:39 - ✅ Step 1: IQConnect launched successfully
+[STEP] 2025-08-30 14:34:39 - 🔄 Connecting to Admin port 9300...
+[INFO] 2025-08-30 14:34:39 - Connected to Admin port successfully
+[SUCCESS] 2025-08-30 14:34:39 - ✅ Step 2: Connected to Admin port
+[STEP] 2025-08-30 14:34:39 - 🔄 Setting protocol to 6.2...
+[DEBUG] 2025-08-30 14:34:39 - Protocol response: S,CURRENT PROTOCOL,6.2,
+
+[DEBUG] 2025-08-30 14:34:39 - Protocol 6.2 confirmed
+[SUCCESS] 2025-08-30 14:34:39 - ✅ Step 3: Protocol set successfully
+[STEP] 2025-08-30 14:34:39 - 🔄 Setting client name...
+[DEBUG] 2025-08-30 14:34:39 - Client name command sent successfully
+[SUCCESS] 2025-08-30 14:34:39 - ✅ Step 4: Client name set successfully
+[STEP] 2025-08-30 14:34:39 - 🔄 Waiting for IQFeed to connect to servers...
+[DEBUG] 2025-08-30 14:34:39 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.02,0.02,0.01,
+
+[INFO] 2025-08-30 14:34:39 - IQFeed successfully connected to servers
+[SUCCESS] 2025-08-30 14:34:39 - ✅ Step 5: Connected to IQ servers
+[STEP] 2025-08-30 14:34:39 - 🔄 Connecting to Lookup port 9100...
+[ERROR] 2025-08-30 14:34:41 - Failed to connect to lookup port. Error: 10061
+[ERROR] 2025-08-30 14:34:41 - ❌ Failed at Step 6: Connect to Lookup port
+[INFO] 2025-08-30 14:34:41 - Disconnected from IQFeed
+[DEBUG] 2025-08-30 14:34:41 - Winsock cleaned up
+[DEBUG] 2025-08-30 14:35:23 - Winsock initialized successfully
+[INFO] 2025-08-30 14:35:23 - === IQFeed Connection Test Started ===
+[INFO] 2025-08-30 14:35:23 - Product ID: Elias_Rostane_51184
+[INFO] 2025-08-30 14:35:23 - Login ID: 523576
+[INFO] 2025-08-30 14:35:23 - Version: 1.0.0.0
+[STEP] 2025-08-30 14:35:23 - 🔄 Launching IQConnect.exe with credentials...
+[DEBUG] 2025-08-30 14:35:23 - Command line: IQConnect.exe -product Elias_Rostane_51184 -version 1.0.0.0 -login 523576 -password 56719893 -autoconnect
+[INFO] 2025-08-30 14:35:23 - IQConnect.exe process started, waiting 5 seconds for initialization...
+[SUCCESS] 2025-08-30 14:35:28 - ✅ Step 1: IQConnect launched successfully
+[STEP] 2025-08-30 14:35:28 - 🔄 Connecting to Admin port 9300...
+[INFO] 2025-08-30 14:35:28 - Connected to Admin port successfully
+[SUCCESS] 2025-08-30 14:35:28 - ✅ Step 2: Connected to Admin port
+[STEP] 2025-08-30 14:35:28 - 🔄 Setting protocol to 6.2...
+[DEBUG] 2025-08-30 14:35:28 - Protocol response: S,CURRENT PROTOCOL,6.2,
+
+[DEBUG] 2025-08-30 14:35:28 - Protocol 6.2 confirmed
+[SUCCESS] 2025-08-30 14:35:28 - ✅ Step 3: Protocol set successfully
+[STEP] 2025-08-30 14:35:28 - 🔄 Setting client name...
+[DEBUG] 2025-08-30 14:35:28 - Client name command sent successfully
+[SUCCESS] 2025-08-30 14:35:28 - ✅ Step 4: Client name set successfully
+[STEP] 2025-08-30 14:35:28 - 🔄 Waiting for IQFeed to connect to servers...
+[DEBUG] 2025-08-30 14:35:28 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.02,0.02,0.01,
+
+[INFO] 2025-08-30 14:35:28 - IQFeed successfully connected to servers
+[SUCCESS] 2025-08-30 14:35:28 - ✅ Step 5: Connected to IQ servers
+[STEP] 2025-08-30 14:35:28 - 🔄 Connecting to Lookup port 9100...
+[ERROR] 2025-08-30 14:35:30 - Failed to connect to lookup port. Error: 10061
+[ERROR] 2025-08-30 14:35:30 - ❌ Failed at Step 6: Connect to Lookup port
+[INFO] 2025-08-30 14:35:30 - Disconnected from IQFeed
+[DEBUG] 2025-08-30 14:35:30 - Winsock cleaned up
+[DEBUG] 2025-08-30 14:36:20 - Winsock initialized successfully
+[INFO] 2025-08-30 14:36:20 - === IQFeed Connection Test Started ===
+[INFO] 2025-08-30 14:36:20 - Product ID: Elias_Rostane_51184
+[INFO] 2025-08-30 14:36:20 - Login ID: 523576
+[INFO] 2025-08-30 14:36:20 - Version: 1.0.0.0
+[STEP] 2025-08-30 14:36:20 - 🔄 Launching IQConnect.exe with credentials...
+[DEBUG] 2025-08-30 14:36:20 - Command line: IQConnect.exe -product Elias_Rostane_51184 -version 1.0.0.0 -login 523576 -password 56719893 -autoconnect
+[INFO] 2025-08-30 14:36:20 - IQConnect.exe process started, waiting 5 seconds for initialization...
+[SUCCESS] 2025-08-30 14:36:25 - ✅ Step 1: IQConnect launched successfully
+[STEP] 2025-08-30 14:36:25 - 🔄 Connecting to Admin port 9300...
+[INFO] 2025-08-30 14:36:25 - Connected to Admin port successfully
+[SUCCESS] 2025-08-30 14:36:25 - ✅ Step 2: Connected to Admin port
+[STEP] 2025-08-30 14:36:25 - 🔄 Setting protocol to 6.2...
+[DEBUG] 2025-08-30 14:36:25 - Protocol response: S,CURRENT PROTOCOL,6.2,
+
+[DEBUG] 2025-08-30 14:36:25 - Protocol 6.2 confirmed
+[SUCCESS] 2025-08-30 14:36:25 - ✅ Step 3: Protocol set successfully
+[STEP] 2025-08-30 14:36:25 - 🔄 Setting client name...
+[DEBUG] 2025-08-30 14:36:25 - Client name command sent successfully
+[SUCCESS] 2025-08-30 14:36:25 - ✅ Step 4: Client name set successfully
+[STEP] 2025-08-30 14:36:25 - 🔄 Waiting for IQFeed to connect to servers...
+[DEBUG] 2025-08-30 14:36:25 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.02,0.02,0.01,
+
+[INFO] 2025-08-30 14:36:25 - IQFeed successfully connected to servers
+[SUCCESS] 2025-08-30 14:36:25 - ✅ Step 5: Connected to IQ servers
+[STEP] 2025-08-30 14:36:25 - 🔄 Connecting to Lookup port 9100...
+[ERROR] 2025-08-30 14:36:27 - Failed to connect to lookup port. Error: 10061
+[ERROR] 2025-08-30 14:36:27 - ❌ Failed at Step 6: Connect to Lookup port
+[INFO] 2025-08-30 14:36:27 - Disconnected from IQFeed
+[DEBUG] 2025-08-30 14:36:27 - Winsock cleaned up

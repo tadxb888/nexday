@@ -1,0 +1,10 @@
+^C:\USERS\ROSS\DOCUMENTS\IQFEED\NEXDAY\BUILD\CMAKEFILES\EF48F8FCA404915B137EA0BDF4AACC9F\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Ross/Documents/IQFeed/nexday -BC:/Users/Ross/Documents/IQFeed/nexday/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Ross/Documents/IQFeed/nexday/build/Nexday_IQFeed_Trading_System.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

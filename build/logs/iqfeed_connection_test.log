@@ -1,0 +1,263 @@
+[DEBUG] 2025-08-30 14:41:47 - Winsock initialized successfully
+[INFO] 2025-08-30 14:41:47 - === IQFeed Connection Test Started ===
+[INFO] 2025-08-30 14:41:47 - Product ID: Elias_Rostane_51184
+[INFO] 2025-08-30 14:41:47 - Login ID: 523576
+[INFO] 2025-08-30 14:41:47 - Version: 1.0.0.0
+[STEP] 2025-08-30 14:41:47 - 🔄 Launching IQConnect.exe with credentials...
+[DEBUG] 2025-08-30 14:41:47 - Command line: IQConnect.exe -product Elias_Rostane_51184 -version 1.0.0.0 -login 523576 -password 56719893 -autoconnect
+[INFO] 2025-08-30 14:41:47 - IQConnect.exe process started, waiting 5 seconds for initialization...
+[SUCCESS] 2025-08-30 14:41:52 - ✅ Step 1: IQConnect launched successfully
+[STEP] 2025-08-30 14:41:52 - 🔄 Connecting to Admin port 9300...
+[INFO] 2025-08-30 14:41:52 - Connected to Admin port successfully
+[SUCCESS] 2025-08-30 14:41:52 - ✅ Step 2: Connected to Admin port
+[STEP] 2025-08-30 14:41:52 - 🔄 Setting protocol to 6.2...
+[DEBUG] 2025-08-30 14:41:52 - Protocol response: S,CURRENT PROTOCOL,6.2,
+
+[DEBUG] 2025-08-30 14:41:52 - Protocol 6.2 confirmed
+[SUCCESS] 2025-08-30 14:41:52 - ✅ Step 3: Protocol set successfully
+[STEP] 2025-08-30 14:41:52 - 🔄 Setting client name...
+[DEBUG] 2025-08-30 14:41:52 - Client name command sent successfully
+[SUCCESS] 2025-08-30 14:41:52 - ✅ Step 4: Client name set successfully
+[STEP] 2025-08-30 14:41:52 - 🔄 Waiting for IQFeed to connect to servers...
+[DEBUG] 2025-08-30 14:41:52 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.02,0.02,0.01,
+
+[DEBUG] 2025-08-30 14:41:52 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:41:52 - Still waiting for server connection... (3s)
+[DEBUG] 2025-08-30 14:41:55 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.10,0.08,0.02,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.18,0.08,0.03,
+
+[DEBUG] 2025-08-30 14:41:55 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:41:55 - Still waiting for server connection... (6s)
+[DEBUG] 2025-08-30 14:41:58 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.26,0.08,0.04,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.34,0.08,0.04,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.42,0.08,0.05,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.49,0.08,0.05,
+
+[DEBUG] 2025-08-30 14:41:58 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:41:58 - Still waiting for server connection... (9s)
+[DEBUG] 2025-08-30 14:42:01 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.57,0.08,0.05,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.65,0.08,0.05,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.73,0.08,0.06,
+
+[DEBUG] 2025-08-30 14:42:01 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:01 - Still waiting for server connection... (12s)
+[DEBUG] 2025-08-30 14:42:04 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.81,0.08,0.06,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.88,0.08,0.06,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,0.96,0.08,0.06,
+
+[DEBUG] 2025-08-30 14:42:04 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:04 - Still waiting for server connection... (15s)
+[DEBUG] 2025-08-30 14:42:07 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,1.04,0.08,0.06,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,1.12,0.08,0.06,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,1.20,0.08,0.06,
+
+[DEBUG] 2025-08-30 14:42:07 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:07 - Still waiting for server connection... (18s)
+[DEBUG] 2025-08-30 14:42:10 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,1.27,0.08,0.06,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,1.35,0.08,0.06,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,1.43,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:10 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:10 - Still waiting for server connection... (21s)
+[DEBUG] 2025-08-30 14:42:13 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,1.51,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,1.59,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,1.67,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:13 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:13 - Still waiting for server connection... (24s)
+[DEBUG] 2025-08-30 14:42:16 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,1.74,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,1.82,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,1.90,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:16 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:16 - Still waiting for server connection... (27s)
+[DEBUG] 2025-08-30 14:42:19 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,1.98,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,2.06,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,2.13,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:19 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:19 - Still waiting for server connection... (30s)
+[DEBUG] 2025-08-30 14:42:22 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,2.21,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,2.29,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,2.37,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:22 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:22 - Still waiting for server connection... (33s)
+[DEBUG] 2025-08-30 14:42:25 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,2.45,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,2.52,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,2.60,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:25 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:25 - Still waiting for server connection... (36s)
+[DEBUG] 2025-08-30 14:42:28 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,2.68,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,2.76,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,2.84,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:28 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:28 - Still waiting for server connection... (39s)
+[DEBUG] 2025-08-30 14:42:31 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,2.92,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,2.99,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,3.07,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:31 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:31 - Still waiting for server connection... (42s)
+[DEBUG] 2025-08-30 14:42:34 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,3.15,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,3.23,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,3.31,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:34 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:34 - Still waiting for server connection... (45s)
+[DEBUG] 2025-08-30 14:42:37 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,3.38,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,3.46,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,3.54,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:37 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:37 - Still waiting for server connection... (48s)
+[DEBUG] 2025-08-30 14:42:40 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,3.62,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,3.70,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,3.77,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:41 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:41 - Still waiting for server connection... (51s)
+[DEBUG] 2025-08-30 14:42:44 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,3.85,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,3.93,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,4.01,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:44 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:44 - Still waiting for server connection... (54s)
+[DEBUG] 2025-08-30 14:42:47 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,4.09,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,4.17,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,4.24,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:47 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:47 - Still waiting for server connection... (57s)
+[DEBUG] 2025-08-30 14:42:50 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,4.32,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,4.40,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,4.48,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:50 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:50 - Still waiting for server connection... (60s)
+[DEBUG] 2025-08-30 14:42:53 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,4.56,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,4.63,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,4.71,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:53 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:53 - Still waiting for server connection... (63s)
+[DEBUG] 2025-08-30 14:42:56 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,4.79,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,4.87,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,4.95,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:56 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:56 - Still waiting for server connection... (66s)
+[DEBUG] 2025-08-30 14:42:59 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,5.02,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,5.10,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,5.18,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:42:59 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:42:59 - Still waiting for server connection... (69s)
+[DEBUG] 2025-08-30 14:43:02 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,5.26,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,5.34,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,5.42,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:43:02 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:02 - Still waiting for server connection... (72s)
+[DEBUG] 2025-08-30 14:43:05 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,5.49,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,5.57,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,5.65,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:43:05 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:05 - Still waiting for server connection... (75s)
+[DEBUG] 2025-08-30 14:43:08 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,5.73,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,5.81,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,5.88,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:43:08 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:08 - Still waiting for server connection... (78s)
+[DEBUG] 2025-08-30 14:43:11 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,5.96,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,6.04,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,6.12,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:43:11 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:11 - Still waiting for server connection... (81s)
+[DEBUG] 2025-08-30 14:43:14 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,6.20,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,6.27,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,6.35,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:43:14 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:14 - Still waiting for server connection... (84s)
+[DEBUG] 2025-08-30 14:43:17 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,6.43,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,6.51,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,6.59,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:43:17 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:17 - Still waiting for server connection... (87s)
+[DEBUG] 2025-08-30 14:43:20 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,6.67,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,6.74,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,6.82,0.08,0.07,
+
+[DEBUG] 2025-08-30 14:43:20 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:20 - Still waiting for server connection... (90s)
+[DEBUG] 2025-08-30 14:43:23 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,6.90,0.08,0.07,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,6.98,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,7.06,0.08,0.08,
+
+[DEBUG] 2025-08-30 14:43:23 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:23 - Still waiting for server connection... (93s)
+[DEBUG] 2025-08-30 14:43:26 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,7.13,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,7.21,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,7.29,0.08,0.08,
+
+[DEBUG] 2025-08-30 14:43:26 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:26 - Still waiting for server connection... (96s)
+[DEBUG] 2025-08-30 14:43:29 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,7.37,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,7.45,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,7.52,0.08,0.08,
+
+[DEBUG] 2025-08-30 14:43:29 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:29 - Still waiting for server connection... (99s)
+[DEBUG] 2025-08-30 14:43:32 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,7.60,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,7.68,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,7.76,0.08,0.08,
+
+[DEBUG] 2025-08-30 14:43:32 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:32 - Still waiting for server connection... (102s)
+[DEBUG] 2025-08-30 14:43:35 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,7.84,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,7.92,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,7.99,0.08,0.08,
+
+[DEBUG] 2025-08-30 14:43:35 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:35 - Still waiting for server connection... (105s)
+[DEBUG] 2025-08-30 14:43:38 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,8.07,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,8.15,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,8.23,0.08,0.08,
+
+[DEBUG] 2025-08-30 14:43:38 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:38 - Still waiting for server connection... (108s)
+[DEBUG] 2025-08-30 14:43:41 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,8.31,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,8.38,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,8.46,0.08,0.08,
+
+[DEBUG] 2025-08-30 14:43:41 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:41 - Still waiting for server connection... (111s)
+[DEBUG] 2025-08-30 14:43:44 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,8.54,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,8.62,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,8.70,0.08,0.08,
+
+[DEBUG] 2025-08-30 14:43:44 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:44 - Still waiting for server connection... (114s)
+[DEBUG] 2025-08-30 14:43:47 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,8.77,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,8.85,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,8.93,0.08,0.08,
+
+[DEBUG] 2025-08-30 14:43:47 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:47 - Still waiting for server connection... (117s)
+[DEBUG] 2025-08-30 14:43:50 - Feed status response: S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,9.01,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,9.09,0.08,0.08,
+S,STATS,,,0,0,1,0,0,0,,,Not Connected,6.2.0.25,523576,0,0.0,0.0,9.17,0.08,0.08,
+
+[DEBUG] 2025-08-30 14:43:50 - ⏳ IQFeed is Not Connected to servers yet
+[DEBUG] 2025-08-30 14:43:50 - Still waiting for server connection... (120s)
+[ERROR] 2025-08-30 14:43:53 - Timeout waiting for server connection after 120 seconds
+[ERROR] 2025-08-30 14:43:53 - ❌ Failed at Step 5: Wait for server connection
+[INFO] 2025-08-30 14:43:53 - Disconnected from IQFeed
+[DEBUG] 2025-08-30 14:43:53 - Winsock cleaned up
