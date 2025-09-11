@@ -19,7 +19,7 @@ public:
     
     bool run_all_tests() {
         std::cout << "=====================================================" << std::endl;
-        std::cout << "NEXDAY TRADING SYSTEM - INTEGRATED TEST SUITE" << std::endl;
+        std::cout << "NEXDAY PREDICTIONS SYSTEM - INTEGRATED TEST SUITE" << std::endl;
         std::cout << "=====================================================" << std::endl;
         
         // Test 1: Database Connection

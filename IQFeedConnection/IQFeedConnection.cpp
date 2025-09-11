@@ -6,6 +6,10 @@
 #include <fstream>
 #include <sstream>
 #include <filesystem>
+#include <vector>
+#include <iomanip>
+#include <algorithm>
+#include <cctype>
 
 #ifdef _WIN32
 #include <winsock2.h>
@@ -23,6 +27,19 @@
 #define closesocket close
 #endif
 
+// Structure to hold OHLCV data
+struct HistoricalBar {
+    std::string date;
+    double open;
+    double high;
+    double low;
+    double close;
+    int volume;
+    int open_interest;
+    
+    HistoricalBar() : open(0), high(0), low(0), close(0), volume(0), open_interest(0) {}
+};
+
 class Logger {
 private:
     std::ofstream log_file;
@@ -38,10 +55,9 @@ private:
     }
 
 public:
-    Logger(const std::string& filename = "iqfeed_test.log", bool enabled = true) 
+    Logger(const std::string& filename = "iqfeed_historical.log", bool enabled = true) 
         : logging_enabled(enabled) {
         if (logging_enabled) {
-            // Create logs directory if it doesn't exist
             std::filesystem::create_directories("logs");
             log_file.open("logs/" + filename, std::ios::app);
         }
@@ -59,10 +75,8 @@ public:
         auto timestamp = get_timestamp();
         auto log_entry = "[" + level + "] " + timestamp + " - " + message;
         
-        // Always output to console
         std::cout << log_entry << std::endl;
         
-        // Also log to file if available
         if (log_file.is_open()) {
             log_file << log_entry << std::endl;
             log_file.flush();
@@ -70,120 +84,78 @@ public:
     }
     
     void info(const std::string& message) { log("INFO", message); }
-    void warn(const std::string& message) { log("WARN", message); }
     void error(const std::string& message) { log("ERROR", message); }
     void debug(const std::string& message) { log("DEBUG", message); }
-    void success(const std::string& message) { log("SUCCESS", "✅ " + message); }
-    void step(const std::string& message) { log("STEP", "🔄 " + message); }
+    void success(const std::string& message) { log("SUCCESS", message); }
 };
 
-class IQFeedConnectionTest {
+class IQFeedHistoricalData {
 private:
-    // Your credentials
-    std::string product_id = "Elias_Rostane_51184";
-    std::string version = "1.0.0.0";
-    std::string login_id = "523576";
-    std::string password = "56719893";
-    
-    // Connection sockets
-    SOCKET admin_socket = INVALID_SOCKET;
-    SOCKET lookup_socket = INVALID_SOCKET;
-    
-    // IQFeed ports
-    static const int ADMIN_PORT = 9300;
     static const int LOOKUP_PORT = 9100;
-    
     std::unique_ptr<Logger> logger;
-    bool is_connected = false;
+    bool winsock_initialized = false;
 
 public:
-    IQFeedConnectionTest() {
-        logger = std::make_unique<Logger>("iqfeed_connection_test.log", true);
+    IQFeedHistoricalData() {
+        logger = std::make_unique<Logger>("iqfeed_historical.log", true);
         initialize_winsock();
     }
     
-    ~IQFeedConnectionTest() {
-        disconnect();
+    ~IQFeedHistoricalData() {
         cleanup_winsock();
     }
     
-    bool run_connection_test() {
-        logger->info("=== IQFeed Connection Test Started ===");
-        logger->info("Product ID: " + product_id);
-        logger->info("Login ID: " + login_id);
-        logger->info("Version: " + version);
+    bool request_historical_data(const std::string& symbol) {
+        logger->info("Requesting 5 days of historical data for symbol: " + symbol);
         
-        // Step 1: Launch IQConnect
-        if (!launch_iqconnect()) {
-            logger->error("❌ Failed at Step 1: Launch IQConnect");
+        // Create fresh connection for this request
+        SOCKET lookup_socket = create_lookup_connection();
+        if (lookup_socket == INVALID_SOCKET) {
+            logger->error("Failed to connect to IQFeed lookup port");
             return false;
         }
-        logger->success("Step 1: IQConnect launched successfully");
         
-        // Step 2: Connect to Admin Port
-        if (!connect_to_admin()) {
-            logger->error("❌ Failed at Step 2: Connect to Admin port");
-            return false;
-        }
-        logger->success("Step 2: Connected to Admin port");
-        
-        // Step 3: Set Protocol
-        if (!set_protocol()) {
-            logger->error("❌ Failed at Step 3: Set protocol");
-            return false;
-        }
-        logger->success("Step 3: Protocol set successfully");
-        
-        // Step 4: Set Client Name
-        if (!set_client_name()) {
-            logger->error("❌ Failed at Step 4: Set client name");
-            return false;
-        }
-        logger->success("Step 4: Client name set successfully");
-        
-        // Step 5: Wait for connection to IQ servers
-        if (!wait_for_server_connection()) {
-            logger->error("❌ Failed at Step 5: Wait for server connection");
-            return false;
-        }
-        logger->success("Step 5: Connected to IQ servers");
-        
-        // Step 6: Connect to Lookup port for historical data
-        if (!connect_to_lookup()) {
-            logger->error("❌ Failed at Step 6: Connect to Lookup port");
-            return false;
-        }
-        logger->success("Step 6: Connected to Lookup port");
-        
-        // Step 7: Verify all connections
-        if (!verify_connections()) {
-            logger->error("❌ Failed at Step 7: Verify connections");
-            return false;
-        }
-        logger->success("Step 7: All connections verified");
-        
-        is_connected = true;
-        logger->success("🎉 ALL TESTS PASSED! IQFeed connection is fully operational");
-        return true;
-    }
-    
-    void disconnect() {
-        if (admin_socket != INVALID_SOCKET) {
-            closesocket(admin_socket);
-            admin_socket = INVALID_SOCKET;
-        }
-        
-        if (lookup_socket != INVALID_SOCKET) {
+        // Send protocol command
+        std::string protocol_cmd = "S,SET PROTOCOL,6.2\r\n";
+        if (send(lookup_socket, protocol_cmd.c_str(), static_cast<int>(protocol_cmd.length()), 0) == SOCKET_ERROR) {
+            logger->error("Failed to send protocol command");
             closesocket(lookup_socket);
-            lookup_socket = INVALID_SOCKET;
+            return false;
         }
         
-        is_connected = false;
-        logger->info("Disconnected from IQFeed");
-    }
-    
-    bool is_connection_ready() const {
-        return is_connected;
+        // Read protocol response
+        char buffer[1024];
+        int bytes = recv(lookup_socket, buffer, sizeof(buffer) - 1, 0);
+        if (bytes > 0) {
+            buffer[bytes] = '\0';
+            logger->debug("Protocol response: " + std::string(buffer));
+        }
+        
+        // Send historical data request
+        std::string request_id = "HIST_" + symbol;
+        std::string command = "HDX," + symbol + ",5,0," + request_id + ",100,1\r\n";
+        
+        logger->debug("Sending command: " + command);
+        
+        if (send(lookup_socket, command.c_str(), static_cast<int>(command.length()), 0) == SOCKET_ERROR) {
+            logger->error("Failed to send historical data request. Error: " + std::to_string(get_last_error()));
+            closesocket(lookup_socket);
+            return false;
+        }
+        
+        // Read response
+        std::string response = read_full_response(lookup_socket);
+        closesocket(lookup_socket);
+        
+        if (response.empty()) {
+            logger->error("No response received for historical data request");
+            return false;
+        }
+        
+        logger->debug("Raw response received (" + std::to_string(response.length()) + " characters)");
+        
+        // Parse and display the historical data
+        return parse_and_display_historical_data(response, symbol);
     }
 
 private:
@@ -194,246 +166,217 @@ private:
         if (result != 0) {
             throw std::runtime_error("WSAStartup failed: " + std::to_string(result));
         }
+        winsock_initialized = true;
         logger->debug("Winsock initialized successfully");
 #endif
     }
     
     void cleanup_winsock() {
 #ifdef _WIN32
-        WSACleanup();
-        logger->debug("Winsock cleaned up");
+        if (winsock_initialized) {
+            WSACleanup();
+            logger->debug("Winsock cleaned up");
+        }
 #endif
     }
     
-    bool launch_iqconnect() {
-        logger->step("Launching IQConnect.exe with credentials...");
+    SOCKET create_lookup_connection() {
+        logger->debug("Connecting to IQFeed lookup port 9100...");
         
-#ifdef _WIN32
-        std::string cmd_line = "IQConnect.exe -product " + product_id + 
-                              " -version " + version +
-                              " -login " + login_id +
-                              " -password " + password +
-                              " -autoconnect";
-        
-        logger->debug("Command line: " + cmd_line);
-        
-        STARTUPINFOA si = {sizeof(si)};
-        PROCESS_INFORMATION pi;
-        
-        if (!CreateProcessA(NULL, const_cast<char*>(cmd_line.c_str()), NULL, NULL,
-                           FALSE, 0, NULL, NULL, &si, &pi)) {
-            DWORD error = GetLastError();
-            logger->error("Failed to launch IQConnect.exe. Windows Error: " + std::to_string(error));
-            logger->error("Make sure IQConnect.exe is installed and in your PATH");
-            return false;
+        SOCKET lookup_socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+        if (lookup_socket == INVALID_SOCKET) {
+            logger->error("Failed to create socket. Error: " + std::to_string(get_last_error()));
+            return INVALID_SOCKET;
         }
         
-        CloseHandle(pi.hProcess);
-        CloseHandle(pi.hThread);
+        sockaddr_in addr{};
+        addr.sin_family = AF_INET;
+        addr.sin_port = htons(LOOKUP_PORT);
+        inet_pton(AF_INET, "127.0.0.1", &addr.sin_addr);
         
-        logger->info("IQConnect.exe process started, waiting 5 seconds for initialization...");
-        std::this_thread::sleep_for(std::chrono::seconds(5));
-        return true;
-#else
-        logger->error("This test is designed for Windows. IQConnect.exe is Windows-only.");
-        return false;
-#endif
+        if (connect(lookup_socket, (sockaddr*)&addr, sizeof(addr)) == SOCKET_ERROR) {
+            int error = get_last_error();
+            logger->error("Connection failed with error: " + std::to_string(error));
+            if (error == 10061) {
+                logger->error("Connection refused - IQConnect not running or not logged in");
+            }
+            closesocket(lookup_socket);
+            return INVALID_SOCKET;
+        }
+        
+        logger->debug("Connected to lookup port successfully");
+        return lookup_socket;
     }
     
-    bool connect_to_admin() {
-        logger->step("Connecting to Admin port " + std::to_string(ADMIN_PORT) + "...");
-        
-        admin_socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-        if (admin_socket == INVALID_SOCKET) {
-            logger->error("Failed to create admin socket. Error: " + std::to_string(get_last_error()));
-            return false;
-        }
-        
-        sockaddr_in admin_addr{};
-        admin_addr.sin_family = AF_INET;
-        admin_addr.sin_port = htons(ADMIN_PORT);
-        inet_pton(AF_INET, "127.0.0.1", &admin_addr.sin_addr);
-        
+    std::string read_full_response(SOCKET socket) {
+        std::string full_response;
+        char buffer[4096];
         int attempts = 0;
-        const int max_attempts = 10;
+        const int max_attempts = 40; // 20 seconds timeout
         
         while (attempts < max_attempts) {
-            if (connect(admin_socket, (sockaddr*)&admin_addr, sizeof(admin_addr)) == 0) {
-                logger->info("Connected to Admin port successfully");
-                return true;
+            int bytes = recv(socket, buffer, sizeof(buffer) - 1, 0);
+            if (bytes > 0) {
+                buffer[bytes] = '\0';
+                full_response += std::string(buffer);
+                
+                // Check if we received the end message
+                if (full_response.find("!ENDMSG!") != std::string::npos) {
+                    break;
+                }
+                
+                attempts = 0; // Reset timeout if we received data
+            } else if (bytes == 0) {
+                logger->debug("Connection closed by server");
+                break;
+            } else {
+                int error = get_last_error();
+                if (error == WSAEWOULDBLOCK || error == WSAETIMEDOUT) {
+                    // No data available, wait and try again
+                    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+                    attempts++;
+                    continue;
+                } else {
+                    logger->error("Receive error: " + std::to_string(error));
+                    break;
+                }
+            }
+        }
+        
+        if (attempts >= max_attempts) {
+            logger->error("Timeout waiting for complete response");
+        }
+        
+        return full_response;
+    }
+    
+    bool parse_and_display_historical_data(const std::string& response, const std::string& symbol) {
+        logger->debug("Parsing historical data response...");
+        
+        // Check for error messages first
+        if (response.find("E,") != std::string::npos) {
+            logger->error("Error in historical data response: " + response);
+            return false;
+        }
+        
+        // Split response into lines
+        std::vector<std::string> lines;
+        std::istringstream stream(response);
+        std::string line;
+        
+        while (std::getline(stream, line)) {
+            if (!line.empty() && line != "\r" && line.find("!ENDMSG!") == std::string::npos) {
+                lines.push_back(line);
+            }
+        }
+        
+        std::vector<HistoricalBar> historical_data;
+        
+        for (const auto& line : lines) {
+            // Skip empty lines and system messages
+            if (line.empty() || line.find("S,") == 0) {
+                continue;
             }
             
-            attempts++;
-            logger->debug("Connection attempt " + std::to_string(attempts) + "/" + std::to_string(max_attempts) + " failed, retrying in 2 seconds...");
-            std::this_thread::sleep_for(std::chrono::seconds(2));
-        }
-        
-        logger->error("Failed to connect to admin port after " + std::to_string(max_attempts) + " attempts");
-        logger->error("Error: " + std::to_string(get_last_error()));
-        closesocket(admin_socket);
-        admin_socket = INVALID_SOCKET;
-        return false;
-    }
-    
-    bool set_protocol() {
-        logger->step("Setting protocol to 6.2...");
-        
-        std::string command = "S,SET PROTOCOL,6.2\r\n";
-        
-        if (send(admin_socket, command.c_str(), static_cast<int>(command.length()), 0) == SOCKET_ERROR) {
-            logger->error("Failed to send protocol command. Error: " + std::to_string(get_last_error()));
-            return false;
-        }
-        
-        // Read response
-        char buffer[1024];
-        int bytes_received = recv(admin_socket, buffer, sizeof(buffer) - 1, 0);
-        if (bytes_received > 0) {
-            buffer[bytes_received] = '\0';
-            std::string response(buffer);
-            logger->debug("Protocol response: " + response);
+            // Parse CSV line: HIST_SYMBOL,LH,Date,High,Low,Open,Close,Volume,OpenInterest
+            std::vector<std::string> fields = split_csv(line);
             
-            if (response.find("S,CURRENT PROTOCOL,6.2") != std::string::npos) {
-                logger->debug("Protocol 6.2 confirmed");
-                return true;
+            if (fields.size() >= 8) {
+                HistoricalBar bar;
+                
+                try {
+                    // Fields: RequestID,LH,Date,High,Low,Open,Close,Volume,OpenInterest
+                    bar.date = fields[2];           // Date
+                    bar.high = std::stod(fields[3]); // High
+                    bar.low = std::stod(fields[4]);  // Low  
+                    bar.open = std::stod(fields[5]); // Open
+                    bar.close = std::stod(fields[6]); // Close
+                    bar.volume = std::stoi(fields[7]); // Volume
+                    if (fields.size() > 8) {
+                        bar.open_interest = std::stoi(fields[8]); // Open Interest
+                    }
+                    
+                    historical_data.push_back(bar);
+                } catch (const std::exception& e) {
+                    logger->debug("Failed to parse line: " + line + " - Error: " + e.what());
+                    continue;
+                }
             }
         }
         
-        logger->error("Failed to set protocol or received unexpected response");
-        return false;
+        // Display the results
+        display_historical_data(symbol, historical_data);
+        
+        return !historical_data.empty();
     }
     
-    bool set_client_name() {
-        logger->step("Setting client name...");
+    std::vector<std::string> split_csv(const std::string& line) {
+        std::vector<std::string> fields;
+        std::string field;
+        bool in_quotes = false;
         
-        std::string command = "S,SET CLIENT NAME,IQFeed_Connection_Test\r\n";
-        
-        if (send(admin_socket, command.c_str(), static_cast<int>(command.length()), 0) == SOCKET_ERROR) {
-            logger->error("Failed to send client name command. Error: " + std::to_string(get_last_error()));
-            return false;
-        }
-        
-        logger->debug("Client name command sent successfully");
-        return true;
-    }
-    
-    bool wait_for_server_connection() {
-        logger->step("Waiting for IQFeed to connect to servers...");
-        
-        const int max_wait_time = 120; // seconds
-        int elapsed_time = 0;
-        
-        while (elapsed_time < max_wait_time) {
-            if (check_feed_status()) {
-                logger->info("IQFeed successfully connected to servers");
-                return true;
-            }
+        for (size_t i = 0; i < line.length(); ++i) {
+            char c = line[i];
             
-            elapsed_time += 3;
-            logger->debug("Still waiting for server connection... (" + std::to_string(elapsed_time) + "s)");
-            std::this_thread::sleep_for(std::chrono::seconds(3));
-        }
-        
-        logger->error("Timeout waiting for server connection after " + std::to_string(max_wait_time) + " seconds");
-        return false;
-    }
-    
-    bool check_feed_status() {
-        std::string command = "S,STATS\r\n";
-    
-        if (send(admin_socket, command.c_str(), static_cast<int>(command.length()), 0) == SOCKET_ERROR) {
-            logger->debug("Failed to send STATS command");
-            return false;
-        }
-    
-        char buffer[2048];
-        int bytes_received = recv(admin_socket, buffer, sizeof(buffer) - 1, 0);
-        if (bytes_received > 0) {
-            buffer[bytes_received] = '\0';
-            std::string response(buffer);
-        
-            logger->debug("Feed status response: " + response);
-        
-            // Look for ",Connected," specifically (surrounded by commas)
-            if (response.find(",Connected,") != std::string::npos) {
-                logger->debug("✅ IQFeed is fully Connected to servers");
-                return true;
-            } else if (response.find(",Not Connected,") != std::string::npos) {
-                logger->debug("⏳ IQFeed is Not Connected to servers yet");
-                return false;
-            } else if (response.find(",Connecting,") != std::string::npos) {
-                logger->debug("🔄 IQFeed is Connecting to servers...");
-                return false;
+            if (c == '"') {
+                in_quotes = !in_quotes;
+            } else if (c == ',' && !in_quotes) {
+                fields.push_back(field);
+                field.clear();
+            } else if (c != '\r' && c != '\n') {
+                field += c;
             }
         }
-    
-        return false;
+        
+        if (!field.empty()) {
+            fields.push_back(field);
+        }
+        
+        return fields;
     }
     
-    bool connect_to_lookup() {
-        logger->step("Connecting to Lookup port " + std::to_string(LOOKUP_PORT) + "...");
+    void display_historical_data(const std::string& symbol, const std::vector<HistoricalBar>& data) {
+        std::cout << "\n" << std::string(80, '=') << std::endl;
+        std::cout << "HISTORICAL DATA FOR " << symbol << " (Last 5 Days)" << std::endl;
+        std::cout << std::string(80, '=') << std::endl;
         
-        lookup_socket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-        if (lookup_socket == INVALID_SOCKET) {
-            logger->error("Failed to create lookup socket. Error: " + std::to_string(get_last_error()));
-            return false;
+        if (data.empty()) {
+            std::cout << "No historical data found for symbol: " << symbol << std::endl;
+            std::cout << "This could mean:" << std::endl;
+            std::cout << "  • Invalid symbol" << std::endl;
+            std::cout << "  • Symbol not available in your data subscription" << std::endl;
+            std::cout << "  • No trading data available for the requested period" << std::endl;
+            return;
         }
         
-        sockaddr_in lookup_addr{};
-        lookup_addr.sin_family = AF_INET;
-        lookup_addr.sin_port = htons(LOOKUP_PORT);
-        inet_pton(AF_INET, "127.0.0.1", &lookup_addr.sin_addr);
+        // Header
+        std::cout << std::left;
+        std::cout << std::setw(12) << "Date" 
+                  << std::setw(10) << "Open"
+                  << std::setw(10) << "High"
+                  << std::setw(10) << "Low"
+                  << std::setw(10) << "Close"
+                  << std::setw(12) << "Volume"
+                  << std::setw(12) << "Open Int."
+                  << std::endl;
         
-        if (connect(lookup_socket, (sockaddr*)&lookup_addr, sizeof(lookup_addr)) == SOCKET_ERROR) {
-            logger->error("Failed to connect to lookup port. Error: " + std::to_string(get_last_error()));
-            closesocket(lookup_socket);
-            lookup_socket = INVALID_SOCKET;
-            return false;
+        std::cout << std::string(80, '-') << std::endl;
+        
+        // Data rows
+        for (const auto& bar : data) {
+            std::cout << std::fixed << std::setprecision(2);
+            std::cout << std::setw(12) << bar.date
+                      << std::setw(10) << bar.open
+                      << std::setw(10) << bar.high
+                      << std::setw(10) << bar.low
+                      << std::setw(10) << bar.close
+                      << std::setw(12) << bar.volume
+                      << std::setw(12) << bar.open_interest
+                      << std::endl;
         }
         
-        // Set protocol for lookup connection
-        std::string protocol_cmd = "S,SET PROTOCOL,6.2\r\n";
-        send(lookup_socket, protocol_cmd.c_str(), static_cast<int>(protocol_cmd.length()), 0);
-        
-        // Set client name for lookup connection
-        std::string client_cmd = "S,SET CLIENT NAME,IQFeed_Connection_Test\r\n";
-        send(lookup_socket, client_cmd.c_str(), static_cast<int>(client_cmd.length()), 0);
-        
-        logger->info("Connected to Lookup port successfully");
-        return true;
-    }
-    
-    bool verify_connections() {
-        logger->step("Verifying all connections...");
-        
-        // Test admin connection
-        if (admin_socket == INVALID_SOCKET) {
-            logger->error("Admin socket is not valid");
-            return false;
-        }
-        
-        // Test lookup connection
-        if (lookup_socket == INVALID_SOCKET) {
-            logger->error("Lookup socket is not valid");
-            return false;
-        }
-        
-        // Send a test command to admin port
-        std::string test_command = "S,STATS\r\n";
-        if (send(admin_socket, test_command.c_str(), static_cast<int>(test_command.length()), 0) == SOCKET_ERROR) {
-            logger->error("Failed to send test command to admin port");
-            return false;
-        }
-        
-        char buffer[1024];
-        int bytes_received = recv(admin_socket, buffer, sizeof(buffer) - 1, 0);
-        if (bytes_received <= 0) {
-            logger->error("Failed to receive response from admin port");
-            return false;
-        }
-        
-        logger->debug("Connection verification successful - received " + std::to_string(bytes_received) + " bytes");
-        return true;
+        std::cout << std::string(80, '=') << std::endl;
+        std::cout << "Successfully retrieved " << data.size() << " days of historical data" << std::endl;
     }
     
     int get_last_error() {
@@ -445,47 +388,72 @@ private:
     }
 };
 
+// Function to get user input for symbol
+std::string get_symbol_from_user() {
+    std::string symbol;
+    std::cout << "\nEnter the symbol you want to get historical data for: ";
+    std::getline(std::cin, symbol);
+    
+    // Convert to uppercase and remove whitespace
+    for (auto& c : symbol) {
+        c = std::toupper(c);
+    }
+    
+    symbol.erase(
+        std::remove_if(symbol.begin(), symbol.end(), 
+                      [](unsigned char c) { return std::isspace(c); }), 
+        symbol.end()
+    );
+    
+    return symbol;
+}
+
 int main() {
-    std::cout << "🚀 IQFeed Connection Test Program" << std::endl;
-    std::cout << "=================================" << std::endl;
-    std::cout << "This program will test the complete IQFeed initialization process." << std::endl;
-    std::cout << "Make sure IQFeed is installed before running this test." << std::endl;
+    std::cout << "IQFeed Historical Data Program" << std::endl;
+    std::cout << "==============================" << std::endl;
     std::cout << std::endl;
+    std::cout << "IMPORTANT: Before running this program:" << std::endl;
+    std::cout << "1. Launch IQConnect.exe manually" << std::endl;
+    std::cout << "2. Login with your credentials (523576 / 56719893)" << std::endl;
+    std::cout << "3. Wait for 'Connected' status" << std::endl;
+    std::cout << "4. Then use this program to request historical data" << std::endl;
+    std::cout << std::endl;
+    std::cout << "Press Enter when IQConnect is running and connected..." << std::endl;
+    std::cin.get();
     
     try {
-        IQFeedConnectionTest test;
+        IQFeedHistoricalData iqfeed;
         
-        std::cout << "Starting connection test..." << std::endl;
-        std::cout << std::endl;
-        
-        bool success = test.run_connection_test();
-        
-        std::cout << std::endl;
-        std::cout << "=================================" << std::endl;
-        
-        if (success) {
-            std::cout << "🎉 SUCCESS! IQFeed connection is working perfectly!" << std::endl;
-            std::cout << "✅ All connection steps completed successfully" << std::endl;
-            std::cout << "✅ Ready for historical data requests" << std::endl;
-            std::cout << "✅ Ready for live data streaming" << std::endl;
+        // Interactive loop for requesting historical data
+        while (true) {
+            std::string symbol = get_symbol_from_user();
             
-            std::cout << std::endl;
-            std::cout << "Connection will remain active. Press Enter to disconnect and exit..." << std::endl;
-            std::cin.get();
+            if (symbol.empty()) {
+                std::cout << "Empty symbol entered. Please try again." << std::endl;
+                continue;
+            }
             
-        } else {
-            std::cout << "❌ FAILED! Connection test encountered errors." << std::endl;
-            std::cout << "📝 Check the log file in logs/iqfeed_connection_test.log for details" << std::endl;
-            std::cout << std::endl;
-            std::cout << "Common issues:" << std::endl;
-            std::cout << "• IQFeed not installed or not in PATH" << std::endl;
-            std::cout << "• Invalid credentials" << std::endl;
-            std::cout << "• Firewall blocking connections" << std::endl;
-            std::cout << "• No internet connection for IQFeed servers" << std::endl;
+            if (symbol == "QUIT" || symbol == "EXIT") {
+                break;
+            }
+            
+            std::cout << "\nRequesting historical data for: " << symbol << std::endl;
+            
+            bool success = iqfeed.request_historical_data(symbol);
+            
+            if (!success) {
+                std::cout << "Failed to retrieve historical data for " << symbol << std::endl;
+                std::cout << "Try symbols like: AAPL, MSFT, SPY, QQQ, TSLA" << std::endl;
+            }
+            
+            std::cout << "\n" << std::string(50, '=') << std::endl;
+            std::cout << "Enter another symbol, or type 'quit' to exit." << std::endl;
         }
         
+        std::cout << "\nThank you for using IQFeed Historical Data Program!" << std::endl;
+        
     } catch (const std::exception& e) {
-        std::cerr << "❌ Exception occurred: " << e.what() << std::endl;
+        std::cerr << "Exception occurred: " << e.what() << std::endl;
         return 1;
     }
     
