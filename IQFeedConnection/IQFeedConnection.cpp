@@ -44,6 +44,7 @@ class Logger {
 private:
     std::ofstream log_file;
     bool logging_enabled;
+    
     std::string get_timestamp() const {
         auto now = std::chrono::system_clock::now();
         auto time_t = std::chrono::system_clock::to_time_t(now);
@@ -83,10 +84,21 @@ public:
         }
     }
     
-    void info(const std::string& message) { log("INFO", message); }
-    void error(const std::string& message) { log("ERROR", message); }
-    void debug(const std::string& message) { log("DEBUG", message); }
-    void success(const std::string& message) { log("SUCCESS", message); }
+    void info(const std::string& message) { 
+        log("INFO", message); 
+    }
+    
+    void error(const std::string& message) { 
+        log("ERROR", message); 
+    }
+    
+    void debug(const std::string& message) { 
+        log("DEBUG", message); 
+    }
+    
+    void success(const std::string& message) { 
+        log("SUCCESS", message); 
+    }
 };
 
 class IQFeedHistoricalData {
@@ -343,9 +355,9 @@ private:
         if (data.empty()) {
             std::cout << "No historical data found for symbol: " << symbol << std::endl;
             std::cout << "This could mean:" << std::endl;
-            std::cout << "  • Invalid symbol" << std::endl;
-            std::cout << "  • Symbol not available in your data subscription" << std::endl;
-            std::cout << "  • No trading data available for the requested period" << std::endl;
+            std::cout << "  * Invalid symbol" << std::endl;
+            std::cout << "  * Symbol not available in your data subscription" << std::endl;
+            std::cout << "  * No trading data available for the requested period" << std::endl;
             return;
         }
         
@@ -394,18 +406,20 @@ std::string get_symbol_from_user() {
     std::cout << "\nEnter the symbol you want to get historical data for: ";
     std::getline(std::cin, symbol);
     
-    // Convert to uppercase and remove whitespace
-    for (auto& c : symbol) {
-        c = std::toupper(c);
+    // Convert to uppercase
+    for (char& c : symbol) {
+        c = static_cast<char>(std::toupper(static_cast<unsigned char>(c)));
     }
     
-    symbol.erase(
-        std::remove_if(symbol.begin(), symbol.end(), 
-                      [](unsigned char c) { return std::isspace(c); }), 
-        symbol.end()
-    );
+    // Remove whitespace manually
+    std::string result;
+    for (char c : symbol) {
+        if (!std::isspace(static_cast<unsigned char>(c))) {
+            result += c;
+        }
+    }
     
-    return symbol;
+    return result;
 }
 
 int main() {

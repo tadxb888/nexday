@@ -1,1 +1,19 @@
 [DEBUG] 2025-09-11 21:23:57 - Winsock initialized successfully
+[INFO] 2025-09-11 21:24:11 - Requesting 5 days of historical data for symbol: AAPL
+[DEBUG] 2025-09-11 21:24:11 - Connecting to IQFeed lookup port 9100...
+[DEBUG] 2025-09-11 21:24:11 - Connected to lookup port successfully
+[DEBUG] 2025-09-11 21:24:11 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-11 21:24:11 - Sending command: HDX,AAPL,5,0,HIST_AAPL,100,1
+
+[DEBUG] 2025-09-11 21:24:11 - Raw response received (386 characters)
+[DEBUG] 2025-09-11 21:24:11 - Parsing historical data response...
+[INFO] 2025-09-11 21:24:19 - Requesting 5 days of historical data for symbol: QGC#
+[DEBUG] 2025-09-11 21:24:19 - Connecting to IQFeed lookup port 9100...
+[DEBUG] 2025-09-11 21:24:19 - Connected to lookup port successfully
+[DEBUG] 2025-09-11 21:24:19 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-11 21:24:19 - Sending command: HDX,QGC#,5,0,HIST_QGC#,100,1
+
+[DEBUG] 2025-09-11 21:24:20 - Raw response received (356 characters)
+[DEBUG] 2025-09-11 21:24:20 - Parsing historical data response...
