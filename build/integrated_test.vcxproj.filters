@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\Ross\Documents\IQFeed\nexday\IQFeedConnection\IQFeedConnection.cpp">
+    <ClCompile Include="C:\Users\Ross\Documents\IQFeed\nexday\Database\database_simple.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Ross\Documents\IQFeed\nexday\Database\database_simple.cpp">
+    <ClCompile Include="C:\Users\Ross\Documents\IQFeed\nexday\integrated_test_main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ross\Documents\IQFeed\nexday\IQFeedConnection\IQFeedConnection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

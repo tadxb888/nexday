@@ -1,96 +1,70 @@
 #pragma once
 
-#include <iostream>
 #include <string>
-#include <memory>
+#include <vector>
+#include <libpq-fe.h>
 
-// PostgreSQL 17 header include
-#ifdef _WIN32
-    #include "C:/Program Files/PostgreSQL/17/include/libpq-fe.h"
-#else
-    #include <libpq-fe.h>
-#endif
+// ==============================================
+// DATABASE CONFIGURATION
+// ==============================================
 
-/**
- * Database configuration structure
- */
 struct DatabaseConfig {
     std::string host = "localhost";
     int port = 5432;
     std::string database = "nexday_trading";
     std::string username = "nexday_user";
     std::string password = "nexday_secure_password_2025";
+    
+    std::string to_connection_string() const {
+        return "host=" + host + 
+               " port=" + std::to_string(port) + 
+               " dbname=" + database + 
+               " user=" + username + 
+               " password=" + password;
+    }
 };
 
-/**
- * Simple database manager for the nexday trading system
- * Handles PostgreSQL connections and basic operations
- */
+// ==============================================
+// SIMPLE DATABASE MANAGER CLASS (Compatible with existing code)
+// ==============================================
+
 class SimpleDatabaseManager {
 private:
-    PGconn* connection;
-    bool connected;
-    DatabaseConfig config;
+    DatabaseConfig config_;
+    PGconn* connection_;
+    bool is_connected_;
+    std::string last_error_;
     
-    /**
-     * Get symbol ID from the symbols table
-     */
+    // Private methods
+    bool connect_to_database();
+    void disconnect_from_database();
+    bool execute_query(const std::string& query);
+    PGresult* execute_query_with_result(const std::string& query);
+    std::string escape_string(const std::string& input);
     int get_symbol_id(const std::string& symbol);
+    int get_or_create_symbol_id(const std::string& symbol);
     
 public:
-    /**
-     * Constructor
-     */
-    explicit SimpleDatabaseManager(const DatabaseConfig& cfg);
-    
-    /**
-     * Destructor - ensures clean disconnect
-     */
+    // Constructor and destructor
+    explicit SimpleDatabaseManager(const DatabaseConfig& config);
     ~SimpleDatabaseManager();
     
-    /**
-     * Connect to the database
-     */
-    bool connect();
-    
-    /**
-     * Disconnect from the database
-     */
-    void disconnect();
-    
-    /**
-     * Test the database connection and run a simple query
-     */
+    // Connection management
     bool test_connection();
+    bool is_connected() const { return is_connected_; }
+    std::string get_last_error() const { return last_error_; }
     
-    /**
-     * Insert market data for a symbol
-     */
+    // Basic data operations (compatible with existing test)
     bool insert_market_data(const std::string& symbol, double price, long long volume);
-    
-    /**
-     * Insert historical data point
-     */
-    bool insert_historical_data(const std::string& symbol, const std::string& timestamp, 
+    bool insert_historical_data(const std::string& symbol, const std::string& timestamp,
                                double open, double high, double low, double close, long long volume);
     
-    /**
-     * Check if database is connected
-     */
-    bool is_connected() const { return connected; }
+    // Symbol management
+    std::vector<std::string> get_symbol_list(bool active_only = true);
+    bool import_symbols_from_list(const std::vector<std::string>& symbols,
+                                 const std::string& import_source = "manual");
     
-    /**
-     * Print sample data from the database (for testing)
-     */
+    // Debug methods
     void print_sample_data();
-    
-    /**
-     * Execute a raw SQL query (for advanced operations)
-     */
-    bool execute_query(const std::string& query);
-    
-    /**
-     * Get the last error message
-     */
-    std::string get_last_error() const;
+    void print_table_sizes();
 };

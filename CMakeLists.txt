@@ -30,7 +30,7 @@ if(WIN32)
     if(EXISTS "${PostgreSQL_INCLUDE_DIRS}/libpq-fe.h" AND EXISTS "${PostgreSQL_LIBRARIES}")
         set(PostgreSQL_FOUND TRUE)
         set(PostgreSQL_VERSION_STRING "17.x")
-        message(STATUS "✓ Found PostgreSQL 17 manually at: ${PostgreSQL_ROOT}")
+        message(STATUS "✅ Found PostgreSQL 17 manually at: ${PostgreSQL_ROOT}")
         message(STATUS "  Include dir: ${PostgreSQL_INCLUDE_DIRS}")
         message(STATUS "  Libraries: ${PostgreSQL_LIBRARIES}")
     else()
@@ -50,7 +50,7 @@ else()
     # Linux/Mac: Use standard find_package
     find_package(PostgreSQL REQUIRED)
     if(PostgreSQL_FOUND)
-        message(STATUS "✓ Found PostgreSQL: ${PostgreSQL_VERSION_STRING}")
+        message(STATUS "✅ Found PostgreSQL: ${PostgreSQL_VERSION_STRING}")
         message(STATUS "  Include dir: ${PostgreSQL_INCLUDE_DIRS}")
         message(STATUS "  Libraries: ${PostgreSQL_LIBRARIES}")
     endif()
@@ -71,27 +71,14 @@ include_directories(
 )
 
 # ==============================================
-# EXECUTABLE TARGETS
+# EXECUTABLE TARGETS - ONLY EXISTING FILES
 # ==============================================
 
-# IQFeed Connection Test
-set(IQFEED_SOURCES
-    IQFeedConnection/IQFeedConnection.cpp
-)
-
-add_executable(connection_test ${IQFEED_SOURCES})
-
-if(WIN32)
-    target_link_libraries(connection_test ${WINDOWS_LIBS})
-endif()
-
-# Database Test Executable
-set(DATABASE_SOURCES
+# Database Test Executable (Your existing file)
+add_executable(database_test 
     Database/database_simple.cpp
     Database/database_test_main.cpp
 )
-
-add_executable(database_test ${DATABASE_SOURCES})
 
 # Link PostgreSQL library
 target_link_libraries(database_test ${PostgreSQL_LIBRARIES})
@@ -100,49 +87,74 @@ if(WIN32)
     target_link_libraries(database_test ${WINDOWS_LIBS})
 endif()
 
-# ==============================================
-# API TEST EXECUTABLE (simplified version)
-# ==============================================
-
-set(API_SOURCES
-    IQFeedConnection/IQFeedConnection.cpp
-)
-
-add_executable(api_test ${API_SOURCES})
-
-if(WIN32)
-    target_link_libraries(api_test ${WINDOWS_LIBS})
+# Set compiler flags
+if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    target_compile_options(database_test PRIVATE /W4)
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    target_compile_options(database_test PRIVATE -Wall -Wextra -Wpedantic)
 endif()
 
-# Set different preprocessor define for api_test
-target_compile_definitions(api_test PRIVATE SIMPLE_API_TEST)
-
 # ==============================================
-# INTEGRATED TEST (combines IQFeed + Database)
+# CONDITIONAL TARGETS - BUILD ONLY IF FILES EXIST
 # ==============================================
 
-set(INTEGRATED_SOURCES
-    IQFeedConnection/IQFeedConnection.cpp
-    Database/database_simple.cpp
-)
-
-# Create a simple integrated test main file target
-add_executable(integrated_test 
-    ${INTEGRATED_SOURCES}
-    # This would need an integrated_main.cpp file
-)
-
-target_link_libraries(integrated_test ${PostgreSQL_LIBRARIES})
-
-if(WIN32)
-    target_link_libraries(integrated_test ${WINDOWS_LIBS})
+# IQFeed Connection Test (if IQFeedConnection.cpp exists)
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/IQFeedConnection.cpp")
+    add_executable(connection_test 
+        IQFeedConnection/IQFeedConnection.cpp
+    )
+    
+    if(WIN32)
+        target_link_libraries(connection_test ${WINDOWS_LIBS})
+    endif()
+    
+    target_compile_definitions(connection_test PRIVATE CONNECTION_TEST_MODE)
+    message(STATUS "✅ connection_test - will be built")
+else()
+    message(STATUS "➖ connection_test - IQFeedConnection.cpp not found")
 endif()
 
-# This target is optional - only build if integrated_main.cpp exists
-if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/integrated_main.cpp")
-    set_target_properties(integrated_test PROPERTIES EXCLUDE_FROM_ALL TRUE)
-    message(STATUS "Note: integrated_test excluded - create integrated_main.cpp to enable")
+# Integrated Test (if integrated_test_main.cpp exists)
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/integrated_test_main.cpp")
+    add_executable(integrated_test 
+        Database/database_simple.cpp
+        integrated_test_main.cpp
+    )
+    
+    # Add IQFeedConnection.cpp if it exists
+    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/IQFeedConnection.cpp")
+        target_sources(integrated_test PRIVATE IQFeedConnection/IQFeedConnection.cpp)
+    endif()
+    
+    target_link_libraries(integrated_test ${PostgreSQL_LIBRARIES})
+    
+    if(WIN32)
+        target_link_libraries(integrated_test ${WINDOWS_LIBS})
+    endif()
+    
+    target_compile_definitions(integrated_test PRIVATE INTEGRATED_TEST_MODE)
+    message(STATUS "✅ integrated_test - will be built")
+else()
+    message(STATUS "➖ integrated_test - integrated_test_main.cpp not found")
 endif()
+
+# ==============================================
+# CUSTOM TARGETS FOR DATABASE MANAGEMENT
+# ==============================================
+
+# Custom target to initialize database
+add_custom_target(init_database
+    COMMAND echo "Initializing Nexday Trading Database..."
+    COMMAND psql -h localhost -p 5432 -U nexday_user -d nexday_trading -f "${CMAKE_CURRENT_SOURCE_DIR}/nexday_schema.sql"
+    COMMENT "Initializing database with complete schema"
+)
+
+# Custom target to run database test
+add_custom_target(test_database
+    COMMAND $<TARGET_FILE:database_test>
+    DEPENDS database_test
+    COMMENT "Running database connectivity test"
+)
 
 # ==============================================
 # BUILD INFORMATION
@@ -150,23 +162,36 @@ endif()
 
 message(STATUS "")
 message(STATUS "==============================================")
-message(STATUS "Nexday Trading System - CMake Configuration")
+message(STATUS "Nexday Trading System - Minimal Build Configuration")
 message(STATUS "==============================================")
 message(STATUS "Targets that will be built:")
-message(STATUS "  ✓ connection_test    - IQFeed connection testing")
-message(STATUS "  ✓ api_test          - Simplified IQFeed API test")
-message(STATUS "  ✓ database_test     - PostgreSQL database testing")
+message(STATUS "  ✅ database_test     - PostgreSQL database testing")
 
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/integrated_main.cpp")
-    message(STATUS "  ✓ integrated_test   - Combined IQFeed + Database")
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/IQFeedConnection.cpp")
+    message(STATUS "  ✅ connection_test   - IQFeed connection testing")
 else()
-    message(STATUS "  - integrated_test   - (create integrated_main.cpp to enable)")
+    message(STATUS "  ➖ connection_test   - (create IQFeedConnection/IQFeedConnection.cpp)")
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/integrated_test_main.cpp")
+    message(STATUS "  ✅ integrated_test   - Combined system test")
+else()
+    message(STATUS "  ➖ integrated_test   - (create integrated_test_main.cpp)")
 endif()
 
 message(STATUS "")
-message(STATUS "Build commands:")
-message(STATUS "  cmake --build . --target connection_test")
-message(STATUS "  cmake --build . --target database_test")
-message(STATUS "  cmake --build . --target api_test")
+message(STATUS "Quick Start Commands:")
+message(STATUS "  1. Build:     cmake --build .")
+message(STATUS "  2. Test DB:   cmake --build . --target test_database")
+message(STATUS "  3. Init DB:   cmake --build . --target init_database")
+message(STATUS "")
+message(STATUS "Manual Test Commands:")
+message(STATUS "  Database:     .\\Debug\\database_test.exe")
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/IQFeedConnection.cpp")
+    message(STATUS "  IQFeed:       .\\Debug\\connection_test.exe")
+endif()
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/integrated_test_main.cpp")
+    message(STATUS "  Integration:  .\\Debug\\integrated_test.exe")
+endif()
 message(STATUS "==============================================")
 message(STATUS "")

@@ -29,7 +29,7 @@ int main() {
         std::cout << "Database config created" << std::endl;
         std::cout.flush();
         
-        SimpleDatabaseManager db(config);
+        SimpleDatabaseManager db(config);  // Changed from EnhancedDatabaseManager
         
         std::cout << "Database manager created" << std::endl;
         std::cout.flush();
@@ -43,7 +43,7 @@ int main() {
         std::cout.flush();
         
         if (!connection_result) {
-            std::cout << "✗ Database connection failed!" << std::endl;
+            std::cout << "❌ Database connection failed!" << std::endl;
             std::cout << "Check if PostgreSQL is running and credentials are correct." << std::endl;
             std::cout << "\nCommon fixes:" << std::endl;
             std::cout << "1. Ensure PostgreSQL service is running" << std::endl;
@@ -95,10 +95,10 @@ int main() {
                   << (sizeof(test_data)/sizeof(test_data[0])) << " successful" << std::endl;
         
         if (successful_inserts > 0) {
-            std::cout << "✓ Data insertion tests passed" << std::endl;
+            std::cout << "✅ Data insertion tests passed" << std::endl;
         } else {
-            std::cout << "✗ All data insertion tests failed" << std::endl;
-            std::cout << "This might indicate missing symbols in the database." << std::endl;
+            std::cout << "❌ All data insertion tests failed" << std::endl;
+            std::cout << "This might indicate missing tables in the database." << std::endl;
         }
         std::cout.flush();
         
@@ -106,13 +106,13 @@ int main() {
         std::cout << "\n4. Testing historical data insertion..." << std::endl;
         std::cout.flush();
         
-        bool hist_result = db.insert_historical_data("AAPL", "2025-08-31 16:00:00", 
+        bool hist_result = db.insert_historical_data("AAPL", "2025-01-15 16:00:00", 
                                                     174.20, 176.50, 173.80, 175.43, 45000000);
         
         if (hist_result) {
-            std::cout << "✓ Historical data insertion test passed" << std::endl;
+            std::cout << "✅ Historical data insertion test passed" << std::endl;
         } else {
-            std::cout << "✗ Historical data insertion test failed" << std::endl;
+            std::cout << "❌ Historical data insertion test failed" << std::endl;
         }
         std::cout.flush();
         
@@ -127,16 +127,17 @@ int main() {
         std::cout << "\n6. Testing connection status..." << std::endl;
         std::cout << "Is connected: " << (db.is_connected() ? "YES" : "NO") << std::endl;
         
-        std::cout << "\n✓ All database tests completed!" << std::endl;
+        std::cout << "\n✅ All database tests completed!" << std::endl;
         std::cout << "\nDatabase Status Summary:" << std::endl;
-        std::cout << "- PostgreSQL connection: ✓ Working" << std::endl;
-        std::cout << "- Database structure: ✓ Ready" << std::endl;
-        std::cout << "- Data insertion: " << (successful_inserts > 0 ? "✓" : "✗") 
+        std::cout << "- PostgreSQL connection: ✅ Working" << std::endl;
+        std::cout << "- Database structure: ✅ Ready" << std::endl;
+        std::cout << "- Data insertion: " << (successful_inserts > 0 ? "✅" : "❌") 
                   << " " << successful_inserts << " successful" << std::endl;
-        std::cout << "- Historical data: " << (hist_result ? "✓ Working" : "✗ Failed") << std::endl;
+        std::cout << "- Historical data: " << (hist_result ? "✅ Working" : "❌ Failed") << std::endl;
         
         std::cout << "\nYour PostgreSQL database is ready for the trading system!" << std::endl;
         std::cout << "\nNext steps:" << std::endl;
+        std::cout << "- Initialize complete schema: cmake --build . --target init_database" << std::endl;
         std::cout << "- Integrate with your IQFeed connection" << std::endl;
         std::cout << "- Start fetching real market data" << std::endl;
         std::cout << "- Build prediction models" << std::endl;
@@ -148,14 +149,14 @@ int main() {
         return 0;
         
     } catch (const std::exception& e) {
-        std::cout << "✗ Database test failed with exception: " << e.what() << std::endl;
+        std::cout << "❌ Database test failed with exception: " << e.what() << std::endl;
         std::cout.flush();
         
         std::cout << "\nPress Enter to exit...";
         std::cin.get();
         return 1;
     } catch (...) {
-        std::cout << "✗ Database test failed with unknown exception" << std::endl;
+        std::cout << "❌ Database test failed with unknown exception" << std::endl;
         std::cout.flush();
         
         std::cout << "\nPress Enter to exit...";
