@@ -1,0 +1,671 @@
+[DEBUG] 2025-09-12 12:00:24 - Winsock initialized successfully
+[INFO] 2025-09-12 12:00:24 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-12 12:00:24 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-12 12:00:30 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:00:30 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:00:30 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:00:30 - Sending command: HDX,QGC#,90,0,HIST_QGC#_Daily,100,1
+
+[DEBUG] 2025-09-12 12:00:31 - Lookup socket closed
+[DEBUG] 2025-09-12 12:00:31 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:00:31 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:00:31 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:00:31 - Sending command: HIX,QGC#,900,90,1,HIST_QGC#_15Min
+
+[DEBUG] 2025-09-12 12:00:31 - Lookup socket closed
+[DEBUG] 2025-09-12 12:00:31 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:00:31 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:00:31 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:00:31 - Sending command: HIX,QGC#,1800,90,1,HIST_QGC#_30Min
+
+[DEBUG] 2025-09-12 12:00:32 - Lookup socket closed
+[DEBUG] 2025-09-12 12:00:32 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:00:32 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:00:32 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:00:32 - Sending command: HIX,QGC#,3600,90,1,HIST_QGC#_1Hour
+
+[DEBUG] 2025-09-12 12:00:32 - Lookup socket closed
+[DEBUG] 2025-09-12 12:00:32 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:00:32 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:00:32 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:00:32 - Sending command: HIX,QGC#,14400,90,1,HIST_QGC#_4Hour
+
+[DEBUG] 2025-09-12 12:00:33 - Lookup socket closed
+[INFO] 2025-09-12 12:09:03 - Shutting down IQFeed connection
+[DEBUG] 2025-09-12 12:09:03 - Winsock cleaned up
+[DEBUG] 2025-09-12 12:09:17 - Winsock initialized successfully
+[INFO] 2025-09-12 12:09:17 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-12 12:09:17 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-12 12:09:22 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:09:22 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:09:22 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:09:22 - Sending command: HDX,QGC#,90,0,HIST_QGC#_Daily,100,1
+
+[DEBUG] 2025-09-12 12:09:23 - Lookup socket closed
+[DEBUG] 2025-09-12 12:09:23 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:09:23 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:09:23 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:09:23 - Sending command: HIX,QGC#,900,90,1,HIST_QGC#_15Min
+
+[DEBUG] 2025-09-12 12:09:23 - Lookup socket closed
+[DEBUG] 2025-09-12 12:09:23 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:09:23 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:09:23 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:09:23 - Sending command: HIX,QGC#,1800,90,1,HIST_QGC#_30Min
+
+[DEBUG] 2025-09-12 12:09:24 - Lookup socket closed
+[DEBUG] 2025-09-12 12:09:24 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:09:24 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:09:24 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:09:24 - Sending command: HIX,QGC#,3600,90,1,HIST_QGC#_1Hour
+
+[DEBUG] 2025-09-12 12:09:25 - Lookup socket closed
+[DEBUG] 2025-09-12 12:09:25 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:09:25 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:09:25 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:09:25 - Sending command: HIX,QGC#,14400,90,1,HIST_QGC#_4Hour
+
+[DEBUG] 2025-09-12 12:09:25 - Lookup socket closed
+[INFO] 2025-09-12 12:13:27 - Shutting down IQFeed connection
+[DEBUG] 2025-09-12 12:13:27 - Winsock cleaned up
+[DEBUG] 2025-09-12 12:13:38 - Winsock initialized successfully
+[INFO] 2025-09-12 12:13:38 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-12 12:13:38 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-12 12:13:43 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:13:43 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:13:43 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:13:43 - Sending command: HDX,QGC#,90,0,HIST_QGC#_Daily,100,1
+
+[DEBUG] 2025-09-12 12:13:44 - Lookup socket closed
+[DEBUG] 2025-09-12 12:13:44 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:13:44 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:13:44 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:13:44 - Sending command: HIX,QGC#,900,90,1,HIST_QGC#_15Min
+
+[DEBUG] 2025-09-12 12:13:44 - Lookup socket closed
+[DEBUG] 2025-09-12 12:13:44 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:13:44 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:13:44 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:13:44 - Sending command: HIX,QGC#,1800,90,1,HIST_QGC#_30Min
+
+[DEBUG] 2025-09-12 12:13:45 - Lookup socket closed
+[DEBUG] 2025-09-12 12:13:45 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:13:45 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:13:45 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:13:45 - Sending command: HIX,QGC#,3600,90,1,HIST_QGC#_1Hour
+
+[DEBUG] 2025-09-12 12:13:45 - Lookup socket closed
+[DEBUG] 2025-09-12 12:13:45 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:13:45 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:13:45 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:13:45 - Sending command: HIX,QGC#,14400,90,1,HIST_QGC#_4Hour
+
+[DEBUG] 2025-09-12 12:13:46 - Lookup socket closed
+[DEBUG] 2025-09-12 12:40:06 - Winsock initialized successfully
+[INFO] 2025-09-12 12:40:06 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-12 12:40:06 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-12 12:40:11 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:40:11 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:40:11 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:40:11 - Sending command: HDX,QGC#,90,0,HIST_QGC#_Daily,100,1
+
+[DEBUG] 2025-09-12 12:40:12 - Lookup socket closed
+[DEBUG] 2025-09-12 12:40:12 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:40:12 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:40:12 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:40:12 - Sending command: HIX,QGC#,900,90,1,HIST_QGC#_15Min
+
+[DEBUG] 2025-09-12 12:40:12 - Lookup socket closed
+[DEBUG] 2025-09-12 12:40:12 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:40:12 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:40:12 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:40:12 - Sending command: HIX,QGC#,1800,90,1,HIST_QGC#_30Min
+
+[DEBUG] 2025-09-12 12:40:13 - Lookup socket closed
+[DEBUG] 2025-09-12 12:40:13 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:40:13 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:40:13 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:40:13 - Sending command: HIX,QGC#,3600,90,1,HIST_QGC#_1Hour
+
+[DEBUG] 2025-09-12 12:40:14 - Lookup socket closed
+[DEBUG] 2025-09-12 12:40:14 - Creating lookup socket...
+[DEBUG] 2025-09-12 12:40:14 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 12:40:14 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 12:40:14 - Sending command: HIX,QGC#,14400,90,1,HIST_QGC#_4Hour
+
+[DEBUG] 2025-09-12 12:40:14 - Lookup socket closed
+[INFO] 2025-09-12 17:15:29 - Shutting down IQFeed connection
+[DEBUG] 2025-09-12 17:15:29 - Winsock cleaned up
+[DEBUG] 2025-09-12 17:15:45 - Winsock initialized successfully
+[INFO] 2025-09-12 17:15:45 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-12 17:15:45 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-12 17:15:51 - Creating lookup socket...
+[DEBUG] 2025-09-12 17:15:51 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 17:15:51 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 17:15:51 - Sending command: HDX,QGC#,90,0,HIST_QGC#_Daily,100,1
+
+[DEBUG] 2025-09-12 17:15:52 - Lookup socket closed
+[DEBUG] 2025-09-12 17:15:52 - Creating lookup socket...
+[DEBUG] 2025-09-12 17:15:52 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 17:15:52 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 17:15:52 - Sending command: HIX,QGC#,900,90,0,HIST_QGC#_15Min
+
+[DEBUG] 2025-09-12 17:15:52 - Lookup socket closed
+[DEBUG] 2025-09-12 17:15:52 - Creating lookup socket...
+[DEBUG] 2025-09-12 17:15:52 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 17:15:52 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 17:15:52 - Sending command: HIX,QGC#,1800,90,0,HIST_QGC#_30Min
+
+[DEBUG] 2025-09-12 17:15:53 - Lookup socket closed
+[DEBUG] 2025-09-12 17:15:53 - Creating lookup socket...
+[DEBUG] 2025-09-12 17:15:53 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 17:15:53 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 17:15:53 - Sending command: HIX,QGC#,3600,90,0,HIST_QGC#_1Hour
+
+[DEBUG] 2025-09-12 17:15:54 - Lookup socket closed
+[DEBUG] 2025-09-12 17:15:54 - Creating lookup socket...
+[DEBUG] 2025-09-12 17:15:54 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 17:15:54 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 17:15:54 - Sending command: HIX,QGC#,14400,90,0,HIST_QGC#_4Hour
+
+[DEBUG] 2025-09-12 17:15:54 - Lookup socket closed
+[INFO] 2025-09-12 17:33:12 - Shutting down IQFeed connection
+[DEBUG] 2025-09-12 17:33:12 - Winsock cleaned up
+[DEBUG] 2025-09-12 09:33:20 - Winsock initialized successfully
+[INFO] 2025-09-12 09:33:20 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-12 09:33:20 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-12 09:33:24 - Creating lookup socket...
+[DEBUG] 2025-09-12 09:33:24 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 09:33:24 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 09:33:24 - Sending command: HDX,QGC#,90,0,HIST_QGC#_Daily,100,1
+
+[DEBUG] 2025-09-12 09:33:25 - Lookup socket closed
+[DEBUG] 2025-09-12 09:33:25 - Creating lookup socket...
+[DEBUG] 2025-09-12 09:33:25 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 09:33:25 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 09:33:25 - Sending command: HIX,QGC#,900,90,1,HIST_QGC#_15Min
+
+[DEBUG] 2025-09-12 09:33:25 - Lookup socket closed
+[DEBUG] 2025-09-12 09:33:25 - Creating lookup socket...
+[DEBUG] 2025-09-12 09:33:25 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 09:33:25 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 09:33:25 - Sending command: HIX,QGC#,1800,90,1,HIST_QGC#_30Min
+
+[DEBUG] 2025-09-12 09:33:26 - Lookup socket closed
+[DEBUG] 2025-09-12 09:33:26 - Creating lookup socket...
+[DEBUG] 2025-09-12 09:33:26 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 09:33:26 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 09:33:26 - Sending command: HIX,QGC#,3600,90,1,HIST_QGC#_1Hour
+
+[DEBUG] 2025-09-12 09:33:27 - Lookup socket closed
+[DEBUG] 2025-09-12 09:33:27 - Creating lookup socket...
+[DEBUG] 2025-09-12 09:33:27 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 09:33:27 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 09:33:27 - Sending command: HIX,QGC#,14400,90,1,HIST_QGC#_4Hour
+
+[DEBUG] 2025-09-12 09:33:27 - Lookup socket closed
+[INFO] 2025-09-12 09:44:55 - Shutting down IQFeed connection
+[DEBUG] 2025-09-12 09:44:55 - Winsock cleaned up
+[DEBUG] 2025-09-12 09:45:04 - Winsock initialized successfully
+[INFO] 2025-09-12 09:45:04 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-12 09:45:04 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-12 09:45:08 - Creating lookup socket...
+[DEBUG] 2025-09-12 09:45:08 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 09:45:08 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 09:45:08 - Sending command: HDX,QGC#,90,0,HIST_QGC#_Daily,100,1
+
+[DEBUG] 2025-09-12 09:45:09 - Lookup socket closed
+[DEBUG] 2025-09-12 09:45:09 - Creating lookup socket...
+[DEBUG] 2025-09-12 09:45:09 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 09:45:09 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 09:45:09 - Sending command: HIX,QGC#,900,90,1,HIST_QGC#_15Min
+
+[DEBUG] 2025-09-12 09:45:09 - Lookup socket closed
+[DEBUG] 2025-09-12 09:45:09 - Creating lookup socket...
+[DEBUG] 2025-09-12 09:45:09 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 09:45:09 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 09:45:09 - Sending command: HIX,QGC#,1800,90,1,HIST_QGC#_30Min
+
+[DEBUG] 2025-09-12 09:45:10 - Lookup socket closed
+[DEBUG] 2025-09-12 09:45:10 - Creating lookup socket...
+[DEBUG] 2025-09-12 09:45:10 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 09:45:10 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 09:45:10 - Sending command: HIX,QGC#,3600,90,1,HIST_QGC#_1Hour
+
+[DEBUG] 2025-09-12 09:45:11 - Lookup socket closed
+[DEBUG] 2025-09-12 09:45:11 - Creating lookup socket...
+[DEBUG] 2025-09-12 09:45:11 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 09:45:11 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 09:45:11 - Sending command: HIX,QGC#,14400,90,1,HIST_QGC#_4Hour
+
+[DEBUG] 2025-09-12 09:45:11 - Lookup socket closed
+[INFO] 2025-09-12 09:55:09 - Shutting down IQFeed connection
+[DEBUG] 2025-09-12 09:55:09 - Winsock cleaned up
+[DEBUG] 2025-09-12 09:55:18 - Winsock initialized successfully
+[INFO] 2025-09-12 09:55:18 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-12 09:55:18 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-12 09:55:22 - Creating lookup socket...
+[DEBUG] 2025-09-12 09:55:22 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 09:55:22 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 09:55:22 - Sending command: HDX,QGC#,90,0,HIST_QGC#_Daily,100,1
+
+[DEBUG] 2025-09-12 09:55:23 - Lookup socket closed
+[DEBUG] 2025-09-12 09:55:23 - Creating lookup socket...
+[DEBUG] 2025-09-12 09:55:23 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 09:55:23 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 09:55:23 - Sending command: HIX,QGC#,900,90,1,HIST_QGC#_15Min
+
+[DEBUG] 2025-09-12 09:55:24 - Lookup socket closed
+[DEBUG] 2025-09-12 09:55:24 - Creating lookup socket...
+[DEBUG] 2025-09-12 09:55:24 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 09:55:24 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 09:55:24 - Sending command: HIX,QGC#,1800,90,1,HIST_QGC#_30Min
+
+[DEBUG] 2025-09-12 09:55:24 - Lookup socket closed
+[DEBUG] 2025-09-12 09:55:24 - Creating lookup socket...
+[DEBUG] 2025-09-12 09:55:24 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 09:55:24 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 09:55:24 - Sending command: HIX,QGC#,3600,90,1,HIST_QGC#_1Hour
+
+[DEBUG] 2025-09-12 09:55:25 - Lookup socket closed
+[DEBUG] 2025-09-12 09:55:25 - Creating lookup socket...
+[DEBUG] 2025-09-12 09:55:25 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 09:55:25 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 09:55:25 - Sending command: HIX,QGC#,14400,90,1,HIST_QGC#_4Hour
+
+[DEBUG] 2025-09-12 09:55:26 - Lookup socket closed
+[INFO] 2025-09-12 10:12:59 - Shutting down IQFeed connection
+[DEBUG] 2025-09-12 10:12:59 - Winsock cleaned up
+[DEBUG] 2025-09-12 10:17:37 - Winsock initialized successfully
+[INFO] 2025-09-12 10:17:37 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-12 10:17:37 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-12 10:17:42 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:17:42 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:17:42 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:17:42 - Sending command: HDX,QGC#,90,0,HIST_QGC#_Daily,100,1
+
+[DEBUG] 2025-09-12 10:17:42 - Lookup socket closed
+[DEBUG] 2025-09-12 10:17:42 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:17:42 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:17:42 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:17:42 - Sending command: HIX,QGC#,900,90,1,HIST_QGC#_15Min
+
+[DEBUG] 2025-09-12 10:17:43 - Lookup socket closed
+[DEBUG] 2025-09-12 10:17:43 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:17:43 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:17:43 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:17:43 - Sending command: HIX,QGC#,1800,90,1,HIST_QGC#_30Min
+
+[DEBUG] 2025-09-12 10:17:43 - Lookup socket closed
+[DEBUG] 2025-09-12 10:17:43 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:17:43 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:17:43 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:17:43 - Sending command: HIX,QGC#,3600,90,1,HIST_QGC#_1Hour
+
+[DEBUG] 2025-09-12 10:17:44 - Lookup socket closed
+[DEBUG] 2025-09-12 10:17:44 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:17:44 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:17:44 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:17:44 - Sending command: HIX,QGC#,14400,90,1,HIST_QGC#_4Hour
+
+[DEBUG] 2025-09-12 10:17:45 - Lookup socket closed
+[INFO] 2025-09-12 10:26:03 - Shutting down IQFeed connection
+[DEBUG] 2025-09-12 10:26:03 - Winsock cleaned up
+[DEBUG] 2025-09-12 10:26:14 - Winsock initialized successfully
+[INFO] 2025-09-12 10:26:14 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-12 10:26:14 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-12 10:26:18 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:26:18 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:26:18 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:26:18 - Sending command: HDX,QGC#,90,0,HIST_QGC#_Daily,100,1
+
+[DEBUG] 2025-09-12 10:26:19 - Lookup socket closed
+[DEBUG] 2025-09-12 10:26:19 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:26:19 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:26:19 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:26:19 - Sending command: HIX,QGC#,900,90,1,HIST_QGC#_15Min
+
+[DEBUG] 2025-09-12 10:26:19 - Lookup socket closed
+[DEBUG] 2025-09-12 10:26:19 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:26:19 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:26:19 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:26:19 - Sending command: HIX,QGC#,1800,90,1,HIST_QGC#_30Min
+
+[DEBUG] 2025-09-12 10:26:20 - Lookup socket closed
+[DEBUG] 2025-09-12 10:26:20 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:26:20 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:26:20 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:26:20 - Sending command: HIX,QGC#,3600,90,1,HIST_QGC#_1Hour
+
+[DEBUG] 2025-09-12 10:26:21 - Lookup socket closed
+[DEBUG] 2025-09-12 10:26:21 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:26:21 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:26:21 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:26:21 - Sending command: HIX,QGC#,14400,90,1,HIST_QGC#_4Hour
+
+[DEBUG] 2025-09-12 10:26:21 - Lookup socket closed
+[INFO] 2025-09-12 10:33:20 - Shutting down IQFeed connection
+[DEBUG] 2025-09-12 10:33:20 - Winsock cleaned up
+[DEBUG] 2025-09-12 10:33:29 - Winsock initialized successfully
+[INFO] 2025-09-12 10:33:29 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-12 10:33:29 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-12 10:33:33 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:33:33 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:33:33 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:33:33 - Sending command: HDX,QGC#,90,0,HIST_QGC#_Daily,100,1
+
+[DEBUG] 2025-09-12 10:33:33 - Lookup socket closed
+[DEBUG] 2025-09-12 10:33:33 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:33:33 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:33:33 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:33:33 - Sending command: HIX,QGC#,900,90,1,HIST_QGC#_15Min
+
+[DEBUG] 2025-09-12 10:33:34 - Lookup socket closed
+[DEBUG] 2025-09-12 10:33:34 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:33:34 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:33:34 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:33:34 - Sending command: HIX,QGC#,1800,90,1,HIST_QGC#_30Min
+
+[DEBUG] 2025-09-12 10:33:34 - Lookup socket closed
+[DEBUG] 2025-09-12 10:33:35 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:33:35 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:33:35 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:33:35 - Sending command: HIX,QGC#,3600,90,1,HIST_QGC#_1Hour
+
+[DEBUG] 2025-09-12 10:33:35 - Lookup socket closed
+[DEBUG] 2025-09-12 10:33:35 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:33:35 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:33:35 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:33:35 - Sending command: HIX,QGC#,14400,90,1,HIST_QGC#_4Hour
+
+[DEBUG] 2025-09-12 10:33:36 - Lookup socket closed
+[DEBUG] 2025-09-12 10:53:33 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:53:33 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:53:33 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:53:33 - Sending command: HDX,QIT,90,0,HIST_QIT_Daily,100,1
+
+[DEBUG] 2025-09-12 10:53:34 - Lookup socket closed
+[DEBUG] 2025-09-12 10:53:34 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:53:34 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:53:34 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:53:34 - Sending command: HIX,QIT,900,90,1,HIST_QIT_15Min
+
+[DEBUG] 2025-09-12 10:53:35 - Lookup socket closed
+[DEBUG] 2025-09-12 10:53:35 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:53:35 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:53:35 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:53:35 - Sending command: HIX,QIT,1800,90,1,HIST_QIT_30Min
+
+[DEBUG] 2025-09-12 10:53:35 - Lookup socket closed
+[DEBUG] 2025-09-12 10:53:35 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:53:35 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:53:35 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:53:35 - Sending command: HIX,QIT,3600,90,1,HIST_QIT_1Hour
+
+[DEBUG] 2025-09-12 10:53:36 - Lookup socket closed
+[DEBUG] 2025-09-12 10:53:36 - Creating lookup socket...
+[DEBUG] 2025-09-12 10:53:36 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-12 10:53:36 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-12 10:53:36 - Sending command: HIX,QIT,14400,90,1,HIST_QIT_4Hour
+
+[DEBUG] 2025-09-12 10:53:37 - Lookup socket closed
+[DEBUG] 2025-09-13 05:57:49 - Winsock initialized successfully
+[INFO] 2025-09-13 05:57:49 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-13 05:57:49 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-13 05:57:53 - Creating lookup socket...
+[DEBUG] 2025-09-13 05:57:53 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 05:57:53 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 05:57:53 - Sending command: HDX,QGC#,90,0,HIST_QGC#_Daily,100,0
+
+[DEBUG] 2025-09-13 05:57:54 - Lookup socket closed
+[DEBUG] 2025-09-13 05:57:54 - Creating lookup socket...
+[DEBUG] 2025-09-13 05:57:54 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 05:57:54 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 05:57:54 - Sending command: HIX,QGC#,900,90,1,HIST_QGC#_15Min,100,s,0
+
+[DEBUG] 2025-09-13 05:57:55 - Lookup socket closed
+[DEBUG] 2025-09-13 05:57:55 - Creating lookup socket...
+[DEBUG] 2025-09-13 05:57:55 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 05:57:55 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 05:57:55 - Sending command: HIX,QGC#,1800,90,1,HIST_QGC#_30Min,100,s,0
+
+[DEBUG] 2025-09-13 05:57:55 - Lookup socket closed
+[DEBUG] 2025-09-13 05:57:55 - Creating lookup socket...
+[DEBUG] 2025-09-13 05:57:55 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 05:57:55 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 05:57:55 - Sending command: HIX,QGC#,3600,90,1,HIST_QGC#_1Hour,100,s,0
+
+[DEBUG] 2025-09-13 05:57:56 - Lookup socket closed
+[DEBUG] 2025-09-13 05:57:56 - Creating lookup socket...
+[DEBUG] 2025-09-13 05:57:56 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 05:57:56 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 05:57:56 - Sending command: HIX,QGC#,14400,90,1,HIST_QGC#_4Hour,100,s,0
+
+[DEBUG] 2025-09-13 05:57:56 - Lookup socket closed
+[INFO] 2025-09-13 06:13:44 - Shutting down IQFeed connection
+[DEBUG] 2025-09-13 06:13:44 - Winsock cleaned up
+[DEBUG] 2025-09-13 06:20:44 - Winsock initialized successfully
+[INFO] 2025-09-13 06:20:44 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-13 06:20:44 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-13 06:20:44 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:20:44 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:20:44 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:20:44 - Sending command: HDX,QGC#,20,0,HIST_QGC#_Daily,100,0
+
+[DEBUG] 2025-09-13 06:20:44 - Lookup socket closed
+[DEBUG] 2025-09-13 06:20:44 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:20:44 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:20:44 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:20:44 - Sending command: HIX,QGC#,900,20,1,HIST_QGC#_15Min,100,s,0
+
+[DEBUG] 2025-09-13 06:20:45 - Lookup socket closed
+[DEBUG] 2025-09-13 06:20:45 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:20:45 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:20:45 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:20:45 - Sending command: HIX,QGC#,1800,20,1,HIST_QGC#_30Min,100,s,0
+
+[DEBUG] 2025-09-13 06:20:45 - Lookup socket closed
+[DEBUG] 2025-09-13 06:20:45 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:20:45 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:20:45 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:20:45 - Sending command: HIX,QGC#,3600,20,1,HIST_QGC#_1Hour,100,s,0
+
+[DEBUG] 2025-09-13 06:20:46 - Lookup socket closed
+[DEBUG] 2025-09-13 06:20:46 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:20:46 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:20:46 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:20:46 - Sending command: HIX,QGC#,7200,20,1,HIST_QGC#_2Hour,100,s,0
+
+[DEBUG] 2025-09-13 06:20:46 - Lookup socket closed
+[INFO] 2025-09-13 06:20:49 - Shutting down IQFeed connection
+[DEBUG] 2025-09-13 06:20:49 - Winsock cleaned up
+[DEBUG] 2025-09-13 06:28:23 - Winsock initialized successfully
+[INFO] 2025-09-13 06:28:23 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-13 06:28:23 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-13 06:28:23 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:28:23 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:28:23 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:28:23 - Sending command: HDX,QGC#,20,0,HIST_QGC#_Daily,100,0
+
+[DEBUG] 2025-09-13 06:28:23 - Lookup socket closed
+[DEBUG] 2025-09-13 06:28:23 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:28:23 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:28:23 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:28:23 - Sending command: HIX,QGC#,900,20,1,HIST_QGC#_15Min,100,s,0
+
+[DEBUG] 2025-09-13 06:28:24 - Lookup socket closed
+[DEBUG] 2025-09-13 06:28:24 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:28:24 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:28:24 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:28:24 - Sending command: HIX,QGC#,1800,20,1,HIST_QGC#_30Min,100,s,0
+
+[DEBUG] 2025-09-13 06:28:24 - Lookup socket closed
+[DEBUG] 2025-09-13 06:28:24 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:28:24 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:28:24 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:28:24 - Sending command: HIX,QGC#,3600,20,1,HIST_QGC#_1Hour,100,s,0
+
+[DEBUG] 2025-09-13 06:28:25 - Lookup socket closed
+[DEBUG] 2025-09-13 06:28:25 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:28:25 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:28:25 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:28:25 - Sending command: HIX,QGC#,7200,20,1,HIST_QGC#_2Hour,100,s,0
+
+[DEBUG] 2025-09-13 06:28:25 - Lookup socket closed
+[INFO] 2025-09-13 06:28:28 - Shutting down IQFeed connection
+[DEBUG] 2025-09-13 06:28:28 - Winsock cleaned up
+[DEBUG] 2025-09-13 06:43:20 - Winsock initialized successfully
+[INFO] 2025-09-13 06:43:20 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-13 06:43:20 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-13 06:43:20 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:43:20 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:43:20 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:43:20 - Sending command: HDX,QGC#,20,0,HIST_QGC#_Daily,100,0
+
+[DEBUG] 2025-09-13 06:43:21 - Lookup socket closed
+[DEBUG] 2025-09-13 06:43:21 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:43:21 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:43:21 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:43:21 - Sending command: HIX,QGC#,900,20,1,HIST_QGC#_15Min,100,s,0
+
+[DEBUG] 2025-09-13 06:43:21 - Lookup socket closed
+[DEBUG] 2025-09-13 06:43:21 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:43:21 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:43:21 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:43:21 - Sending command: HIX,QGC#,1800,20,1,HIST_QGC#_30Min,100,s,0
+
+[DEBUG] 2025-09-13 06:43:22 - Lookup socket closed
+[DEBUG] 2025-09-13 06:43:22 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:43:22 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:43:22 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:43:22 - Sending command: HIX,QGC#,3600,20,1,HIST_QGC#_1Hour,100,s,0
+
+[DEBUG] 2025-09-13 06:43:22 - Lookup socket closed
+[DEBUG] 2025-09-13 06:43:22 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:43:22 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:43:22 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:43:22 - Sending command: HIX,QGC#,7200,20,1,HIST_QGC#_2Hour,100,s,0
+
+[DEBUG] 2025-09-13 06:43:23 - Lookup socket closed
+[INFO] 2025-09-13 06:43:26 - Shutting down IQFeed connection
+[DEBUG] 2025-09-13 06:43:26 - Winsock cleaned up
+[DEBUG] 2025-09-13 06:46:07 - Winsock initialized successfully
+[INFO] 2025-09-13 06:46:07 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-13 06:46:07 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-13 06:46:07 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:46:07 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:46:07 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:46:07 - Sending command: HDX,QGC#,20,0,HIST_QGC#_Daily,100,0
+
+[DEBUG] 2025-09-13 06:46:07 - Lookup socket closed
+[DEBUG] 2025-09-13 06:46:07 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:46:07 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:46:07 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:46:07 - Sending command: HIX,QGC#,900,20,1,HIST_QGC#_15Min,100,s,0
+
+[DEBUG] 2025-09-13 06:46:08 - Lookup socket closed
+[DEBUG] 2025-09-13 06:46:08 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:46:08 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:46:08 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:46:08 - Sending command: HIX,QGC#,1800,20,1,HIST_QGC#_30Min,100,s,0
+
+[DEBUG] 2025-09-13 06:46:08 - Lookup socket closed
+[DEBUG] 2025-09-13 06:46:08 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:46:08 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:46:08 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:46:08 - Sending command: HIX,QGC#,3600,20,1,HIST_QGC#_1Hour,100,s,0
+
+[DEBUG] 2025-09-13 06:46:09 - Lookup socket closed
+[DEBUG] 2025-09-13 06:46:09 - Creating lookup socket...
+[DEBUG] 2025-09-13 06:46:09 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-13 06:46:09 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-13 06:46:09 - Sending command: HIX,QGC#,7200,20,1,HIST_QGC#_2Hour,100,s,0
+
+[DEBUG] 2025-09-13 06:46:09 - Lookup socket closed
+[INFO] 2025-09-13 06:46:12 - Shutting down IQFeed connection
+[DEBUG] 2025-09-13 06:46:12 - Winsock cleaned up

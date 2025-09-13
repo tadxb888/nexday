@@ -2,16 +2,19 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\Build\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\build\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\Build\Debug\connection_test.exe</FullPath>
+      <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\build\Debug\connection_test.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\Build\Debug\database_test.exe</FullPath>
+      <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\build\Debug\database_test.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\Build\Debug\nexday_system.exe</FullPath>
+      <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\build\Debug\integrated_test.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\build\Debug\iqfeed_modular.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
       <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\build\x64\Debug\ALL_BUILD</FullPath>

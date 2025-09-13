@@ -121,10 +121,8 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/integrated_test_main.cpp")
         integrated_test_main.cpp
     )
     
-    # Add IQFeedConnection.cpp if it exists
-    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/IQFeedConnection.cpp")
-        target_sources(integrated_test PRIVATE IQFeedConnection/IQFeedConnection.cpp)
-    endif()
+    # DO NOT add IQFeedConnection.cpp as it has its own main() function
+    # The integrated_test should use integrated_test_main.cpp's main() only
     
     target_link_libraries(integrated_test ${PostgreSQL_LIBRARIES})
     
@@ -133,7 +131,7 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/integrated_test_main.cpp")
     endif()
     
     target_compile_definitions(integrated_test PRIVATE INTEGRATED_TEST_MODE)
-    message(STATUS "✅ integrated_test - will be built")
+    message(STATUS "✅ integrated_test - will be built (without IQFeedConnection.cpp to avoid main() conflict)")
 else()
     message(STATUS "➖ integrated_test - integrated_test_main.cpp not found")
 endif()
@@ -195,3 +193,44 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/integrated_test_main.cpp")
 endif()
 message(STATUS "==============================================")
 message(STATUS "")
+# ==============================================
+# MODULAR IQFEED HISTORICAL DATA SYSTEM  
+# ==============================================
+
+# IQFeed Modular System (if all source files exist)
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/IQFeedConnectionManager.cpp" AND
+   EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/Logger.cpp" AND
+   EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/HistoricalDataFetcher.cpp" AND
+   EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/DailyDataFetcher.cpp")
+   
+    add_executable(iqfeed_modular
+        IQFeedConnection/main.cpp
+        IQFeedConnection/IQFeedConnectionManager.cpp
+        IQFeedConnection/Logger.cpp
+        IQFeedConnection/HistoricalDataFetcher.cpp
+        IQFeedConnection/DailyDataFetcher.cpp
+        IQFeedConnection/FifteenMinDataFetcher.cpp
+        IQFeedConnection/ThirtyMinDataFetcher.cpp
+        IQFeedConnection/OneHourDataFetcher.cpp
+        IQFeedConnection/TwoHourDataFetcher.cpp
+    )
+    
+    if(WIN32)
+        target_link_libraries(iqfeed_modular ${WINDOWS_LIBS})
+    endif()
+    
+    target_compile_definitions(iqfeed_modular PRIVATE MODULAR_IQFEED_SYSTEM)
+    message(STATUS "✅ iqfeed_modular - will be built with complete modular architecture")
+    message(STATUS "    Note: Now using 2-hour intervals instead of 4-hour (IQFeed officially supported)")
+else()
+    message(STATUS "➖ iqfeed_modular - missing source files for modular system")
+    message(STATUS "    Required files:")
+    message(STATUS "      - IQFeedConnection/IQFeedConnectionManager.cpp")
+    message(STATUS "      - IQFeedConnection/Logger.cpp") 
+    message(STATUS "      - IQFeedConnection/HistoricalDataFetcher.cpp")
+    message(STATUS "      - IQFeedConnection/DailyDataFetcher.cpp")
+    message(STATUS "      - IQFeedConnection/FifteenMinDataFetcher.cpp")
+    message(STATUS "      - IQFeedConnection/ThirtyMinDataFetcher.cpp")
+    message(STATUS "      - IQFeedConnection/OneHourDataFetcher.cpp")
+    message(STATUS "      - IQFeedConnection/TwoHourDataFetcher.cpp")
+endif()

@@ -358,7 +358,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClCompile Include="C:\Users\Ross\Documents\IQFeed\nexday\Database\database_simple.cpp" />
     <ClCompile Include="C:\Users\Ross\Documents\IQFeed\nexday\integrated_test_main.cpp" />
-    <ClCompile Include="C:\Users\Ross\Documents\IQFeed\nexday\IQFeedConnection\IQFeedConnection.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

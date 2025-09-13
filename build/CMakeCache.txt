@@ -77,7 +77,7 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=/debug /INCREMENTAL
 CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/pkgRedirects
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/Nexday_IQFeed_Trading_System
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/nexday
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/link.exe
@@ -202,66 +202,6 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
-
-//Enable to build 7-Zip packages
-CPACK_BINARY_7Z:BOOL=OFF
-
-//Enable to build IFW packages
-CPACK_BINARY_IFW:BOOL=OFF
-
-//Enable to build Inno Setup packages
-CPACK_BINARY_INNOSETUP:BOOL=OFF
-
-//Enable to build NSIS packages
-CPACK_BINARY_NSIS:BOOL=ON
-
-//Enable to build NuGet packages
-CPACK_BINARY_NUGET:BOOL=OFF
-
-//Enable to build WiX packages
-CPACK_BINARY_WIX:BOOL=OFF
-
-//Enable to build ZIP packages
-CPACK_BINARY_ZIP:BOOL=OFF
-
-//Enable to build 7-Zip source packages
-CPACK_SOURCE_7Z:BOOL=ON
-
-//Enable to build ZIP source packages
-CPACK_SOURCE_ZIP:BOOL=ON
-
-//Path to a file.
-LIBPQ_INCLUDE_DIR:PATH=C:/Program Files/PostgreSQL/17/include
-
-//Path to a library.
-LIBPQ_LIBRARY:FILEPATH=C:/Program Files/PostgreSQL/17/lib/libpq.lib
-
-//Value Computed by CMake
-Nexday_IQFeed_Trading_System_BINARY_DIR:STATIC=C:/Users/Ross/Documents/IQFeed/nexday/Build
-
-//Value Computed by CMake
-Nexday_IQFeed_Trading_System_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-Nexday_IQFeed_Trading_System_SOURCE_DIR:STATIC=C:/Users/Ross/Documents/IQFeed/nexday
-
-//The Set the PostgreSQL_INCLUDE_DIR cmake cache entry to the top-level
-// directory containing the PostgreSQL include directories. E.g
-// /usr/local/include/PostgreSQL/8.4 or C:/Program Files/PostgreSQL/8.4/include
-PostgreSQL_INCLUDE_DIR:PATH=PostgreSQL_INCLUDE_DIR-NOTFOUND
-
-//The Set the PostgreSQL_LIBRARY_DIR cmake cache entry to the top-level
-// directory containing the PostgreSQL libraries.
-PostgreSQL_LIBRARY_DEBUG:FILEPATH=PostgreSQL_LIBRARY_DEBUG-NOTFOUND
-
-//The Set the PostgreSQL_LIBRARY_DIR cmake cache entry to the top-level
-// directory containing the PostgreSQL libraries.
-PostgreSQL_LIBRARY_RELEASE:FILEPATH=PostgreSQL_LIBRARY_RELEASE-NOTFOUND
-
-//The Set the PostgreSQL_INCLUDE_DIR cmake cache entry to the top-level
-// directory containing the PostgreSQL include directories. E.g
-// /usr/local/include/PostgreSQL/8.4 or C:/Program Files/PostgreSQL/8.4/include
-PostgreSQL_TYPE_INCLUDE_DIR:PATH=PostgreSQL_TYPE_INCLUDE_DIR-NOTFOUND
 
 //Value Computed by CMake
 nexday_BINARY_DIR:STATIC=C:/Users/Ross/Documents/IQFeed/nexday/build
@@ -405,26 +345,4 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CPACK_BINARY_7Z
-CPACK_BINARY_7Z-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CPACK_BINARY_IFW
-CPACK_BINARY_IFW-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CPACK_BINARY_INNOSETUP
-CPACK_BINARY_INNOSETUP-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CPACK_BINARY_NSIS
-CPACK_BINARY_NSIS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CPACK_BINARY_NUGET
-CPACK_BINARY_NUGET-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CPACK_BINARY_WIX
-CPACK_BINARY_WIX-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CPACK_BINARY_ZIP
-CPACK_BINARY_ZIP-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CPACK_SOURCE_7Z
-CPACK_SOURCE_7Z-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CPACK_SOURCE_ZIP
-CPACK_SOURCE_ZIP-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: PostgreSQL_LIBRARY_DEBUG
-PostgreSQL_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: PostgreSQL_LIBRARY_RELEASE
-PostgreSQL_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 

@@ -7,9 +7,6 @@
     <ClCompile Include="C:\Users\Ross\Documents\IQFeed\nexday\integrated_test_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Ross\Documents\IQFeed\nexday\IQFeedConnection\IQFeedConnection.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Ross\Documents\IQFeed\nexday\CMakeLists.txt" />

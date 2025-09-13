@@ -186,6 +186,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{26C50342-EE94-3450-A87E-4257874E2044}</Project>
       <Name>integrated_test</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\Ross\Documents\IQFeed\nexday\build\iqfeed_modular.vcxproj">
+      <Project>{E47F2E68-9FBF-313F-B3E7-36F3266C7595}</Project>
+      <Name>iqfeed_modular</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
