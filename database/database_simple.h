@@ -25,7 +25,7 @@ struct DatabaseConfig {
 };
 
 // ==============================================
-// SIMPLE DATABASE MANAGER CLASS (Compatible with existing code)
+// SIMPLE DATABASE MANAGER CLASS (IQFeed Integration Ready)
 // ==============================================
 
 class SimpleDatabaseManager {
@@ -54,17 +54,56 @@ public:
     bool is_connected() const { return is_connected_; }
     std::string get_last_error() const { return last_error_; }
     
-    // Basic data operations (compatible with existing test)
+    // ========================================
+    // IQFEED HISTORICAL DATA INSERTION METHODS
+    // ========================================
+    
+    // 15-minute data insertion
+    bool insert_historical_data_15min(const std::string& symbol, const std::string& date, 
+                                      const std::string& time, double open, double high, 
+                                      double low, double close, long long volume, int open_interest = 0);
+    
+    // 30-minute data insertion
+    bool insert_historical_data_30min(const std::string& symbol, const std::string& date, 
+                                      const std::string& time, double open, double high, 
+                                      double low, double close, long long volume, int open_interest = 0);
+    
+    // 1-hour data insertion
+    bool insert_historical_data_1hour(const std::string& symbol, const std::string& date, 
+                                      const std::string& time, double open, double high, 
+                                      double low, double close, long long volume, int open_interest = 0);
+    
+    // 2-hour data insertion
+    bool insert_historical_data_2hours(const std::string& symbol, const std::string& date, 
+                                       const std::string& time, double open, double high, 
+                                       double low, double close, long long volume, int open_interest = 0);
+    
+    // Daily data insertion (no time component)
+    bool insert_historical_data_daily(const std::string& symbol, const std::string& date, 
+                                      double open, double high, double low, double close, 
+                                      long long volume, int open_interest = 0);
+    
+    // ========================================
+    // LEGACY METHODS (for compatibility)
+    // ========================================
+    
+    // Basic data operations (compatible with existing tests)
     bool insert_market_data(const std::string& symbol, double price, long long volume);
     bool insert_historical_data(const std::string& symbol, const std::string& timestamp,
                                double open, double high, double low, double close, long long volume);
     
-    // Symbol management
+    // ========================================
+    // SYMBOL MANAGEMENT
+    // ========================================
+    
     std::vector<std::string> get_symbol_list(bool active_only = true);
     bool import_symbols_from_list(const std::vector<std::string>& symbols,
                                  const std::string& import_source = "manual");
     
-    // Debug methods
+    // ========================================
+    // DEBUG AND MONITORING METHODS
+    // ========================================
+    
     void print_sample_data();
     void print_table_sizes();
 };
