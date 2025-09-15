@@ -228,3 +228,8 @@
 [INFO] 2025-09-15 11:30:15 - Database save for QGC# daily: 100 saved, 0 failed
 [SUCCESS] 2025-09-15 11:30:15 - Daily fetch completed for QGC#: 100 bars
 [INFO] 2025-09-15 11:30:15 - Latest daily bar: 2025-09-12 OHLC: 3680.600000/3687.500000/3651.000000/3673.600000
+[INFO] 2025-09-15 11:43:46 - FetchScheduler initialized
+[INFO] 2025-09-15 11:43:46 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 11:43:48 - Database save for QGC# daily: 100 saved, 0 failed
+[SUCCESS] 2025-09-15 11:43:48 - Daily fetch completed for QGC#: 100 bars
+[INFO] 2025-09-15 11:43:48 - Latest daily bar: 2025-09-12 OHLC: 3672.800000/3695.500000/3667.300000/3686.400000
