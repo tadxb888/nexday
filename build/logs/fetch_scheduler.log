@@ -213,3 +213,18 @@
 [INFO] 2025-09-15 11:15:24 - Database save for QGC# daily: 99 saved, 0 failed
 [SUCCESS] 2025-09-15 11:15:24 - Daily fetch completed for QGC#: 99 bars
 [INFO] 2025-09-15 11:15:24 - Latest daily bar: 2025-09-12 OHLC: 3680.600000/3687.500000/3651.000000/3673.600000
+[INFO] 2025-09-15 11:22:05 - FetchScheduler initialized
+[INFO] 2025-09-15 11:22:05 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 11:22:11 - Database save for QGC# daily: 99 saved, 0 failed
+[SUCCESS] 2025-09-15 11:22:11 - Daily fetch completed for QGC#: 99 bars
+[INFO] 2025-09-15 11:22:11 - Latest daily bar: 2025-09-12 OHLC: 3680.600000/3687.500000/3651.000000/3673.600000
+[INFO] 2025-09-15 11:26:20 - FetchScheduler initialized
+[INFO] 2025-09-15 11:26:20 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 11:26:23 - Database save for QGC# daily: 100 saved, 0 failed
+[SUCCESS] 2025-09-15 11:26:23 - Daily fetch completed for QGC#: 100 bars
+[INFO] 2025-09-15 11:26:23 - Latest daily bar: 2025-09-12 OHLC: 3680.600000/3687.500000/3651.000000/3673.600000
+[INFO] 2025-09-15 11:30:12 - FetchScheduler initialized
+[INFO] 2025-09-15 11:30:12 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 11:30:15 - Database save for QGC# daily: 100 saved, 0 failed
+[SUCCESS] 2025-09-15 11:30:15 - Daily fetch completed for QGC#: 100 bars
+[INFO] 2025-09-15 11:30:15 - Latest daily bar: 2025-09-12 OHLC: 3680.600000/3687.500000/3651.000000/3673.600000

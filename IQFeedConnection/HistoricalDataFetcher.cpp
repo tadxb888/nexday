@@ -245,53 +245,69 @@ bool HistoricalDataFetcher::parse_historical_data(const std::string& response, c
                      std::to_string(bar.close) + "/" + std::to_string(bar.volume));
     }
     
-    // CRITICAL FIX: IQFeed data alignment issue
-    // Line 0: Has correct timestamp for latest complete interval, but OHLCV from incomplete interval
-    // Line 1: Has older timestamp, but correct OHLCV for the completed interval
-    // Solution: Create corrected bar using timestamp from line 0, OHLCV from line 1
-    
     int incomplete_bars_filtered = 0;
     
-    if (all_bars.size() >= 2) {
-        // Create corrected first bar: timestamp from bar[0], OHLCV from bar[1]
-        HistoricalBar corrected_first_bar;
-        corrected_first_bar.date = all_bars[0].date;   // Correct timestamp (most recent complete)
-        corrected_first_bar.time = all_bars[0].time;   // Correct timestamp
-        corrected_first_bar.open = all_bars[1].open;   // Correct OHLCV from completed interval
-        corrected_first_bar.high = all_bars[1].high;   // Correct OHLCV  
-        corrected_first_bar.low = all_bars[1].low;     // Correct OHLCV
-        corrected_first_bar.close = all_bars[1].close; // Correct OHLCV
-        corrected_first_bar.volume = all_bars[1].volume; // Correct OHLCV
-        corrected_first_bar.open_interest = all_bars[1].open_interest;
+    if (get_interval_code() == "DAILY") {
+        // DAILY DATA: Use raw data as-is - no corrections needed
+        // IQFeed daily data is correctly aligned (unlike intraday)
         
-        std::string corrected_datetime = (corrected_first_bar.time.empty()) ? 
-                                       corrected_first_bar.date : 
-                                       corrected_first_bar.date + " " + corrected_first_bar.time;
+        auto now = std::chrono::system_clock::now();
+        auto time_t_now = std::chrono::system_clock::to_time_t(now);
+        auto tm_now = *std::localtime(&time_t_now);
+        std::ostringstream today_str;
+        today_str << std::put_time(&tm_now, "%Y-%m-%d");
         
-        // Check if the corrected bar is complete
-        if (is_complete_bar(corrected_datetime)) {
-            data.push_back(corrected_first_bar);
-            logger->debug("Added corrected first bar: " + corrected_first_bar.date + " " + corrected_first_bar.time + 
-                         " (timestamp from line 0, OHLCV from line 1)");
-        }
-        
-        // Continue with remaining bars starting from index 2 (skip the two we already used)
-        for (size_t i = 2; i < all_bars.size(); i++) {
-            const auto& bar = all_bars[i];
-            std::string full_datetime = (bar.time.empty()) ? bar.date : bar.date + " " + bar.time;
-            
-            if (is_complete_bar(full_datetime)) {
+        for (const auto& bar : all_bars) {
+            if (bar.date != today_str.str()) {
                 data.push_back(bar);
-                logger->debug("Added complete bar #" + std::to_string(data.size()) + 
-                             ": " + bar.date + " " + bar.time);
+                // Debug: Show OHLC values in correct order for verification
+                logger->debug("Added daily bar: " + bar.date + 
+                             " | OHLC: " + std::to_string(bar.open) + "/" + 
+                             std::to_string(bar.high) + "/" + std::to_string(bar.low) + "/" + 
+                             std::to_string(bar.close) + " Vol:" + std::to_string(bar.volume));
             } else {
                 incomplete_bars_filtered++;
-                logger->debug("Filtered incomplete bar: " + full_datetime);
+                logger->debug("Filtered today's incomplete bar: " + bar.date);
             }
         }
-        logger->info("Applied timestamp/OHLCV correction - using " + std::to_string(data.size()) + " corrected bars");
+        logger->info("Daily data used as-is (correctly aligned) - " + std::to_string(data.size()) + " complete bars");
     } else {
-        logger->error("Insufficient bars for timestamp/OHLCV correction");
+        // INTRADAY DATA: Use existing working logic (don't change!)
+        if (all_bars.size() >= 2) {
+            // Create corrected first bar: timestamp from bar[0], OHLCV from bar[1]
+            HistoricalBar corrected_first_bar;
+            corrected_first_bar.date = all_bars[0].date;   // Correct timestamp
+            corrected_first_bar.time = all_bars[0].time;   // Correct timestamp
+            corrected_first_bar.open = all_bars[1].open;   // Correct OHLCV
+            corrected_first_bar.high = all_bars[1].high;   // Correct OHLCV  
+            corrected_first_bar.low = all_bars[1].low;     // Correct OHLCV
+            corrected_first_bar.close = all_bars[1].close; // Correct OHLCV
+            corrected_first_bar.volume = all_bars[1].volume; // Correct OHLCV
+            corrected_first_bar.open_interest = all_bars[1].open_interest;
+            
+            std::string corrected_datetime = corrected_first_bar.date + " " + corrected_first_bar.time;
+            
+            if (is_complete_bar(corrected_datetime)) {
+                data.push_back(corrected_first_bar);
+                logger->debug("Added corrected intraday bar: " + corrected_first_bar.date + " " + corrected_first_bar.time + 
+                             " (timestamp from line 0, OHLCV from line 1)");
+            }
+            
+            // Continue with remaining bars starting from index 2
+            for (size_t i = 2; i < all_bars.size(); i++) {
+                const auto& bar = all_bars[i];
+                std::string full_datetime = bar.date + " " + bar.time;
+                
+                if (is_complete_bar(full_datetime)) {
+                    data.push_back(bar);
+                    logger->debug("Added intraday bar #" + std::to_string(data.size()) + 
+                                 ": " + bar.date + " " + bar.time);
+                } else {
+                    incomplete_bars_filtered++;
+                }
+            }
+            logger->info("Applied intraday timestamp/OHLCV correction - using " + std::to_string(data.size()) + " bars");
+        }
     }
     
     // Debug: Show the order of final processed data
