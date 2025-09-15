@@ -7849,3 +7849,131 @@ HIST_NQ#_Daily,!ENDMSG!,
 [DEBUG] 2025-09-15 11:13:18 - FinalBar[3] = 2025-09-08  | O:3635.000000 H:3685.700000 L:3621.700000 C:3677.400000
 [DEBUG] 2025-09-15 11:13:18 - FinalBar[4] = 2025-09-05  | O:3602.000000 H:3655.500000 L:3595.400000 C:3653.300000
 [SUCCESS] 2025-09-15 11:13:18 - Successfully parsed 99 complete bars
+[INFO] 2025-09-15 11:15:23 - Fetching 100 Daily bars for symbol: QGC#
+[DEBUG] 2025-09-15 11:15:23 - Sending command: HDX,QGC#,100,0,HIST_QGC#_Daily,100,0
+
+[DEBUG] 2025-09-15 11:15:24 - Raw response received (7422 characters)
+[DEBUG] 2025-09-15 11:15:24 - Parsing historical data response...
+[DEBUG] 2025-09-15 11:15:24 - First 5 lines of raw response:
+[DEBUG] 2025-09-15 11:15:24 - Raw Line 0: HIST_QGC#_Daily,LH,2025-09-12,3695.5,3667.3,3672.8,3686.4,154559,385580,
+[DEBUG] 2025-09-15 11:15:24 - Raw Line 1: HIST_QGC#_Daily,LH,2025-09-11,3687.5,3651.0,3680.6,3673.6,214612,385713,
+[DEBUG] 2025-09-15 11:15:24 - Raw Line 2: HIST_QGC#_Daily,LH,2025-09-10,3697.5,3651.4,3662.0,3682.0,182028,385483,
+[DEBUG] 2025-09-15 11:15:24 - Raw Line 3: HIST_QGC#_Daily,LH,2025-09-09,3715.2,3663.7,3676.6,3682.2,262656,384952,
+[DEBUG] 2025-09-15 11:15:24 - Raw Line 4: HIST_QGC#_Daily,LH,2025-09-08,3685.7,3621.7,3635.0,3677.4,227640,382618,
+[DEBUG] 2025-09-15 11:15:24 - Last 5 lines of raw response:
+[DEBUG] 2025-09-15 11:15:24 - Raw Line 95: HIST_QGC#_Daily,LH,2025-04-28,3363.8,3278.0,3336.5,3347.7,217995,323559,
+[DEBUG] 2025-09-15 11:15:24 - Raw Line 96: HIST_QGC#_Daily,LH,2025-04-25,3384.1,3274.8,3362.0,3298.4,241249,324294,
+[DEBUG] 2025-09-15 11:15:24 - Raw Line 97: HIST_QGC#_Daily,LH,2025-04-24,3377.0,3301.3,3301.8,3348.6,239603,327650,
+[DEBUG] 2025-09-15 11:15:24 - Raw Line 98: HIST_QGC#_Daily,LH,2025-04-23,3396.0,3270.8,3367.7,3294.1,377411,342439,
+[DEBUG] 2025-09-15 11:15:24 - Raw Line 99: HIST_QGC#_Daily,LH,2025-04-22,3509.9,3379.1,3435.1,3419.4,423078,350351,
+[DEBUG] 2025-09-15 11:15:24 - First 3 parsed bars:
+[DEBUG] 2025-09-15 11:15:24 - ParsedBar[0] = 2025-09-12 OHLCV: 3672.800000/3695.500000/3667.300000/3686.400000/154559
+[DEBUG] 2025-09-15 11:15:24 - ParsedBar[1] = 2025-09-11 OHLCV: 3680.600000/3687.500000/3651.000000/3673.600000/214612
+[DEBUG] 2025-09-15 11:15:24 - ParsedBar[2] = 2025-09-10 OHLCV: 3662.000000/3697.500000/3651.400000/3682.000000/182028
+[DEBUG] 2025-09-15 11:15:24 - Added corrected first bar: 2025-09-12  (timestamp from line 0, OHLCV from line 1)
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #2: 2025-09-10 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #3: 2025-09-09 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #4: 2025-09-08 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #5: 2025-09-05 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #6: 2025-09-04 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #7: 2025-09-03 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #8: 2025-09-02 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #9: 2025-08-29 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #10: 2025-08-28 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #11: 2025-08-27 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #12: 2025-08-26 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #13: 2025-08-25 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #14: 2025-08-22 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #15: 2025-08-21 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #16: 2025-08-20 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #17: 2025-08-19 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #18: 2025-08-18 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #19: 2025-08-15 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #20: 2025-08-14 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #21: 2025-08-13 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #22: 2025-08-12 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #23: 2025-08-11 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #24: 2025-08-08 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #25: 2025-08-07 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #26: 2025-08-06 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #27: 2025-08-05 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #28: 2025-08-04 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #29: 2025-08-01 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #30: 2025-07-31 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #31: 2025-07-30 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #32: 2025-07-29 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #33: 2025-07-28 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #34: 2025-07-25 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #35: 2025-07-24 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #36: 2025-07-23 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #37: 2025-07-22 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #38: 2025-07-21 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #39: 2025-07-18 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #40: 2025-07-17 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #41: 2025-07-16 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #42: 2025-07-15 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #43: 2025-07-14 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #44: 2025-07-11 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #45: 2025-07-10 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #46: 2025-07-09 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #47: 2025-07-08 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #48: 2025-07-07 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #49: 2025-07-03 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #50: 2025-07-02 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #51: 2025-07-01 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #52: 2025-06-30 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #53: 2025-06-27 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #54: 2025-06-26 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #55: 2025-06-25 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #56: 2025-06-24 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #57: 2025-06-23 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #58: 2025-06-20 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #59: 2025-06-18 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #60: 2025-06-17 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #61: 2025-06-16 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #62: 2025-06-13 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #63: 2025-06-12 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #64: 2025-06-11 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #65: 2025-06-10 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #66: 2025-06-09 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #67: 2025-06-06 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #68: 2025-06-05 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #69: 2025-06-04 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #70: 2025-06-03 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #71: 2025-06-02 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #72: 2025-05-30 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #73: 2025-05-29 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #74: 2025-05-28 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #75: 2025-05-27 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #76: 2025-05-23 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #77: 2025-05-22 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #78: 2025-05-21 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #79: 2025-05-20 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #80: 2025-05-19 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #81: 2025-05-16 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #82: 2025-05-15 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #83: 2025-05-14 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #84: 2025-05-13 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #85: 2025-05-12 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #86: 2025-05-09 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #87: 2025-05-08 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #88: 2025-05-07 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #89: 2025-05-06 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #90: 2025-05-05 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #91: 2025-05-02 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #92: 2025-05-01 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #93: 2025-04-30 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #94: 2025-04-29 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #95: 2025-04-28 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #96: 2025-04-25 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #97: 2025-04-24 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #98: 2025-04-23 
+[DEBUG] 2025-09-15 11:15:24 - Added complete bar #99: 2025-04-22 
+[INFO] 2025-09-15 11:15:24 - Applied timestamp/OHLCV correction - using 99 corrected bars
+[DEBUG] 2025-09-15 11:15:24 - First 5 final processed bars:
+[DEBUG] 2025-09-15 11:15:24 - FinalBar[0] = 2025-09-12  | O:3680.600000 H:3687.500000 L:3651.000000 C:3673.600000
+[DEBUG] 2025-09-15 11:15:24 - FinalBar[1] = 2025-09-10  | O:3662.000000 H:3697.500000 L:3651.400000 C:3682.000000
+[DEBUG] 2025-09-15 11:15:24 - FinalBar[2] = 2025-09-09  | O:3676.600000 H:3715.200000 L:3663.700000 C:3682.200000
+[DEBUG] 2025-09-15 11:15:24 - FinalBar[3] = 2025-09-08  | O:3635.000000 H:3685.700000 L:3621.700000 C:3677.400000
+[DEBUG] 2025-09-15 11:15:24 - FinalBar[4] = 2025-09-05  | O:3602.000000 H:3655.500000 L:3595.400000 C:3653.300000
+[SUCCESS] 2025-09-15 11:15:24 - Successfully parsed 99 complete bars
