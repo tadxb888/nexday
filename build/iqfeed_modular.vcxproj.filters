@@ -28,6 +28,12 @@
     <ClCompile Include="C:\Users\Ross\Documents\IQFeed\nexday\IQFeedConnection\TwoHourDataFetcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\Ross\Documents\IQFeed\nexday\IQFeedConnection\FetchScheduler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ross\Documents\IQFeed\nexday\Database\database_simple.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Ross\Documents\IQFeed\nexday\CMakeLists.txt" />

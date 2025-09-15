@@ -1,0 +1,215 @@
+[INFO] 2025-09-15 01:47:14 - FetchScheduler initialized
+[INFO] 2025-09-15 01:47:14 - Configuration updated. Symbols: 3, Trading days: 5
+[SUCCESS] 2025-09-15 01:47:39 - FetchScheduler started successfully
+[INFO] 2025-09-15 01:47:39 - Scheduler main loop started
+[INFO] 2025-09-15 01:47:39 - Checking for missing data and initiating recovery...
+[INFO] 2025-09-15 01:47:39 - Recovery operation initiated from 2025-09-14 01:47:39 to 2025-09-15 01:47:39
+[INFO] 2025-09-15 01:47:39 - Missing data detected for QGC# daily - recovering
+[INFO] 2025-09-15 01:47:39 - Database save for QGC# daily: 100 saved, 0 failed
+[SUCCESS] 2025-09-15 01:47:39 - Daily fetch completed for QGC#: 100 bars
+[INFO] 2025-09-15 01:47:39 - Latest daily bar: 2025-09-12 OHLC: 3672.800000/3695.500000/3667.300000/3686.400000
+[INFO] 2025-09-15 01:47:39 - Missing data detected for QGC# 15min - recovering
+[INFO] 2025-09-15 01:47:40 - Database save for QGC# 15min: 95 saved, 0 failed
+[SUCCESS] 2025-09-15 01:47:40 - 15min fetch completed for QGC#: 95 bars
+[INFO] 2025-09-15 01:47:40 - Latest 15min bar: 2025-09-12 00:00:00 OHLC: 3691.000000/3692.400000/3689.800000/3691.800000
+[INFO] 2025-09-15 01:47:40 - Missing data detected for QGC# 30min - recovering
+[INFO] 2025-09-15 01:47:40 - Database save for QGC# 30min: 96 saved, 0 failed
+[SUCCESS] 2025-09-15 01:47:40 - 30min fetch completed for QGC#: 96 bars
+[INFO] 2025-09-15 01:47:40 - Latest 30min bar: 2025-09-10 22:30:00 OHLC: 3679.300000/3681.700000/3675.300000/3676.000000
+[INFO] 2025-09-15 01:47:40 - Missing data detected for QGC# 1hour - recovering
+[INFO] 2025-09-15 01:47:41 - Database save for QGC# 1hour: 97 saved, 0 failed
+[SUCCESS] 2025-09-15 01:47:41 - 1hour fetch completed for QGC#: 97 bars
+[INFO] 2025-09-15 01:47:41 - Latest 1hour bar: 2025-09-08 19:00:00 OHLC: 3676.600000/3678.000000/3670.800000/3671.500000
+[INFO] 2025-09-15 01:47:41 - Missing data detected for QGC# 2hours - recovering
+[INFO] 2025-09-15 01:47:41 - Database save for QGC# 2hours: 98 saved, 0 failed
+[SUCCESS] 2025-09-15 01:47:41 - 2hours fetch completed for QGC#: 98 bars
+[INFO] 2025-09-15 01:47:41 - Latest 2hours bar: 2025-09-02 20:00:00 OHLC: 3600.000000/3601.400000/3593.400000/3595.500000
+[INFO] 2025-09-15 01:47:41 - Missing data detected for ES# daily - recovering
+[ERROR] 2025-09-15 01:47:42 - Failed to fetch daily data for ES# from IQFeed
+[INFO] 2025-09-15 01:47:42 - Missing data detected for ES# 15min - recovering
+[ERROR] 2025-09-15 01:47:42 - Failed to fetch 15min data for ES# from IQFeed
+[INFO] 2025-09-15 01:47:42 - Missing data detected for ES# 30min - recovering
+[ERROR] 2025-09-15 01:47:43 - Failed to fetch 30min data for ES# from IQFeed
+[INFO] 2025-09-15 01:47:43 - Missing data detected for ES# 1hour - recovering
+[ERROR] 2025-09-15 01:47:43 - Failed to fetch 1hour data for ES# from IQFeed
+[INFO] 2025-09-15 01:47:43 - Missing data detected for ES# 2hours - recovering
+[ERROR] 2025-09-15 01:47:44 - Failed to fetch 2hours data for ES# from IQFeed
+[INFO] 2025-09-15 01:47:44 - Missing data detected for NQ# daily - recovering
+[ERROR] 2025-09-15 01:47:44 - Failed to fetch daily data for NQ# from IQFeed
+[INFO] 2025-09-15 01:47:44 - Missing data detected for NQ# 15min - recovering
+[ERROR] 2025-09-15 01:47:45 - Failed to fetch 15min data for NQ# from IQFeed
+[INFO] 2025-09-15 01:47:45 - Missing data detected for NQ# 30min - recovering
+[ERROR] 2025-09-15 01:47:45 - Failed to fetch 30min data for NQ# from IQFeed
+[INFO] 2025-09-15 01:47:45 - Missing data detected for NQ# 1hour - recovering
+[ERROR] 2025-09-15 01:47:46 - Failed to fetch 1hour data for NQ# from IQFeed
+[INFO] 2025-09-15 01:47:46 - Missing data detected for NQ# 2hours - recovering
+[ERROR] 2025-09-15 01:47:46 - Failed to fetch 2hours data for NQ# from IQFeed
+[INFO] 2025-09-15 01:52:07 - FetchScheduler initialized
+[INFO] 2025-09-15 01:52:07 - Configuration updated. Symbols: 3, Trading days: 5
+[SUCCESS] 2025-09-15 01:52:10 - FetchScheduler started successfully
+[INFO] 2025-09-15 01:52:10 - Scheduler main loop started
+[INFO] 2025-09-15 01:52:10 - Checking for missing data and initiating recovery...
+[INFO] 2025-09-15 01:52:10 - Recovery operation initiated from 2025-09-14 01:52:10 to 2025-09-15 01:52:10
+[INFO] 2025-09-15 01:52:10 - Missing data detected for QGC# daily - recovering
+[INFO] 2025-09-15 01:52:11 - Database save for QGC# daily: 100 saved, 0 failed
+[SUCCESS] 2025-09-15 01:52:11 - Daily fetch completed for QGC#: 100 bars
+[INFO] 2025-09-15 01:52:11 - Latest daily bar: 2025-09-12 OHLC: 3672.800000/3695.500000/3667.300000/3686.400000
+[INFO] 2025-09-15 01:52:11 - Missing data detected for QGC# 15min - recovering
+[INFO] 2025-09-15 01:52:11 - Database save for QGC# 15min: 95 saved, 0 failed
+[SUCCESS] 2025-09-15 01:52:11 - 15min fetch completed for QGC#: 95 bars
+[INFO] 2025-09-15 01:52:11 - Latest 15min bar: 2025-09-12 00:00:00 OHLC: 3691.000000/3692.400000/3689.800000/3691.800000
+[INFO] 2025-09-15 01:52:11 - Missing data detected for QGC# 30min - recovering
+[INFO] 2025-09-15 01:52:12 - Database save for QGC# 30min: 96 saved, 0 failed
+[SUCCESS] 2025-09-15 01:52:12 - 30min fetch completed for QGC#: 96 bars
+[INFO] 2025-09-15 01:52:12 - Latest 30min bar: 2025-09-10 22:30:00 OHLC: 3679.300000/3681.700000/3675.300000/3676.000000
+[INFO] 2025-09-15 01:52:12 - Missing data detected for QGC# 1hour - recovering
+[INFO] 2025-09-15 01:52:12 - Database save for QGC# 1hour: 97 saved, 0 failed
+[SUCCESS] 2025-09-15 01:52:12 - 1hour fetch completed for QGC#: 97 bars
+[INFO] 2025-09-15 01:52:12 - Latest 1hour bar: 2025-09-08 19:00:00 OHLC: 3676.600000/3678.000000/3670.800000/3671.500000
+[INFO] 2025-09-15 01:52:12 - Missing data detected for QGC# 2hours - recovering
+[INFO] 2025-09-15 01:52:13 - Database save for QGC# 2hours: 98 saved, 0 failed
+[SUCCESS] 2025-09-15 01:52:13 - 2hours fetch completed for QGC#: 98 bars
+[INFO] 2025-09-15 01:52:13 - Latest 2hours bar: 2025-09-02 20:00:00 OHLC: 3600.000000/3601.400000/3593.400000/3595.500000
+[INFO] 2025-09-15 01:52:13 - Missing data detected for ES# daily - recovering
+[ERROR] 2025-09-15 01:52:13 - Failed to fetch daily data for ES# from IQFeed
+[INFO] 2025-09-15 01:52:13 - Missing data detected for ES# 15min - recovering
+[ERROR] 2025-09-15 01:52:14 - Failed to fetch 15min data for ES# from IQFeed
+[INFO] 2025-09-15 01:52:14 - Missing data detected for ES# 30min - recovering
+[ERROR] 2025-09-15 01:52:14 - Failed to fetch 30min data for ES# from IQFeed
+[INFO] 2025-09-15 01:52:14 - Missing data detected for ES# 1hour - recovering
+[ERROR] 2025-09-15 01:52:15 - Failed to fetch 1hour data for ES# from IQFeed
+[INFO] 2025-09-15 01:52:15 - Missing data detected for ES# 2hours - recovering
+[ERROR] 2025-09-15 01:52:15 - Failed to fetch 2hours data for ES# from IQFeed
+[INFO] 2025-09-15 01:52:15 - Missing data detected for NQ# daily - recovering
+[ERROR] 2025-09-15 01:52:15 - Failed to fetch daily data for NQ# from IQFeed
+[INFO] 2025-09-15 01:52:15 - Missing data detected for NQ# 15min - recovering
+[ERROR] 2025-09-15 01:52:16 - Failed to fetch 15min data for NQ# from IQFeed
+[INFO] 2025-09-15 01:52:16 - Missing data detected for NQ# 30min - recovering
+[ERROR] 2025-09-15 01:52:16 - Failed to fetch 30min data for NQ# from IQFeed
+[INFO] 2025-09-15 01:52:16 - Missing data detected for NQ# 1hour - recovering
+[ERROR] 2025-09-15 01:52:17 - Failed to fetch 1hour data for NQ# from IQFeed
+[INFO] 2025-09-15 01:52:17 - Missing data detected for NQ# 2hours - recovering
+[ERROR] 2025-09-15 01:52:17 - Failed to fetch 2hours data for NQ# from IQFeed
+[INFO] 2025-09-15 01:54:51 - FetchScheduler initialized
+[INFO] 2025-09-15 01:54:51 - Configuration updated. Symbols: 1, Trading days: 5
+[SUCCESS] 2025-09-15 01:54:53 - FetchScheduler started successfully
+[INFO] 2025-09-15 01:54:53 - Scheduler main loop started
+[INFO] 2025-09-15 01:54:53 - Checking for missing data and initiating recovery...
+[INFO] 2025-09-15 01:54:53 - Recovery operation initiated from 2025-09-14 01:54:53 to 2025-09-15 01:54:53
+[INFO] 2025-09-15 01:54:53 - Missing data detected for QGC# daily - recovering
+[INFO] 2025-09-15 01:54:53 - Database save for QGC# daily: 100 saved, 0 failed
+[SUCCESS] 2025-09-15 01:54:53 - Daily fetch completed for QGC#: 100 bars
+[INFO] 2025-09-15 01:54:53 - Latest daily bar: 2025-09-12 OHLC: 3672.800000/3695.500000/3667.300000/3686.400000
+[INFO] 2025-09-15 01:54:53 - Missing data detected for QGC# 15min - recovering
+[INFO] 2025-09-15 01:54:54 - Database save for QGC# 15min: 95 saved, 0 failed
+[SUCCESS] 2025-09-15 01:54:54 - 15min fetch completed for QGC#: 95 bars
+[INFO] 2025-09-15 01:54:54 - Latest 15min bar: 2025-09-12 00:00:00 OHLC: 3691.000000/3692.400000/3689.800000/3691.800000
+[INFO] 2025-09-15 01:54:54 - Missing data detected for QGC# 30min - recovering
+[INFO] 2025-09-15 01:54:54 - Database save for QGC# 30min: 96 saved, 0 failed
+[SUCCESS] 2025-09-15 01:54:54 - 30min fetch completed for QGC#: 96 bars
+[INFO] 2025-09-15 01:54:54 - Latest 30min bar: 2025-09-10 22:30:00 OHLC: 3679.300000/3681.700000/3675.300000/3676.000000
+[INFO] 2025-09-15 01:54:54 - Missing data detected for QGC# 1hour - recovering
+[INFO] 2025-09-15 01:54:55 - Database save for QGC# 1hour: 97 saved, 0 failed
+[SUCCESS] 2025-09-15 01:54:55 - 1hour fetch completed for QGC#: 97 bars
+[INFO] 2025-09-15 01:54:55 - Latest 1hour bar: 2025-09-08 19:00:00 OHLC: 3676.600000/3678.000000/3670.800000/3671.500000
+[INFO] 2025-09-15 01:54:55 - Missing data detected for QGC# 2hours - recovering
+[INFO] 2025-09-15 01:54:55 - Database save for QGC# 2hours: 98 saved, 0 failed
+[SUCCESS] 2025-09-15 01:54:55 - 2hours fetch completed for QGC#: 98 bars
+[INFO] 2025-09-15 01:54:55 - Latest 2hours bar: 2025-09-02 20:00:00 OHLC: 3600.000000/3601.400000/3593.400000/3595.500000
+[INFO] 2025-09-15 01:56:27 - FetchScheduler initialized
+[INFO] 2025-09-15 01:56:27 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 01:56:35 - Manual fetch all data initiated for 1 symbols
+[INFO] 2025-09-15 01:56:35 - Database save for QGC# daily: 100 saved, 0 failed
+[SUCCESS] 2025-09-15 01:56:35 - Daily fetch completed for QGC#: 100 bars
+[INFO] 2025-09-15 01:56:35 - Latest daily bar: 2025-09-12 OHLC: 3672.800000/3695.500000/3667.300000/3686.400000
+[INFO] 2025-09-15 01:56:36 - Database save for QGC# 15min: 94 saved, 0 failed
+[SUCCESS] 2025-09-15 01:56:36 - 15min fetch completed for QGC#: 94 bars
+[INFO] 2025-09-15 01:56:36 - Latest 15min bar: 2025-09-12 00:15:00 OHLC: 3692.000000/3693.400000/3690.500000/3692.100000
+[INFO] 2025-09-15 01:56:36 - Database save for QGC# 30min: 96 saved, 0 failed
+[SUCCESS] 2025-09-15 01:56:36 - 30min fetch completed for QGC#: 96 bars
+[INFO] 2025-09-15 01:56:36 - Latest 30min bar: 2025-09-10 22:30:00 OHLC: 3679.300000/3681.700000/3675.300000/3676.000000
+[INFO] 2025-09-15 01:56:37 - Database save for QGC# 1hour: 97 saved, 0 failed
+[SUCCESS] 2025-09-15 01:56:37 - 1hour fetch completed for QGC#: 97 bars
+[INFO] 2025-09-15 01:56:37 - Latest 1hour bar: 2025-09-08 19:00:00 OHLC: 3676.600000/3678.000000/3670.800000/3671.500000
+[INFO] 2025-09-15 01:56:37 - Database save for QGC# 2hours: 98 saved, 0 failed
+[SUCCESS] 2025-09-15 01:56:37 - 2hours fetch completed for QGC#: 98 bars
+[INFO] 2025-09-15 01:56:37 - Latest 2hours bar: 2025-09-02 20:00:00 OHLC: 3600.000000/3601.400000/3593.400000/3595.500000
+[INFO] 2025-09-15 04:45:30 - FetchScheduler initialized
+[INFO] 2025-09-15 04:45:30 - Configuration updated. Symbols: 3, Trading days: 5
+[INFO] 2025-09-15 04:58:32 - FetchScheduler initialized
+[INFO] 2025-09-15 04:58:32 - Configuration updated. Symbols: 3, Trading days: 5
+[INFO] 2025-09-15 05:00:50 - FetchScheduler initialized
+[INFO] 2025-09-15 05:00:50 - Configuration updated. Symbols: 3, Trading days: 5
+[INFO] 2025-09-15 05:02:26 - FetchScheduler initialized
+[INFO] 2025-09-15 05:02:26 - Configuration updated. Symbols: 3, Trading days: 5
+[INFO] 2025-09-15 05:02:43 - FetchScheduler initialized
+[INFO] 2025-09-15 05:02:43 - Configuration updated. Symbols: 3, Trading days: 5
+[INFO] 2025-09-15 05:05:09 - FetchScheduler initialized
+[INFO] 2025-09-15 05:05:09 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 05:32:52 - FetchScheduler initialized
+[INFO] 2025-09-15 05:32:52 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 05:45:44 - FetchScheduler initialized
+[INFO] 2025-09-15 05:45:44 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 05:56:55 - FetchScheduler initialized
+[INFO] 2025-09-15 05:56:55 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 06:50:37 - FetchScheduler initialized
+[INFO] 2025-09-15 06:50:37 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 07:06:51 - FetchScheduler initialized
+[INFO] 2025-09-15 07:06:51 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 07:16:35 - FetchScheduler initialized
+[INFO] 2025-09-15 07:16:35 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 07:21:21 - FetchScheduler initialized
+[INFO] 2025-09-15 07:21:21 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 07:26:15 - FetchScheduler initialized
+[INFO] 2025-09-15 07:26:15 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 07:34:19 - FetchScheduler initialized
+[INFO] 2025-09-15 07:34:19 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 07:37:07 - FetchScheduler initialized
+[INFO] 2025-09-15 07:37:07 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 07:37:58 - FetchScheduler initialized
+[INFO] 2025-09-15 07:37:58 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 07:51:05 - FetchScheduler initialized
+[INFO] 2025-09-15 07:51:05 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 07:55:03 - FetchScheduler initialized
+[INFO] 2025-09-15 07:55:03 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 07:56:59 - FetchScheduler initialized
+[INFO] 2025-09-15 07:56:59 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 08:43:12 - FetchScheduler initialized
+[INFO] 2025-09-15 08:43:12 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 08:47:28 - FetchScheduler initialized
+[INFO] 2025-09-15 08:47:28 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 08:54:21 - FetchScheduler initialized
+[INFO] 2025-09-15 08:54:21 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 09:07:47 - FetchScheduler initialized
+[INFO] 2025-09-15 09:07:47 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 09:17:37 - FetchScheduler initialized
+[INFO] 2025-09-15 09:17:37 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 09:25:19 - FetchScheduler initialized
+[INFO] 2025-09-15 09:25:19 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 09:28:22 - FetchScheduler initialized
+[INFO] 2025-09-15 09:28:22 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 09:31:02 - FetchScheduler initialized
+[INFO] 2025-09-15 09:31:02 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 10:17:37 - FetchScheduler initialized
+[INFO] 2025-09-15 10:17:37 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 10:28:04 - FetchScheduler initialized
+[INFO] 2025-09-15 10:28:04 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 10:35:37 - FetchScheduler initialized
+[INFO] 2025-09-15 10:35:37 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 10:39:54 - FetchScheduler initialized
+[INFO] 2025-09-15 10:39:54 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 10:42:00 - FetchScheduler initialized
+[INFO] 2025-09-15 10:42:00 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 10:43:17 - FetchScheduler initialized
+[INFO] 2025-09-15 10:43:17 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 10:56:06 - FetchScheduler initialized
+[INFO] 2025-09-15 10:56:06 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 11:04:36 - FetchScheduler initialized
+[INFO] 2025-09-15 11:04:36 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 11:10:43 - FetchScheduler initialized
+[INFO] 2025-09-15 11:10:43 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 11:13:16 - FetchScheduler initialized
+[INFO] 2025-09-15 11:13:16 - Configuration updated. Symbols: 1, Trading days: 5
+[INFO] 2025-09-15 11:15:24 - Database save for QGC# daily: 99 saved, 0 failed
+[SUCCESS] 2025-09-15 11:15:24 - Daily fetch completed for QGC#: 99 bars
+[INFO] 2025-09-15 11:15:24 - Latest daily bar: 2025-09-12 OHLC: 3680.600000/3687.500000/3651.000000/3673.600000

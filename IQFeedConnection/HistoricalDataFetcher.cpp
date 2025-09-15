@@ -39,10 +39,12 @@ bool HistoricalDataFetcher::fetch_historical_data(const std::string& symbol, int
         // Daily data uses HDX command - explicitly exclude partial datapoint
         command = "HDX," + symbol + "," + std::to_string(num_bars) + ",0," + request_id + ",100,0\r\n";
     } else {
-        // Intraday data uses HIX command with LabelAtBeginning=0 for end timestamps
-        // HIX,Symbol,Interval,MaxDatapoints,DataDirection,RequestID,DatapointsPerSend,IntervalType,LabelAtBeginning
+        // HIX with FIXED timestamp labeling to match Time & Sales display
+        // HIX: Symbol,Interval,MaxDatapoints,DataDirection,RequestID,DatapointsPerSend,IntervalType,LabelAtBeginning
+        // LabelAtBeginning=1 (default) means timestamp represents START of interval
+        // This matches Time & Sales display convention where 9:30 = 9:30-9:45 bar
         command = "HIX," + symbol + "," + interval_code + "," + std::to_string(num_bars) + 
-                 ",1," + request_id + ",100,s,0\r\n";
+                 ",0," + request_id + ",100,s,1\r\n";
     }
     
     logger->debug("Sending command: " + command);
@@ -70,7 +72,6 @@ bool HistoricalDataFetcher::fetch_historical_data(const std::string& symbol, int
 
 bool HistoricalDataFetcher::is_complete_bar(const std::string& datetime_str) const {
     if (get_interval_code() == "DAILY") {
-        // For daily data, check if it's not today's date
         auto now = std::chrono::system_clock::now();
         auto time_t_now = std::chrono::system_clock::to_time_t(now);
         auto tm_now = *std::localtime(&time_t_now);
@@ -78,37 +79,47 @@ bool HistoricalDataFetcher::is_complete_bar(const std::string& datetime_str) con
         std::ostringstream today_str;
         today_str << std::put_time(&tm_now, "%Y-%m-%d");
         
-        bool is_complete = datetime_str != today_str.str();
-        
-        // Debug: Log the comparison
-        logger->debug("Daily bar date check: " + datetime_str + " vs today " + today_str.str() + 
-                     " -> " + (is_complete ? "COMPLETE" : "INCOMPLETE"));
-        
-        return is_complete;
+        return datetime_str != today_str.str();
     } else {
-        // For intraday data, parse the timestamp and check if it's at least one full interval ago
+        // SIMPLIFIED: With LabelAtBeginning=1, timestamps now represent interval START
+        // No need for timezone corrections - timestamp alignment is now consistent with Time & Sales
         std::istringstream ss(datetime_str);
         std::tm tm = {};
         ss >> std::get_time(&tm, "%Y-%m-%d %H:%M:%S");
         
         if (ss.fail()) {
-            logger->debug("Failed to parse datetime: " + datetime_str);
-            return false; // If can't parse, consider incomplete to be safe
+            logger->debug("PARSE_FAIL: " + datetime_str);
+            return false;
         }
         
-        auto bar_time = std::chrono::system_clock::from_time_t(std::mktime(&tm));
+        tm.tm_isdst = -1;
+        auto bar_start_time = std::chrono::system_clock::from_time_t(std::mktime(&tm));
+        
+        // Calculate when this interval would end
+        int interval_minutes = 0;
+        if (period_name == "15min") interval_minutes = 15;
+        else if (period_name == "30min") interval_minutes = 30;
+        else if (period_name == "1hour") interval_minutes = 60;
+        else if (period_name == "2hours") interval_minutes = 120;
+        else if (period_name == "4hours") interval_minutes = 240;
+        
+        auto bar_end_time = bar_start_time + std::chrono::minutes(interval_minutes);
         auto now = std::chrono::system_clock::now();
-        auto interval_duration = get_interval_offset();
         
-        // A bar is complete if enough time has passed since its end time
-        // Add a small buffer (30 seconds) to account for data processing delays
-        auto completion_threshold = bar_time + interval_duration + std::chrono::seconds(30);
+        // Bar is complete if current time is at least 5 minutes past its end time
+        auto minutes_since_end = std::chrono::duration_cast<std::chrono::minutes>(now - bar_end_time);
+        bool is_complete = minutes_since_end.count() >= 5;
         
-        bool is_complete = now >= completion_threshold;
+        // Debug logging with corrected logic
+        auto bar_end_time_t = std::chrono::system_clock::to_time_t(bar_end_time);
+        auto bar_end_tm = *std::localtime(&bar_end_time_t);
+        std::ostringstream end_str;
+        end_str << std::put_time(&bar_end_tm, "%Y-%m-%d %H:%M:%S");
         
-        if (!is_complete) {
-            logger->debug("Bar at " + datetime_str + " is incomplete - current bar still in progress");
-        }
+        logger->debug("COMPLETENESS_CHECK: BarStart=" + datetime_str + 
+                     " | BarEnd=" + end_str.str() + 
+                     " | MinutesSinceEnd=" + std::to_string(minutes_since_end.count()) + 
+                     " | Result=" + (is_complete ? "COMPLETE" : "INCOMPLETE"));
         
         return is_complete;
     }
@@ -135,14 +146,20 @@ bool HistoricalDataFetcher::parse_historical_data(const std::string& response, c
         }
     }
     
-    // Debug: Print the last few lines of raw response to see the order
+    // DEBUG: Show first few raw lines to understand data structure
+    logger->debug("First 5 lines of raw response:");
+    for (int i = 0; i < std::min(5, (int)lines.size()); i++) {
+        logger->debug("Raw Line " + std::to_string(i) + ": " + lines[i]);
+    }
+    
+    // DEBUG: Show last few lines of raw response to see the order
     logger->debug("Last 5 lines of raw response:");
     for (int i = std::max(0, (int)lines.size() - 5); i < (int)lines.size(); i++) {
         logger->debug("Raw Line " + std::to_string(i) + ": " + lines[i]);
     }
     
     data.clear();
-    int incomplete_bars_filtered = 0;
+    std::vector<HistoricalBar> all_bars; // Store all parsed bars first
     
     for (const auto& line : lines) {
         // Skip empty lines and system messages
@@ -177,12 +194,12 @@ bool HistoricalDataFetcher::parse_historical_data(const std::string& response, c
                 } else {
                     // HIX Intraday format: RequestID,LH,DateTime,High,Low,Open,Close,Volume,TotalVolume,IntervalVolume
                     if (fields.size() >= 8) {
-                        // Store original timestamp for debugging
+                        // Store original timestamp - now correctly represents interval START
                         std::string original_datetime = fields[2];
                         full_datetime = original_datetime;
                         
-                        // Since we used LabelAtBeginning=0, timestamps are at interval END
-                        // No adjustment needed - use the timestamp as-is
+                        // With LabelAtBeginning=1, timestamp represents interval START time
+                        // This now matches Time & Sales convention exactly
                         size_t space_pos = original_datetime.find(' ');
                         if (space_pos != std::string::npos) {
                             bar.date = original_datetime.substr(0, space_pos);
@@ -199,7 +216,7 @@ bool HistoricalDataFetcher::parse_historical_data(const std::string& response, c
                         bar.volume = std::stoi(fields[7]); // Volume at position [7]
                         bar.open_interest = 0; // Not available for intraday
                         
-                        logger->debug("Parsed bar - Datetime: " + original_datetime + 
+                        logger->debug("Parsed bar - StartTime: " + original_datetime + 
                                      " | O:" + std::to_string(bar.open) + 
                                      " H:" + std::to_string(bar.high) + 
                                      " L:" + std::to_string(bar.low) + 
@@ -207,15 +224,8 @@ bool HistoricalDataFetcher::parse_historical_data(const std::string& response, c
                     }
                 }
                 
-                // Check if this bar is complete before adding it
-                if (is_complete_bar(full_datetime)) {
-                    data.push_back(bar);
-                    logger->debug("Added complete bar #" + std::to_string(data.size()) + 
-                                 ": " + bar.date + " " + bar.time);
-                } else {
-                    incomplete_bars_filtered++;
-                    logger->debug("Filtered incomplete bar: " + full_datetime);
-                }
+                // Store all bars for processing
+                all_bars.push_back(bar);
                 
             } catch (const std::exception& e) {
                 logger->debug("Failed to parse line: " + line + " - Error: " + e.what());
@@ -224,19 +234,71 @@ bool HistoricalDataFetcher::parse_historical_data(const std::string& response, c
         }
     }
     
-    // Debug: Show the order of processed data
-    logger->debug("First 5 processed bars:");
-    for (int i = 0; i < std::min(5, (int)data.size()); i++) {
-        const auto& bar = data[i];
-        logger->debug("Bar " + std::to_string(i) + ": " + bar.date + " " + bar.time + 
-                     " | O:" + std::to_string(bar.open) + " H:" + std::to_string(bar.high) + 
-                     " L:" + std::to_string(bar.low) + " C:" + std::to_string(bar.close));
+    // DEBUG: Show parsed bars structure
+    logger->debug("First 3 parsed bars:");
+    for (size_t i = 0; i < std::min(size_t(3), all_bars.size()); i++) {
+        const auto& bar = all_bars[i];
+        std::string full_datetime = (bar.time.empty()) ? bar.date : bar.date + " " + bar.time;
+        logger->debug("ParsedBar[" + std::to_string(i) + "] = " + full_datetime + 
+                     " OHLCV: " + std::to_string(bar.open) + "/" + 
+                     std::to_string(bar.high) + "/" + std::to_string(bar.low) + "/" + 
+                     std::to_string(bar.close) + "/" + std::to_string(bar.volume));
     }
     
-    logger->debug("Last 5 processed bars:");
-    for (int i = std::max(0, (int)data.size() - 5); i < (int)data.size(); i++) {
+    // CRITICAL FIX: IQFeed data alignment issue
+    // Line 0: Has correct timestamp for latest complete interval, but OHLCV from incomplete interval
+    // Line 1: Has older timestamp, but correct OHLCV for the completed interval
+    // Solution: Create corrected bar using timestamp from line 0, OHLCV from line 1
+    
+    int incomplete_bars_filtered = 0;
+    
+    if (all_bars.size() >= 2) {
+        // Create corrected first bar: timestamp from bar[0], OHLCV from bar[1]
+        HistoricalBar corrected_first_bar;
+        corrected_first_bar.date = all_bars[0].date;   // Correct timestamp (most recent complete)
+        corrected_first_bar.time = all_bars[0].time;   // Correct timestamp
+        corrected_first_bar.open = all_bars[1].open;   // Correct OHLCV from completed interval
+        corrected_first_bar.high = all_bars[1].high;   // Correct OHLCV  
+        corrected_first_bar.low = all_bars[1].low;     // Correct OHLCV
+        corrected_first_bar.close = all_bars[1].close; // Correct OHLCV
+        corrected_first_bar.volume = all_bars[1].volume; // Correct OHLCV
+        corrected_first_bar.open_interest = all_bars[1].open_interest;
+        
+        std::string corrected_datetime = (corrected_first_bar.time.empty()) ? 
+                                       corrected_first_bar.date : 
+                                       corrected_first_bar.date + " " + corrected_first_bar.time;
+        
+        // Check if the corrected bar is complete
+        if (is_complete_bar(corrected_datetime)) {
+            data.push_back(corrected_first_bar);
+            logger->debug("Added corrected first bar: " + corrected_first_bar.date + " " + corrected_first_bar.time + 
+                         " (timestamp from line 0, OHLCV from line 1)");
+        }
+        
+        // Continue with remaining bars starting from index 2 (skip the two we already used)
+        for (size_t i = 2; i < all_bars.size(); i++) {
+            const auto& bar = all_bars[i];
+            std::string full_datetime = (bar.time.empty()) ? bar.date : bar.date + " " + bar.time;
+            
+            if (is_complete_bar(full_datetime)) {
+                data.push_back(bar);
+                logger->debug("Added complete bar #" + std::to_string(data.size()) + 
+                             ": " + bar.date + " " + bar.time);
+            } else {
+                incomplete_bars_filtered++;
+                logger->debug("Filtered incomplete bar: " + full_datetime);
+            }
+        }
+        logger->info("Applied timestamp/OHLCV correction - using " + std::to_string(data.size()) + " corrected bars");
+    } else {
+        logger->error("Insufficient bars for timestamp/OHLCV correction");
+    }
+    
+    // Debug: Show the order of final processed data
+    logger->debug("First 5 final processed bars:");
+    for (int i = 0; i < std::min(5, (int)data.size()); i++) {
         const auto& bar = data[i];
-        logger->debug("Bar " + std::to_string(i) + ": " + bar.date + " " + bar.time + 
+        logger->debug("FinalBar[" + std::to_string(i) + "] = " + bar.date + " " + bar.time + 
                      " | O:" + std::to_string(bar.open) + " H:" + std::to_string(bar.high) + 
                      " L:" + std::to_string(bar.low) + " C:" + std::to_string(bar.close));
     }
@@ -270,6 +332,21 @@ std::vector<std::string> HistoricalDataFetcher::split_csv(const std::string& lin
     }
     
     return fields;
+}
+
+// ADDED: Helper methods for time formatting in debugging
+std::string HistoricalDataFetcher::format_current_time() const {
+    auto now = std::chrono::system_clock::now();
+    return format_time_point(now);
+}
+
+std::string HistoricalDataFetcher::format_time_point(const std::chrono::system_clock::time_point& tp) const {
+    auto time_t = std::chrono::system_clock::to_time_t(tp);
+    auto tm = *std::localtime(&time_t);
+    
+    std::ostringstream oss;
+    oss << std::put_time(&tm, "%Y-%m-%d %H:%M:%S");
+    return oss.str();
 }
 
 void HistoricalDataFetcher::display_historical_data(const std::string& symbol, 

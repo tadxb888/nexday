@@ -213,14 +213,19 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/IQFeedConnectionManager.
         IQFeedConnection/ThirtyMinDataFetcher.cpp
         IQFeedConnection/OneHourDataFetcher.cpp
         IQFeedConnection/TwoHourDataFetcher.cpp
+        IQFeedConnection/FetchScheduler.cpp
+        Database/database_simple.cpp
     )
+    
+    # Link PostgreSQL library for database access
+    target_link_libraries(iqfeed_modular ${PostgreSQL_LIBRARIES})
     
     if(WIN32)
         target_link_libraries(iqfeed_modular ${WINDOWS_LIBS})
     endif()
     
     target_compile_definitions(iqfeed_modular PRIVATE MODULAR_IQFEED_SYSTEM)
-    message(STATUS "✅ iqfeed_modular - will be built with complete modular architecture")
+    message(STATUS "✅ iqfeed_modular - will be built with complete modular architecture + scheduler")
     message(STATUS "    Note: Now using 2-hour intervals instead of 4-hour (IQFeed officially supported)")
 else()
     message(STATUS "➖ iqfeed_modular - missing source files for modular system")
@@ -233,4 +238,6 @@ else()
     message(STATUS "      - IQFeedConnection/ThirtyMinDataFetcher.cpp")
     message(STATUS "      - IQFeedConnection/OneHourDataFetcher.cpp")
     message(STATUS "      - IQFeedConnection/TwoHourDataFetcher.cpp")
+    message(STATUS "      - IQFeedConnection/FetchScheduler.cpp")
+    message(STATUS "      - Database/database_simple.cpp")
 endif()

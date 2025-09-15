@@ -42,6 +42,10 @@ protected:
     std::vector<std::string> split_csv(const std::string& line);
     bool parse_historical_data(const std::string& response, const std::string& symbol, 
                               std::vector<HistoricalBar>& data);
+    
+    // Helper methods for time formatting (for debugging) - THESE WERE MISSING
+    std::string format_current_time() const;
+    std::string format_time_point(const std::chrono::system_clock::time_point& tp) const;
 
 public:
     HistoricalDataFetcher(std::shared_ptr<IQFeedConnectionManager> conn_mgr, 
