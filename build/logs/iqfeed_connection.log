@@ -369,3 +369,6 @@
 [DEBUG] 2025-09-22 10:25:09 - Sending command: HIX,QGC#,7200,100,0,HIST_QGC#_2Hour,100,s,1
 
 [DEBUG] 2025-09-22 10:25:10 - Lookup socket closed
+[DEBUG] 2025-09-22 10:34:35 - Winsock initialized successfully
+[INFO] 2025-09-22 10:34:35 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-22 10:34:35 - IQFeed connection initialized successfully
