@@ -77,18 +77,24 @@ bool SimpleDatabaseManager::test_connection() {
 }
 
 // ==============================================
-// IQFEED HISTORICAL DATA INSERTION METHODS (NEW)
+// IQFEED HISTORICAL DATA INSERTION METHODS (CORRECTED FOR ACTUAL SCHEMA)
 // ==============================================
 
 bool SimpleDatabaseManager::insert_historical_data_15min(const std::string& symbol, const std::string& date, 
                                                          const std::string& time, double open, double high, 
                                                          double low, double close, long long volume, int open_interest) {
     try {
+        std::cout << "DEBUG: Attempting 15min insert - Symbol: " << symbol 
+                  << ", Date: " << date << ", Time: " << time << std::endl;
+        
         int symbol_id = get_or_create_symbol_id(symbol);
         if (symbol_id == -1) {
+            std::cout << "DEBUG: FAILED to get symbol_id" << std::endl;
             last_error_ = "Failed to get/create symbol ID for: " + symbol;
             return false;
         }
+        
+        std::cout << "DEBUG: Got symbol_id = " << symbol_id << std::endl;
         
         std::stringstream insert_query;
         insert_query << "INSERT INTO historical_fetch_15min (";
@@ -112,9 +118,19 @@ bool SimpleDatabaseManager::insert_historical_data_15min(const std::string& symb
         insert_query << "volume = EXCLUDED.volume, ";
         insert_query << "open_interest = EXCLUDED.open_interest";
         
-        return execute_query(insert_query.str());
+        std::cout << "DEBUG: Executing SQL: " << insert_query.str() << std::endl;
+        
+        bool result = execute_query(insert_query.str());
+        std::cout << "DEBUG: Query result = " << (result ? "SUCCESS" : "FAILED") << std::endl;
+        
+        if (!result) {
+            std::cout << "DEBUG: Error message: " << last_error_ << std::endl;
+        }
+        
+        return result;
         
     } catch (const std::exception& e) {
+        std::cout << "DEBUG: Exception caught: " << e.what() << std::endl;
         last_error_ = std::string("Exception in insert_historical_data_15min: ") + e.what();
         std::cerr << last_error_ << std::endl;
         return false;

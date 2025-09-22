@@ -11,10 +11,16 @@
       <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\build\Debug\database_test.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
+      <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\build\Debug\integrated_prediction_engine.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
       <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\build\Debug\integrated_test.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
       <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\build\Debug\iqfeed_modular.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\build\Debug\prediction_manager.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
       <FullPath>C:\Users\Ross\Documents\IQFeed\nexday\build\x64\Debug\ALL_BUILD</FullPath>

@@ -1,8 +1,12 @@
 C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/database_test.dir
 C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/connection_test.dir
 C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/integrated_test.dir
+C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/iqfeed_modular.dir
+C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/NexdayPredictionEngine.dir
+C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/prediction_manager.dir
+C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/integrated_prediction_engine.dir
 C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/init_database.dir
 C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/test_database.dir
-C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/iqfeed_modular.dir
+C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/run_integrated_predictions.dir
 C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/ALL_BUILD.dir
 C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/ZERO_CHECK.dir

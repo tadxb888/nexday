@@ -29,7 +29,7 @@ struct DatabaseConfig {
 // ==============================================
 
 class SimpleDatabaseManager {
-private:
+public:
     DatabaseConfig config_;
     PGconn* connection_;
     bool is_connected_;
@@ -39,7 +39,7 @@ private:
     bool connect_to_database();
     void disconnect_from_database();
     bool execute_query(const std::string& query);
-    PGresult* execute_query_with_result(const std::string& query);
+    
     std::string escape_string(const std::string& input);
     int get_symbol_id(const std::string& symbol);
     int get_or_create_symbol_id(const std::string& symbol);
@@ -82,7 +82,7 @@ public:
     bool insert_historical_data_daily(const std::string& symbol, const std::string& date, 
                                       double open, double high, double low, double close, 
                                       long long volume, int open_interest = 0);
-    
+    PGresult* execute_query_with_result(const std::string& query);
     // ========================================
     // LEGACY METHODS (for compatibility)
     // ========================================

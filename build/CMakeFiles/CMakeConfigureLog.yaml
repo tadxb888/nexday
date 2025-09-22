@@ -54,7 +54,6 @@ events:
         - "C:\\Users\\Ross\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\Ross\\AppData\\Local\\Pandoc\\"
         - "C:\\Users\\Ross\\AppData\\Roaming\\npm"
-        - "c:\\Users\\Ross\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
   -
     kind: "message-v1"
     backtrace:
@@ -73,7 +72,7 @@ events:
       Microsoft (R) Build Engine version 16.11.6+a918ceb31 for .NET Framework
       Copyright (C) Microsoft Corporation. All rights reserved.
       
-      Build started 12-Sep-25 11:51:51 AM.
+      Build started 22-Sep-25 7:42:25 AM.
       Project "C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\4.1.1\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
         Creating directory "Debug\\".
@@ -151,7 +150,6 @@ events:
       - "C:/Users/Ross/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/Ross/AppData/Local/Pandoc/"
       - "C:/Users/Ross/AppData/Roaming/npm/"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/link.com"
     found: "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/link.exe"
@@ -176,7 +174,6 @@ events:
         - "C:\\Users\\Ross\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\Ross\\AppData\\Local\\Pandoc\\"
         - "C:\\Users\\Ross\\AppData\\Roaming\\npm"
-        - "c:\\Users\\Ross\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -219,7 +216,6 @@ events:
       - "C:/Users/Ross/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/Ross/AppData/Local/Pandoc/"
       - "C:/Users/Ross/AppData/Roaming/npm/"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/lld-link.com"
       - "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/lld-link.exe"
@@ -281,9 +277,6 @@ events:
       - "C:/Users/Ross/AppData/Roaming/npm/lld-link.com"
       - "C:/Users/Ross/AppData/Roaming/npm/lld-link.exe"
       - "C:/Users/Ross/AppData/Roaming/npm/lld-link"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/lld-link.com"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/lld-link.exe"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/lld-link"
     found: false
     search_context:
       ENV{PATH}:
@@ -306,7 +299,6 @@ events:
         - "C:\\Users\\Ross\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\Ross\\AppData\\Local\\Pandoc\\"
         - "C:\\Users\\Ross\\AppData\\Roaming\\npm"
-        - "c:\\Users\\Ross\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -347,7 +339,6 @@ events:
       - "C:/Users/Ross/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/Ross/AppData/Local/Pandoc/"
       - "C:/Users/Ross/AppData/Roaming/npm/"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/link.com"
     found: "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/link.exe"
@@ -372,7 +363,6 @@ events:
         - "C:\\Users\\Ross\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\Ross\\AppData\\Local\\Pandoc\\"
         - "C:\\Users\\Ross\\AppData\\Roaming\\npm"
-        - "c:\\Users\\Ross\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -413,7 +403,6 @@ events:
       - "C:/Users/Ross/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/Ross/AppData/Local/Pandoc/"
       - "C:/Users/Ross/AppData/Roaming/npm/"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/mt.com"
       - "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/mt.exe"
@@ -475,9 +464,6 @@ events:
       - "C:/Users/Ross/AppData/Roaming/npm/mt.com"
       - "C:/Users/Ross/AppData/Roaming/npm/mt.exe"
       - "C:/Users/Ross/AppData/Roaming/npm/mt"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/mt.com"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/mt.exe"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/mt"
     found: false
     search_context:
       ENV{PATH}:
@@ -500,7 +486,6 @@ events:
         - "C:\\Users\\Ross\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\Ross\\AppData\\Local\\Pandoc\\"
         - "C:\\Users\\Ross\\AppData\\Roaming\\npm"
-        - "c:\\Users\\Ross\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -541,7 +526,6 @@ events:
       - "C:/Users/Ross/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/Ross/AppData/Local/Pandoc/"
       - "C:/Users/Ross/AppData/Roaming/npm/"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/lib.com"
     found: "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/lib.exe"
@@ -566,7 +550,6 @@ events:
         - "C:\\Users\\Ross\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\Ross\\AppData\\Local\\Pandoc\\"
         - "C:\\Users\\Ross\\AppData\\Roaming\\npm"
-        - "c:\\Users\\Ross\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -613,7 +596,6 @@ events:
         - "C:\\Users\\Ross\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\Ross\\AppData\\Local\\Pandoc\\"
         - "C:\\Users\\Ross\\AppData\\Roaming\\npm"
-        - "c:\\Users\\Ross\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
   -
     kind: "message-v1"
     backtrace:
@@ -632,7 +614,7 @@ events:
       Microsoft (R) Build Engine version 16.11.6+a918ceb31 for .NET Framework
       Copyright (C) Microsoft Corporation. All rights reserved.
       
-      Build started 12-Sep-25 11:51:52 AM.
+      Build started 22-Sep-25 7:42:26 AM.
       Project "C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\4.1.1\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
         Creating directory "Debug\\".
@@ -710,7 +692,6 @@ events:
       - "C:/Users/Ross/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/Ross/AppData/Local/Pandoc/"
       - "C:/Users/Ross/AppData/Roaming/npm/"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/"
     searched_directories:
       - "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/lld-link.com"
       - "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.29.30133/bin/Hostx64/x64/lld-link.exe"
@@ -772,9 +753,6 @@ events:
       - "C:/Users/Ross/AppData/Roaming/npm/lld-link.com"
       - "C:/Users/Ross/AppData/Roaming/npm/lld-link.exe"
       - "C:/Users/Ross/AppData/Roaming/npm/lld-link"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/lld-link.com"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/lld-link.exe"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/lld-link"
     found: false
     search_context:
       ENV{PATH}:
@@ -797,7 +775,6 @@ events:
         - "C:\\Users\\Ross\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\Ross\\AppData\\Local\\Pandoc\\"
         - "C:\\Users\\Ross\\AppData\\Roaming\\npm"
-        - "c:\\Users\\Ross\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
   -
     kind: "find-v1"
     backtrace:
@@ -840,7 +817,6 @@ events:
       - "C:/Users/Ross/AppData/Local/Programs/Microsoft VS Code/bin/"
       - "C:/Users/Ross/AppData/Local/Pandoc/"
       - "C:/Users/Ross/AppData/Roaming/npm/"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/"
       - "C:/Program Files/bin/"
       - "C:/Program Files/sbin/"
       - "C:/Program Files/"
@@ -911,9 +887,6 @@ events:
       - "C:/Users/Ross/AppData/Roaming/npm/rc.com"
       - "C:/Users/Ross/AppData/Roaming/npm/rc.exe"
       - "C:/Users/Ross/AppData/Roaming/npm/rc"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/rc.com"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/rc.exe"
-      - "C:/Users/Ross/.vscode/extensions/ms-python.debugpy-2025.10.0-win32-x64/bundled/scripts/noConfigScripts/rc"
       - "C:/Program Files/bin/rc.com"
       - "C:/Program Files/bin/rc.exe"
       - "C:/Program Files/bin/rc"
@@ -972,7 +945,6 @@ events:
         - "C:\\Users\\Ross\\AppData\\Local\\Programs\\Microsoft VS Code\\bin"
         - "C:\\Users\\Ross\\AppData\\Local\\Pandoc\\"
         - "C:\\Users\\Ross\\AppData\\Roaming\\npm"
-        - "c:\\Users\\Ross\\.vscode\\extensions\\ms-python.debugpy-2025.10.0-win32-x64\\bundled\\scripts\\noConfigScripts"
       CMAKE_INSTALL_PREFIX: "C:/Program Files (x86)/nexday"
       CMAKE_SYSTEM_PREFIX_PATH:
         - "C:/Program Files"
@@ -988,8 +960,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-h4ailp"
-      binary: "C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-h4ailp"
+      source: "C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-rs1yyf"
+      binary: "C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-rs1yyf"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -998,39 +970,39 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-h4ailp'
+        Change Dir: 'C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-rs1yyf'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_d039a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_923e0.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
         Microsoft (R) Build Engine version 16.11.6+a918ceb31 for .NET Framework
         Copyright (C) Microsoft Corporation. All rights reserved.
         
-        Build started 12-Sep-25 11:51:53 AM.
-        Project "C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h4ailp\\cmTC_d039a.vcxproj" on node 1 (default targets).
+        Build started 22-Sep-25 7:42:27 AM.
+        Project "C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rs1yyf\\cmTC_923e0.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_d039a.dir\\Debug\\".
-          Creating directory "C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h4ailp\\Debug\\".
-          Creating directory "cmTC_d039a.dir\\Debug\\cmTC_d039a.tlog\\".
+          Creating directory "cmTC_923e0.dir\\Debug\\".
+          Creating directory "C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rs1yyf\\Debug\\".
+          Creating directory "cmTC_923e0.dir\\Debug\\cmTC_923e0.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_d039a.dir\\Debug\\cmTC_d039a.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Creating "cmTC_923e0.dir\\Debug\\cmTC_923e0.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_d039a.dir\\Debug\\\\" /Fd"cmTC_d039a.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_923e0.dir\\Debug\\\\" /Fd"cmTC_923e0.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30159 for x64
-          CMakeCCompilerABI.c
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_d039a.dir\\Debug\\\\" /Fd"cmTC_d039a.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
+          CMakeCCompilerABI.c
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Fo"cmTC_923e0.dir\\Debug\\\\" /Fd"cmTC_923e0.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCCompilerABI.c"
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h4ailp\\Debug\\cmTC_d039a.exe" /INCREMENTAL /ILK:"cmTC_d039a.dir\\Debug\\cmTC_d039a.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-h4ailp/Debug/cmTC_d039a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-h4ailp/Debug/cmTC_d039a.lib" /MACHINE:X64  /machine:x64 cmTC_d039a.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_d039a.vcxproj -> C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h4ailp\\Debug\\cmTC_d039a.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rs1yyf\\Debug\\cmTC_923e0.exe" /INCREMENTAL /ILK:"cmTC_923e0.dir\\Debug\\cmTC_923e0.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-rs1yyf/Debug/cmTC_923e0.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-rs1yyf/Debug/cmTC_923e0.lib" /MACHINE:X64  /machine:x64 cmTC_923e0.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_923e0.vcxproj -> C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rs1yyf\\Debug\\cmTC_923e0.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_d039a.dir\\Debug\\cmTC_d039a.tlog\\unsuccessfulbuild".
-          Touching "cmTC_d039a.dir\\Debug\\cmTC_d039a.tlog\\cmTC_d039a.lastbuildstate".
-        Done Building Project "C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h4ailp\\cmTC_d039a.vcxproj" (default targets).
+          Deleting file "cmTC_923e0.dir\\Debug\\cmTC_923e0.tlog\\unsuccessfulbuild".
+          Touching "cmTC_923e0.dir\\Debug\\cmTC_923e0.tlog\\cmTC_923e0.lastbuildstate".
+        Done Building Project "C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rs1yyf\\cmTC_923e0.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.53
+        Time Elapsed 00:00:00.48
         
       exitCode: 0
   -
@@ -1070,8 +1042,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-8cpewn"
-      binary: "C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-8cpewn"
+      source: "C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-fhh2du"
+      binary: "C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-fhh2du"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -1081,39 +1053,39 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-8cpewn'
+        Change Dir: 'C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-fhh2du'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_7ca2f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/MSBuild/Current/Bin/MSBuild.exe" cmTC_14481.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:n
         Microsoft (R) Build Engine version 16.11.6+a918ceb31 for .NET Framework
         Copyright (C) Microsoft Corporation. All rights reserved.
         
-        Build started 12-Sep-25 11:51:54 AM.
-        Project "C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8cpewn\\cmTC_7ca2f.vcxproj" on node 1 (default targets).
+        Build started 22-Sep-25 7:42:28 AM.
+        Project "C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fhh2du\\cmTC_14481.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_7ca2f.dir\\Debug\\".
-          Creating directory "C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8cpewn\\Debug\\".
-          Creating directory "cmTC_7ca2f.dir\\Debug\\cmTC_7ca2f.tlog\\".
+          Creating directory "cmTC_14481.dir\\Debug\\".
+          Creating directory "C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fhh2du\\Debug\\".
+          Creating directory "cmTC_14481.dir\\Debug\\cmTC_14481.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_7ca2f.dir\\Debug\\cmTC_7ca2f.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Creating "cmTC_14481.dir\\Debug\\cmTC_14481.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_7ca2f.dir\\Debug\\\\" /Fd"cmTC_7ca2f.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_14481.dir\\Debug\\\\" /Fd"cmTC_14481.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.29.30159 for x64
-          CMakeCXXCompilerABI.cpp
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_7ca2f.dir\\Debug\\\\" /Fd"cmTC_7ca2f.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /GR /Fo"cmTC_14481.dir\\Debug\\\\" /Fd"cmTC_14481.dir\\Debug\\vc142.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.1\\Modules\\CMakeCXXCompilerABI.cpp"
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8cpewn\\Debug\\cmTC_7ca2f.exe" /INCREMENTAL /ILK:"cmTC_7ca2f.dir\\Debug\\cmTC_7ca2f.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-8cpewn/Debug/cmTC_7ca2f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-8cpewn/Debug/cmTC_7ca2f.lib" /MACHINE:X64  /machine:x64 cmTC_7ca2f.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_7ca2f.vcxproj -> C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8cpewn\\Debug\\cmTC_7ca2f.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fhh2du\\Debug\\cmTC_14481.exe" /INCREMENTAL /ILK:"cmTC_14481.dir\\Debug\\cmTC_14481.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-fhh2du/Debug/cmTC_14481.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/CMakeScratch/TryCompile-fhh2du/Debug/cmTC_14481.lib" /MACHINE:X64  /machine:x64 cmTC_14481.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_14481.vcxproj -> C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fhh2du\\Debug\\cmTC_14481.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_7ca2f.dir\\Debug\\cmTC_7ca2f.tlog\\unsuccessfulbuild".
-          Touching "cmTC_7ca2f.dir\\Debug\\cmTC_7ca2f.tlog\\cmTC_7ca2f.lastbuildstate".
-        Done Building Project "C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8cpewn\\cmTC_7ca2f.vcxproj" (default targets).
+          Deleting file "cmTC_14481.dir\\Debug\\cmTC_14481.tlog\\unsuccessfulbuild".
+          Touching "cmTC_14481.dir\\Debug\\cmTC_14481.tlog\\cmTC_14481.lastbuildstate".
+        Done Building Project "C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\build\\CMakeFiles\\CMakeScratch\\TryCompile-fhh2du\\cmTC_14481.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.54
+        Time Elapsed 00:00:00.48
         
       exitCode: 0
   -

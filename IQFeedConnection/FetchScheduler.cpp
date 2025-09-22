@@ -331,6 +331,8 @@ bool FetchScheduler::execute_daily_fetch(const std::string& symbol) {
 }
 
 bool FetchScheduler::execute_intraday_fetch(const std::string& timeframe, const std::string& symbol) {
+    std::cout << "DEBUG: Starting intraday fetch for " << symbol << " " << timeframe << std::endl;
+    
     FetchStatus status;
     status.timeframe = timeframe;
     status.symbol = symbol;
@@ -362,8 +364,14 @@ bool FetchScheduler::execute_intraday_fetch(const std::string& timeframe, const 
             return false;
         }
         
+        std::cout << "DEBUG: Fetch completed. Success = " << (fetch_success ? "TRUE" : "FALSE") 
+                  << ", Bars = " << bars.size() << std::endl;
+        
         if (fetch_success) {
+            std::cout << "DEBUG: About to call save_historical_bars_to_db..." << std::endl;
+            
             if (save_historical_bars_to_db(symbol, timeframe, bars)) {
+                std::cout << "DEBUG: save_historical_bars_to_db returned TRUE" << std::endl;
                 status.successful = true;
                 status.bars_fetched = bars.size();
                 
@@ -378,17 +386,20 @@ bool FetchScheduler::execute_intraday_fetch(const std::string& timeframe, const 
                                  std::to_string(latest.low) + "/" + std::to_string(latest.close));
                 }
             } else {
+                std::cout << "DEBUG: save_historical_bars_to_db returned FALSE" << std::endl;
                 status.successful = false;
                 status.error_message = "Database save failed";
                 logger_->error("Failed to save " + timeframe + " data for " + symbol + " to database");
             }
         } else {
+            std::cout << "DEBUG: Fetch failed, skipping database save" << std::endl;
             status.successful = false;
             status.error_message = "IQFeed fetch failed";
             logger_->error("Failed to fetch " + timeframe + " data for " + symbol + " from IQFeed");
         }
         
     } catch (const std::exception& e) {
+        std::cout << "DEBUG: Exception caught: " << e.what() << std::endl;
         status.successful = false;
         status.error_message = e.what();
         handle_fetch_error(timeframe + " fetch for " + symbol, e.what());
@@ -399,7 +410,7 @@ bool FetchScheduler::execute_intraday_fetch(const std::string& timeframe, const 
 }
 
 // ==============================================
-// DATA PERSISTENCE
+// DATA PERSISTENCE - CORRECTED METHOD
 // ==============================================
 
 bool FetchScheduler::save_historical_bars_to_db(const std::string& symbol, const std::string& timeframe, 
@@ -415,15 +426,33 @@ bool FetchScheduler::save_historical_bars_to_db(const std::string& symbol, const
     for (const auto& bar : bars) {
         bool success = false;
         
-        // Use the existing SimpleDatabaseManager method for now
-        // Note: You'll need to extend SimpleDatabaseManager to have specific methods for each timeframe
-        success = db_manager_->insert_historical_data(symbol, bar.date, 
-            bar.open, bar.high, bar.low, bar.close, bar.volume);
+        // Call the correct timeframe-specific database insertion method
+        if (timeframe == "15min") {
+            success = db_manager_->insert_historical_data_15min(symbol, bar.date, bar.time,
+                bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
+        } else if (timeframe == "30min") {
+            success = db_manager_->insert_historical_data_30min(symbol, bar.date, bar.time,
+                bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
+        } else if (timeframe == "1hour") {
+            success = db_manager_->insert_historical_data_1hour(symbol, bar.date, bar.time,
+                bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
+        } else if (timeframe == "2hours") {
+            success = db_manager_->insert_historical_data_2hours(symbol, bar.date, bar.time,
+                bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
+        } else if (timeframe == "daily") {
+            success = db_manager_->insert_historical_data_daily(symbol, bar.date,
+                bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
+        } else {
+            logger_->error("Unknown timeframe for database save: " + timeframe);
+            failed_count++;
+            continue;
+        }
         
         if (success) {
             saved_count++;
         } else {
             failed_count++;
+            logger_->debug("Failed to save bar: " + bar.date + " " + bar.time);
         }
     }
     
