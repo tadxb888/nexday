@@ -174,33 +174,29 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Ross\Documents\IQFeed\nexday\build\NexdayPredictionEngine.vcxproj">
-      <Project>{81856A5C-B408-3516-A6A8-B0CF2AFE8424}</Project>
-      <Name>NexdayPredictionEngine</Name>
-    </ProjectReference>
-    <ProjectReference Include="C:\Users\Ross\Documents\IQFeed\nexday\build\connection_test.vcxproj">
-      <Project>{093EE2D2-F4B0-38E5-AACE-214A279DC55F}</Project>
-      <Name>connection_test</Name>
+    <ProjectReference Include="C:\Users\Ross\Documents\IQFeed\nexday\build\complete_pipeline.vcxproj">
+      <Project>{80B5402A-5ADB-380E-BCC9-8DBD8E03E6D0}</Project>
+      <Name>complete_pipeline</Name>
     </ProjectReference>
     <ProjectReference Include="C:\Users\Ross\Documents\IQFeed\nexday\build\database_test.vcxproj">
       <Project>{9EE8581B-4869-34A4-9F3D-C36BCCE54D09}</Project>
       <Name>database_test</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Ross\Documents\IQFeed\nexday\build\integrated_prediction_engine.vcxproj">
-      <Project>{1F13EAFF-AF98-325C-82AC-BCFAB0EE7581}</Project>
-      <Name>integrated_prediction_engine</Name>
+    <ProjectReference Include="C:\Users\Ross\Documents\IQFeed\nexday\build\ema_test.vcxproj">
+      <Project>{84FB7DD3-DFF8-303B-A8A9-6DE9C48B4D9B}</Project>
+      <Name>ema_test</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Ross\Documents\IQFeed\nexday\build\integrated_test.vcxproj">
-      <Project>{26C50342-EE94-3450-A87E-4257874E2044}</Project>
-      <Name>integrated_test</Name>
+    <ProjectReference Include="C:\Users\Ross\Documents\IQFeed\nexday\build\historical_ema_test.vcxproj">
+      <Project>{2A1F6F70-3E9E-3EEF-9230-7F38D1EB9A9A}</Project>
+      <Name>historical_ema_test</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Ross\Documents\IQFeed\nexday\build\iqfeed_modular.vcxproj">
-      <Project>{E47F2E68-9FBF-313F-B3E7-36F3266C7595}</Project>
-      <Name>iqfeed_modular</Name>
+    <ProjectReference Include="C:\Users\Ross\Documents\IQFeed\nexday\build\minimal_test.vcxproj">
+      <Project>{69C91E04-C7A4-35F4-B4CD-F2AF16179E2A}</Project>
+      <Name>minimal_test</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Ross\Documents\IQFeed\nexday\build\prediction_manager.vcxproj">
-      <Project>{7F90D1A8-3BB8-3788-BFC0-78D5643A7901}</Project>
-      <Name>prediction_manager</Name>
+    <ProjectReference Include="C:\Users\Ross\Documents\IQFeed\nexday\build\nexday_main.vcxproj">
+      <Project>{50C51D9C-1BC8-3A68-9ED5-23ACFE7A267A}</Project>
+      <Name>nexday_main</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

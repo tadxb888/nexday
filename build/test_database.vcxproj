@@ -106,7 +106,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Ross\Documents\IQFeed\nexday\build\CMakeFiles\ef48f8fca404915b137ea0bdf4aacc9f\test_database.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Running database connectivity test</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Testing database connectivity</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 Debug\database_test.exe
 if %errorlevel% neq 0 goto :cmEnd
@@ -120,7 +120,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Ross\Documents\IQFeed\nexday\build\CMakeFiles\test_database</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Running database connectivity test</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Testing database connectivity</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
 Release\database_test.exe
 if %errorlevel% neq 0 goto :cmEnd
@@ -134,7 +134,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Ross\Documents\IQFeed\nexday\build\CMakeFiles\test_database</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Running database connectivity test</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Testing database connectivity</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
 MinSizeRel\database_test.exe
 if %errorlevel% neq 0 goto :cmEnd
@@ -148,7 +148,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Ross\Documents\IQFeed\nexday\build\CMakeFiles\test_database</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Running database connectivity test</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Testing database connectivity</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
 RelWithDebInfo\database_test.exe
 if %errorlevel% neq 0 goto :cmEnd

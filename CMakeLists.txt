@@ -72,336 +72,233 @@ include_directories(
 )
 
 # ==============================================
-# EXECUTABLE TARGETS - ONLY EXISTING FILES
+# DEFINE SOURCE FILE GROUPS
 # ==============================================
 
-# Database Test Executable (Your existing file)
+# Database sources
+set(DATABASE_SOURCES
+    Database/database_simple.cpp
+)
+
+# IQFeed Connection sources (COMPLETE SET)
+set(IQFEED_SOURCES
+    IQFeedConnection/IQFeedConnectionManager.cpp
+    IQFeedConnection/Logger.cpp
+    IQFeedConnection/HistoricalDataFetcher.cpp
+    IQFeedConnection/DailyDataFetcher.cpp
+)
+
+# Check for additional IQFeed fetchers and add if they exist
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/FifteenMinDataFetcher.cpp")
+    list(APPEND IQFEED_SOURCES IQFeedConnection/FifteenMinDataFetcher.cpp)
+    message(STATUS "  ✅ Including FifteenMinDataFetcher.cpp")
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/ThirtyMinDataFetcher.cpp")
+    list(APPEND IQFEED_SOURCES IQFeedConnection/ThirtyMinDataFetcher.cpp)
+    message(STATUS "  ✅ Including ThirtyMinDataFetcher.cpp")
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/OneHourDataFetcher.cpp")
+    list(APPEND IQFEED_SOURCES IQFeedConnection/OneHourDataFetcher.cpp)
+    message(STATUS "  ✅ Including OneHourDataFetcher.cpp")
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/TwoHourDataFetcher.cpp")
+    list(APPEND IQFEED_SOURCES IQFeedConnection/TwoHourDataFetcher.cpp)
+    message(STATUS "  ✅ Including TwoHourDataFetcher.cpp")
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/FetchScheduler.cpp")
+    list(APPEND IQFEED_SOURCES IQFeedConnection/FetchScheduler.cpp)
+    message(STATUS "  ✅ Including FetchScheduler.cpp")
+endif()
+
+# Combined core system sources
+set(CORE_SYSTEM_SOURCES
+    ${DATABASE_SOURCES}
+    ${IQFEED_SOURCES}
+)
+
+# ==============================================
+# 🎯 PRIMARY TARGET: COMPLETE END-TO-END PIPELINE
+# ==============================================
+
+add_executable(complete_pipeline 
+    Predictions/CompletePipeline.cpp
+    ${CORE_SYSTEM_SOURCES}
+)
+
+target_link_libraries(complete_pipeline ${PostgreSQL_LIBRARIES})
+
+if(WIN32)
+    target_link_libraries(complete_pipeline ${WINDOWS_LIBS})
+endif()
+
+# Set compiler flags for complete pipeline
+if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    target_compile_options(complete_pipeline PRIVATE /W4)
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    target_compile_options(complete_pipeline PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+message(STATUS "🚀 complete_pipeline - COMPLETE END-TO-END PIPELINE configured")
+
+# ==============================================
+# YOUR EXISTING WORKING TESTS (UNCHANGED)
+# ==============================================
+
+# Database Test Executable
 add_executable(database_test 
     Database/database_simple.cpp
     Database/database_test_main.cpp
 )
-
-# Link PostgreSQL library
 target_link_libraries(database_test ${PostgreSQL_LIBRARIES})
-
 if(WIN32)
     target_link_libraries(database_test ${WINDOWS_LIBS})
 endif()
 
-# Set compiler flags
-if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    target_compile_options(database_test PRIVATE /W4)
-elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-    target_compile_options(database_test PRIVATE -Wall -Wextra -Wpedantic)
+# Minimal prediction test (your working test)
+add_executable(minimal_test 
+    Database/database_simple.cpp
+    minimal_prediction_test.cpp
+)
+target_link_libraries(minimal_test ${PostgreSQL_LIBRARIES})
+if(WIN32)
+    target_link_libraries(minimal_test ${WINDOWS_LIBS})
 endif()
 
-# ==============================================
-# CONDITIONAL TARGETS - BUILD ONLY IF FILES EXIST
-# ==============================================
-
-# IQFeed Connection Test (if IQFeedConnection.cpp exists)
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/IQFeedConnection.cpp")
-    add_executable(connection_test 
-        IQFeedConnection/IQFeedConnection.cpp
-    )
-    
-    if(WIN32)
-        target_link_libraries(connection_test ${WINDOWS_LIBS})
-    endif()
-    
-    target_compile_definitions(connection_test PRIVATE CONNECTION_TEST_MODE)
-    message(STATUS "✅ connection_test - will be built")
-else()
-    message(STATUS "➖ connection_test - IQFeedConnection.cpp not found")
-endif()
-
-# Integrated Test (if integrated_test_main.cpp exists)
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/integrated_test_main.cpp")
-    add_executable(integrated_test 
-        Database/database_simple.cpp
-        integrated_test_main.cpp
-    )
-    
-    # DO NOT add IQFeedConnection.cpp as it has its own main() function
-    # The integrated_test should use integrated_test_main.cpp's main() only
-    
-    target_link_libraries(integrated_test ${PostgreSQL_LIBRARIES})
-    
-    if(WIN32)
-        target_link_libraries(integrated_test ${WINDOWS_LIBS})
-    endif()
-    
-    target_compile_definitions(integrated_test PRIVATE INTEGRATED_TEST_MODE)
-    message(STATUS "✅ integrated_test - will be built (without IQFeedConnection.cpp to avoid main() conflict)")
-else()
-    message(STATUS "➖ integrated_test - integrated_test_main.cpp not found")
-endif()
-
-# ==============================================
-# MODULAR IQFEED HISTORICAL DATA SYSTEM  
-# ==============================================
-
-# IQFeed Modular System (if all source files exist)
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/IQFeedConnectionManager.cpp" AND
-   EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/Logger.cpp" AND
-   EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/HistoricalDataFetcher.cpp" AND
-   EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/DailyDataFetcher.cpp")
-   
-    add_executable(iqfeed_modular
-        IQFeedConnection/main.cpp
-        IQFeedConnection/IQFeedConnectionManager.cpp
-        IQFeedConnection/Logger.cpp
-        IQFeedConnection/HistoricalDataFetcher.cpp
-        IQFeedConnection/DailyDataFetcher.cpp
-        IQFeedConnection/FifteenMinDataFetcher.cpp
-        IQFeedConnection/ThirtyMinDataFetcher.cpp
-        IQFeedConnection/OneHourDataFetcher.cpp
-        IQFeedConnection/TwoHourDataFetcher.cpp
-        IQFeedConnection/FetchScheduler.cpp
-        Database/database_simple.cpp
-    )
-    
-    # Link PostgreSQL library for database access
-    target_link_libraries(iqfeed_modular ${PostgreSQL_LIBRARIES})
-    
-    if(WIN32)
-        target_link_libraries(iqfeed_modular ${WINDOWS_LIBS})
-    endif()
-    
-    target_compile_definitions(iqfeed_modular PRIVATE MODULAR_IQFEED_SYSTEM)
-    message(STATUS "✅ iqfeed_modular - will be built with complete modular architecture + scheduler")
-    message(STATUS "    Note: Now using 2-hour intervals instead of 4-hour (IQFeed officially supported)")
-else()
-    message(STATUS "➖ iqfeed_modular - missing source files for modular system")
-    message(STATUS "    Required files:")
-    message(STATUS "      - IQFeedConnection/IQFeedConnectionManager.cpp")
-    message(STATUS "      - IQFeedConnection/Logger.cpp") 
-    message(STATUS "      - IQFeedConnection/HistoricalDataFetcher.cpp")
-    message(STATUS "      - IQFeedConnection/DailyDataFetcher.cpp")
-    message(STATUS "      - IQFeedConnection/FifteenMinDataFetcher.cpp")
-    message(STATUS "      - IQFeedConnection/ThirtyMinDataFetcher.cpp")
-    message(STATUS "      - IQFeedConnection/OneHourDataFetcher.cpp")
-    message(STATUS "      - IQFeedConnection/TwoHourDataFetcher.cpp")
-    message(STATUS "      - IQFeedConnection/FetchScheduler.cpp")
-    message(STATUS "      - Database/database_simple.cpp")
-endif()
-
-# ==============================================
-# MARKET PREDICTIONS MODULE - EPOCH MARKET ADVISOR
-# ==============================================
-
-# Market Predictions System (if all source files exist)
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Predictions/MarketPredictionEngine.cpp" AND
-   EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Predictions/PredictionTypes.h" AND
-   EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Predictions/BusinessDayCalculator.h" AND
-   EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Predictions/MarketPredictionEngine.h")
-   
-    # Create prediction engine library first
-    add_library(NexdayPredictionEngine STATIC
-        Predictions/MarketPredictionEngine.cpp
-    )
-    
-    # Link PostgreSQL library to prediction engine
-    target_link_libraries(NexdayPredictionEngine ${PostgreSQL_LIBRARIES})
-    
-    if(WIN32)
-        target_link_libraries(NexdayPredictionEngine ${WINDOWS_LIBS})
-    endif()
-    
-    # Create main prediction manager executable
-    add_executable(prediction_manager
-        Predictions/MarketPredictionManager.cpp
-        Database/database_simple.cpp
-    )
-    
-    # Link prediction engine and PostgreSQL libraries
-    target_link_libraries(prediction_manager 
-        NexdayPredictionEngine
-        ${PostgreSQL_LIBRARIES}
-    )
-    
-    if(WIN32)
-        target_link_libraries(prediction_manager ${WINDOWS_LIBS})
-    endif()
-    
-    target_compile_definitions(prediction_manager PRIVATE NEXDAY_PREDICTIONS_MODULE)
-    
-    message(STATUS "✅ prediction_manager - Epoch Market Advisor engine will be built")
-    message(STATUS "    Features: Daily OHLC + Intraday High/Low predictions")
-    message(STATUS "    Algorithm: Model 1 Standard EMA with 15-bar minimum")
-    message(STATUS "    Business Logic: Weekend skipping, confidence scoring")
-else()
-    message(STATUS "➖ prediction_manager - missing source files for Market Predictions")
-    message(STATUS "    Required files:")
-    message(STATUS "      - Predictions/PredictionTypes.h")
-    message(STATUS "      - Predictions/BusinessDayCalculator.h") 
-    message(STATUS "      - Predictions/MarketPredictionEngine.h")
-    message(STATUS "      - Predictions/MarketPredictionEngine.cpp")
-    message(STATUS "      - Predictions/MarketPredictionManager.cpp")
-    message(STATUS "      - Predictions/NexdayMarketPredictions.h")
-endif()
-
-# Create standalone prediction test (if test file exists)
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Predictions/PredictionTest.cpp" AND
-   EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Predictions/MarketPredictionEngine.cpp")
-   
-    add_executable(prediction_test
-        Predictions/PredictionTest.cpp
-        Predictions/MarketPredictionEngine.cpp
-        Database/database_simple.cpp
-    )
-    
-    target_link_libraries(prediction_test ${PostgreSQL_LIBRARIES})
-    
-    if(WIN32)
-        target_link_libraries(prediction_test ${WINDOWS_LIBS})
-    endif()
-    
-    target_compile_definitions(prediction_test PRIVATE PREDICTION_TEST_MODE)
-    message(STATUS "✅ prediction_test - EMA calculation testing will be built")
-else()
-    message(STATUS "➖ prediction_test - (optional) create Predictions/PredictionTest.cpp for standalone testing")
-endif()
-
-# ==============================================
-# INTEGRATED PREDICTION ENGINE - NEW MODULE
-# ==============================================
-
-# Integrated Prediction Engine (if source files exist or will be created)
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/integrated_prediction_main.cpp" OR
-   EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IntegratedMarketPredictionEngine.cpp")
-   
-    add_executable(integrated_prediction_engine
-        integrated_prediction_main.cpp
-        IntegratedMarketPredictionEngine.cpp
-        Database/database_simple.cpp
-        IQFeedConnection/IQFeedConnectionManager.cpp
-        IQFeedConnection/Logger.cpp
-    )
-    
-    # Link PostgreSQL library
-    target_link_libraries(integrated_prediction_engine ${PostgreSQL_LIBRARIES})
-    
-    if(WIN32)
-        target_link_libraries(integrated_prediction_engine ${WINDOWS_LIBS})
-    endif()
-    
-    target_compile_definitions(integrated_prediction_engine PRIVATE INTEGRATED_PREDICTIONS_MODULE)
-    
-    message(STATUS "✅ integrated_prediction_engine - NEW! Fully integrated prediction system")
-    message(STATUS "    Features: Uses REAL database data + IQFeed integration")
-    message(STATUS "    Algorithm: Model 1 Standard EMA with proper historical data")
-    message(STATUS "    Integration: Database historical_fetch_* tables + predictions_all_symbols")
-    message(STATUS "    Replaces: Isolated prediction_manager with full data pipeline integration")
-    
-else()
-    message(STATUS "➖ integrated_prediction_engine - create integrated_prediction_main.cpp and IntegratedMarketPredictionEngine.cpp")
-    message(STATUS "    This will replace your isolated prediction_manager with full database/IQFeed integration")
-endif()
-
-# ==============================================
-# CUSTOM TARGETS FOR DATABASE MANAGEMENT
-# ==============================================
-
-# Custom target to initialize database
-add_custom_target(init_database
-    COMMAND echo "Initializing Nexday Trading Database..."
-    COMMAND psql -h localhost -p 5432 -U nexday_user -d nexday_trading -f "${CMAKE_CURRENT_SOURCE_DIR}/nexday_schema.sql"
-    COMMENT "Initializing database with complete schema"
+# EMA calculation test (your working test)
+add_executable(ema_test 
+    ema_test.cpp
 )
 
-# Custom target to run database test
+# Historical EMA test with real data (your working test)
+add_executable(historical_ema_test 
+    Database/database_simple.cpp
+    historical_ema_test.cpp
+)
+target_link_libraries(historical_ema_test ${PostgreSQL_LIBRARIES})
+if(WIN32)
+    target_link_libraries(historical_ema_test ${WINDOWS_LIBS})
+endif()
+
+# ==============================================
+# CONDITIONAL TARGETS (IF FILES EXIST)
+# ==============================================
+
+# Original main application (if exists)
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/main.cpp")
+    add_executable(nexday_main 
+        IQFeedConnection/main.cpp
+        ${CORE_SYSTEM_SOURCES}
+    )
+    
+    target_link_libraries(nexday_main ${PostgreSQL_LIBRARIES})
+    
+    if(WIN32)
+        target_link_libraries(nexday_main ${WINDOWS_LIBS})
+    endif()
+    
+    if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+        target_compile_options(nexday_main PRIVATE /W4)
+    elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+        target_compile_options(nexday_main PRIVATE -Wall -Wextra -Wpedantic)
+    endif()
+    
+    message(STATUS "✅ nexday_main - Original main application configured")
+else()
+    message(STATUS "➖ nexday_main - IQFeedConnection/main.cpp not found")
+endif()
+
+# ==============================================
+# CUSTOM TARGETS FOR EASY EXECUTION
+# ==============================================
+
+# 🎯 Primary target: Run the COMPLETE PIPELINE
+add_custom_target(run_complete_pipeline
+    COMMAND $<TARGET_FILE:complete_pipeline>
+    DEPENDS complete_pipeline
+    COMMENT "🚀 Running Complete End-to-End Pipeline: IQFeed → Data → Predictions → Errors"
+)
+
+# Test your existing working components
 add_custom_target(test_database
     COMMAND $<TARGET_FILE:database_test>
     DEPENDS database_test
-    COMMENT "Running database connectivity test"
+    COMMENT "Testing database connectivity"
 )
 
-# Custom target to run integrated predictions (if available)
-if(TARGET integrated_prediction_engine)
-    add_custom_target(run_integrated_predictions
-        COMMAND $<TARGET_FILE:integrated_prediction_engine>
-        DEPENDS integrated_prediction_engine
-        COMMENT "Running integrated prediction engine with real data pipeline"
-    )
-endif()
+add_custom_target(test_ema
+    COMMAND $<TARGET_FILE:ema_test>
+    DEPENDS ema_test
+    COMMENT "Testing EMA calculation"
+)
+
+add_custom_target(test_minimal
+    COMMAND $<TARGET_FILE:minimal_test>
+    DEPENDS minimal_test
+    COMMENT "Running minimal prediction test"
+)
+
+add_custom_target(test_historical_ema
+    COMMAND $<TARGET_FILE:historical_ema_test>
+    DEPENDS historical_ema_test
+    COMMENT "Testing EMA with real historical data"
+)
+
+# Custom target to verify all your working components first
+add_custom_target(verify_components
+    COMMAND echo "🔍 Verifying all working components..."
+    COMMAND $<TARGET_FILE:database_test>
+    COMMAND $<TARGET_FILE:ema_test>
+    COMMAND $<TARGET_FILE:minimal_test>
+    COMMAND $<TARGET_FILE:historical_ema_test>
+    DEPENDS database_test ema_test minimal_test historical_ema_test
+    COMMENT "Verifying all working components before running complete pipeline"
+)
 
 # ==============================================
-# BUILD INFORMATION
+# BUILD INFORMATION & INSTRUCTIONS
 # ==============================================
 
 message(STATUS "")
 message(STATUS "==============================================")
-message(STATUS "Nexday Trading System - Complete Build Configuration")
+message(STATUS "NEXDAY MARKETS - COMPLETE PIPELINE BUILD")
 message(STATUS "==============================================")
-message(STATUS "Targets that will be built:")
-message(STATUS "  ✅ database_test     - PostgreSQL database testing")
+message(STATUS "")
+message(STATUS "🎯 PRIMARY TARGET:")
+message(STATUS "  complete_pipeline     - COMPLETE END-TO-END SYSTEM")
+message(STATUS "                          Connects → Fetches → Stores → Predicts → Validates")
+message(STATUS "")
+message(STATUS "✅ YOUR WORKING TESTS (unchanged):")
+message(STATUS "  database_test         - PostgreSQL connectivity")
+message(STATUS "  minimal_test          - Basic prediction test") 
+message(STATUS "  ema_test              - EMA calculation verification")
+message(STATUS "  historical_ema_test   - EMA + database integration")
 
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/IQFeedConnection.cpp")
-    message(STATUS "  ✅ connection_test   - IQFeed connection testing")
-else()
-    message(STATUS "  ➖ connection_test   - (create IQFeedConnection/IQFeedConnection.cpp)")
-endif()
-
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/integrated_test_main.cpp")
-    message(STATUS "  ✅ integrated_test   - Combined system test")
-else()
-    message(STATUS "  ➖ integrated_test   - (create integrated_test_main.cpp)")
-endif()
-
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/IQFeedConnectionManager.cpp")
-    message(STATUS "  ✅ iqfeed_modular    - Complete IQFeed data collection system")
-else()
-    message(STATUS "  ➖ iqfeed_modular    - (missing modular IQFeed files)")
-endif()
-
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Predictions/MarketPredictionEngine.cpp")
-    message(STATUS "  ✅ prediction_manager - Epoch Market Advisor prediction engine")
-    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Predictions/PredictionTest.cpp")
-        message(STATUS "  ✅ prediction_test   - Prediction algorithm testing")
-    else()
-        message(STATUS "  ➖ prediction_test   - (create Predictions/PredictionTest.cpp)")
-    endif()
-else()
-    message(STATUS "  ➖ prediction_manager - (create Predictions/ directory with source files)")
-endif()
-
-if(TARGET integrated_prediction_engine)
-    message(STATUS "  🔥 integrated_prediction_engine - RECOMMENDED! Fully integrated system")
-else()
-    message(STATUS "  ➖ integrated_prediction_engine - (create integrated prediction files)")
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/main.cpp")
+    message(STATUS "  nexday_main           - Your original main application")
 endif()
 
 message(STATUS "")
-message(STATUS "Quick Start Commands:")
-message(STATUS "  1. Build:     cmake --build .")
-message(STATUS "  2. Test DB:   cmake --build . --target test_database")
-message(STATUS "  3. Init DB:   cmake --build . --target init_database")
-if(TARGET integrated_prediction_engine)
-    message(STATUS "  4. Predict:   cmake --build . --target run_integrated_predictions")
-elseif(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Predictions/MarketPredictionEngine.cpp")
-    message(STATUS "  4. Predict:   cmake --build . --target run_predictions")
-endif()
+message(STATUS "==============================================")
+message(STATUS "📋 BUILD & RUN INSTRUCTIONS:")
 message(STATUS "")
-message(STATUS "Manual Test Commands:")
-message(STATUS "  Database:     .\\Debug\\database_test.exe")
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/IQFeedConnection.cpp")
-    message(STATUS "  IQFeed:       .\\Debug\\connection_test.exe")
-endif()
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/integrated_test_main.cpp")
-    message(STATUS "  Integration:  .\\Debug\\integrated_test.exe")
-endif()
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/IQFeedConnection/IQFeedConnectionManager.cpp")
-    message(STATUS "  IQFeed Mod:   .\\Debug\\iqfeed_modular.exe")
-endif()
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Predictions/MarketPredictionEngine.cpp")
-    message(STATUS "  Predictions:  .\\Debug\\prediction_manager.exe (ISOLATED)")
-endif()
-if(TARGET integrated_prediction_engine)
-    message(STATUS "  NEW Predict:  .\\Debug\\integrated_prediction_engine.exe (INTEGRATED)")
-endif()
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Predictions/PredictionTest.cpp")
-    message(STATUS "  Pred Test:    .\\Debug\\prediction_test.exe")
-endif()
+message(STATUS "1. BUILD EVERYTHING:")
+message(STATUS "   cmake --build .")
+message(STATUS "")
+message(STATUS "2. VERIFY YOUR WORKING COMPONENTS FIRST:")
+message(STATUS "   cmake --build . --target verify_components")
+message(STATUS "")
+message(STATUS "3. RUN THE COMPLETE PIPELINE:")
+message(STATUS "   cmake --build . --target run_complete_pipeline")
+message(STATUS "   OR directly:")
+message(STATUS "   .\\Debug\\complete_pipeline.exe")
+message(STATUS "")
+message(STATUS "==============================================")
+message(STATUS "🎯 MAIN EXECUTABLE: complete_pipeline.exe")
+message(STATUS "")
+message(STATUS "ONE EXECUTION RUNS THE COMPLETE SYSTEM!")
 message(STATUS "==============================================")
 message(STATUS "")

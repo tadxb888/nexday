@@ -74,7 +74,16 @@ bool HistoricalDataFetcher::is_complete_bar(const std::string& datetime_str) con
     if (get_interval_code() == "DAILY") {
         auto now = std::chrono::system_clock::now();
         auto time_t_now = std::chrono::system_clock::to_time_t(now);
-        auto tm_now = *std::localtime(&time_t_now);
+        
+        // FIXED: Use safe localtime_s instead of localtime
+#ifdef _WIN32
+        std::tm tm_now;
+        if (localtime_s(&tm_now, &time_t_now) != 0) {
+            return false; // Error handling
+        }
+#else
+        std::tm tm_now = *std::localtime(&time_t_now);
+#endif
         
         std::ostringstream today_str;
         today_str << std::put_time(&tm_now, "%Y-%m-%d");
@@ -106,13 +115,24 @@ bool HistoricalDataFetcher::is_complete_bar(const std::string& datetime_str) con
         auto bar_end_time = bar_start_time + std::chrono::minutes(interval_minutes);
         auto now = std::chrono::system_clock::now();
         
-        // Bar is complete if current time is at least 5 minutes past its end time
+        // Bar is complete if current time is at least 1 minute past its end time  
         auto minutes_since_end = std::chrono::duration_cast<std::chrono::minutes>(now - bar_end_time);
-        bool is_complete = minutes_since_end.count() >= 5;
+        bool is_complete = minutes_since_end.count() >= 1;
         
         // Debug logging with corrected logic
         auto bar_end_time_t = std::chrono::system_clock::to_time_t(bar_end_time);
-        auto bar_end_tm = *std::localtime(&bar_end_time_t);
+        
+        // FIXED: Use safe localtime_s instead of localtime
+#ifdef _WIN32
+        std::tm bar_end_tm;
+        if (localtime_s(&bar_end_tm, &bar_end_time_t) != 0) {
+            logger->debug("COMPLETENESS_CHECK: Error getting end time for " + datetime_str);
+            return false;
+        }
+#else
+        std::tm bar_end_tm = *std::localtime(&bar_end_time_t);
+#endif
+        
         std::ostringstream end_str;
         end_str << std::put_time(&bar_end_tm, "%Y-%m-%d %H:%M:%S");
         
@@ -125,8 +145,12 @@ bool HistoricalDataFetcher::is_complete_bar(const std::string& datetime_str) con
     }
 }
 
+// FIXED: Remove unused parameter warning by using [[maybe_unused]] or (void)symbol
 bool HistoricalDataFetcher::parse_historical_data(const std::string& response, const std::string& symbol, 
                                                  std::vector<HistoricalBar>& data) {
+    // Suppress unused parameter warning
+    (void)symbol; // FIXED: Explicitly mark parameter as intentionally unused
+    
     logger->debug("Parsing historical data response...");
     
     // Check for error messages
@@ -138,11 +162,11 @@ bool HistoricalDataFetcher::parse_historical_data(const std::string& response, c
     // Split response into lines
     std::vector<std::string> lines;
     std::istringstream stream(response);
-    std::string line;
+    std::string response_line; // FIXED: Renamed from 'line' to avoid shadowing
     
-    while (std::getline(stream, line)) {
-        if (!line.empty() && line != "\r" && line.find("!ENDMSG!") == std::string::npos) {
-            lines.push_back(line);
+    while (std::getline(stream, response_line)) {
+        if (!response_line.empty() && response_line != "\r" && response_line.find("!ENDMSG!") == std::string::npos) {
+            lines.push_back(response_line);
         }
     }
     
@@ -161,14 +185,15 @@ bool HistoricalDataFetcher::parse_historical_data(const std::string& response, c
     data.clear();
     std::vector<HistoricalBar> all_bars; // Store all parsed bars first
     
-    for (const auto& line : lines) {
+    // FIXED: Use different variable name to avoid shadowing
+    for (const auto& data_line : lines) {
         // Skip empty lines and system messages
-        if (line.empty() || line.find("S,") == 0) {
+        if (data_line.empty() || data_line.find("S,") == 0) {
             continue;
         }
     
         // Parse CSV line
-        std::vector<std::string> fields = split_csv(line);
+        std::vector<std::string> fields = split_csv(data_line);
         
         if (fields.size() >= 7) {  // Minimum fields needed
             HistoricalBar bar;
@@ -228,7 +253,7 @@ bool HistoricalDataFetcher::parse_historical_data(const std::string& response, c
                 all_bars.push_back(bar);
                 
             } catch (const std::exception& e) {
-                logger->debug("Failed to parse line: " + line + " - Error: " + e.what());
+                logger->debug("Failed to parse line: " + data_line + " - Error: " + e.what());
                 continue;
             }
         }
@@ -253,7 +278,18 @@ bool HistoricalDataFetcher::parse_historical_data(const std::string& response, c
         
         auto now = std::chrono::system_clock::now();
         auto time_t_now = std::chrono::system_clock::to_time_t(now);
-        auto tm_now = *std::localtime(&time_t_now);
+        
+        // FIXED: Use safe localtime_s instead of localtime
+#ifdef _WIN32
+        std::tm tm_now;
+        if (localtime_s(&tm_now, &time_t_now) != 0) {
+            logger->error("Failed to get current time for daily bar filtering");
+            return false;
+        }
+#else
+        std::tm tm_now = *std::localtime(&time_t_now);
+#endif
+        
         std::ostringstream today_str;
         today_str << std::put_time(&tm_now, "%Y-%m-%d");
         
@@ -277,7 +313,7 @@ bool HistoricalDataFetcher::parse_historical_data(const std::string& response, c
             // Create corrected first bar: timestamp from bar[0], OHLCV from bar[1]
             HistoricalBar corrected_first_bar;
             corrected_first_bar.date = all_bars[0].date;   // Correct timestamp
-            corrected_first_bar.time = all_bars[0].time;   // Correct timestamp
+            corrected_first_bar.time = all_bars[1].time;   // Use time from same bar as OHLCV data
             corrected_first_bar.open = all_bars[1].open;   // Correct OHLCV
             corrected_first_bar.high = all_bars[1].high;   // Correct OHLCV  
             corrected_first_bar.low = all_bars[1].low;     // Correct OHLCV
@@ -358,7 +394,16 @@ std::string HistoricalDataFetcher::format_current_time() const {
 
 std::string HistoricalDataFetcher::format_time_point(const std::chrono::system_clock::time_point& tp) const {
     auto time_t = std::chrono::system_clock::to_time_t(tp);
-    auto tm = *std::localtime(&time_t);
+    
+    // FIXED: Use safe localtime_s instead of localtime
+#ifdef _WIN32
+    std::tm tm;
+    if (localtime_s(&tm, &time_t) != 0) {
+        return "ERROR_FORMATTING_TIME";
+    }
+#else
+    std::tm tm = *std::localtime(&time_t);
+#endif
     
     std::ostringstream oss;
     oss << std::put_time(&tm, "%Y-%m-%d %H:%M:%S");
