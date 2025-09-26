@@ -1,0 +1,176 @@
+[
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/complete_pipeline.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\complete_pipeline.dir\\Predictions\\CompletePipeline.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\Predictions\\CompletePipeline.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/Predictions/CompletePipeline.cpp",
+  "output": "CMakeFiles/complete_pipeline.dir/Predictions/CompletePipeline.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/complete_pipeline.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\complete_pipeline.dir\\Database\\database_simple.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\Database\\database_simple.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/Database/database_simple.cpp",
+  "output": "CMakeFiles/complete_pipeline.dir/Database/database_simple.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/complete_pipeline.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\complete_pipeline.dir\\IQFeedConnection\\IQFeedConnectionManager.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\IQFeedConnectionManager.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/IQFeedConnectionManager.cpp",
+  "output": "CMakeFiles/complete_pipeline.dir/IQFeedConnection/IQFeedConnectionManager.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/complete_pipeline.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\complete_pipeline.dir\\IQFeedConnection\\Logger.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\Logger.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/Logger.cpp",
+  "output": "CMakeFiles/complete_pipeline.dir/IQFeedConnection/Logger.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/complete_pipeline.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\complete_pipeline.dir\\IQFeedConnection\\HistoricalDataFetcher.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\HistoricalDataFetcher.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/HistoricalDataFetcher.cpp",
+  "output": "CMakeFiles/complete_pipeline.dir/IQFeedConnection/HistoricalDataFetcher.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/complete_pipeline.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\complete_pipeline.dir\\IQFeedConnection\\DailyDataFetcher.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\DailyDataFetcher.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/DailyDataFetcher.cpp",
+  "output": "CMakeFiles/complete_pipeline.dir/IQFeedConnection/DailyDataFetcher.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/complete_pipeline.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\complete_pipeline.dir\\IQFeedConnection\\FifteenMinDataFetcher.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\FifteenMinDataFetcher.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/FifteenMinDataFetcher.cpp",
+  "output": "CMakeFiles/complete_pipeline.dir/IQFeedConnection/FifteenMinDataFetcher.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/complete_pipeline.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\complete_pipeline.dir\\IQFeedConnection\\ThirtyMinDataFetcher.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\ThirtyMinDataFetcher.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/ThirtyMinDataFetcher.cpp",
+  "output": "CMakeFiles/complete_pipeline.dir/IQFeedConnection/ThirtyMinDataFetcher.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/complete_pipeline.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\complete_pipeline.dir\\IQFeedConnection\\OneHourDataFetcher.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\OneHourDataFetcher.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/OneHourDataFetcher.cpp",
+  "output": "CMakeFiles/complete_pipeline.dir/IQFeedConnection/OneHourDataFetcher.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/complete_pipeline.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\complete_pipeline.dir\\IQFeedConnection\\TwoHourDataFetcher.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\TwoHourDataFetcher.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/TwoHourDataFetcher.cpp",
+  "output": "CMakeFiles/complete_pipeline.dir/IQFeedConnection/TwoHourDataFetcher.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/complete_pipeline.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\complete_pipeline.dir\\IQFeedConnection\\FetchScheduler.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\FetchScheduler.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/FetchScheduler.cpp",
+  "output": "CMakeFiles/complete_pipeline.dir/IQFeedConnection/FetchScheduler.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/database_test.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\database_test.dir\\Database\\database_simple.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\Database\\database_simple.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/Database/database_simple.cpp",
+  "output": "CMakeFiles/database_test.dir/Database/database_simple.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/database_test.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\database_test.dir\\Database\\database_test_main.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\Database\\database_test_main.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/Database/database_test_main.cpp",
+  "output": "CMakeFiles/database_test.dir/Database/database_test_main.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/minimal_test.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\minimal_test.dir\\Database\\database_simple.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\Database\\database_simple.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/Database/database_simple.cpp",
+  "output": "CMakeFiles/minimal_test.dir/Database/database_simple.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/minimal_test.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\minimal_test.dir\\minimal_prediction_test.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\minimal_prediction_test.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/minimal_prediction_test.cpp",
+  "output": "CMakeFiles/minimal_test.dir/minimal_prediction_test.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/ema_test.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\ema_test.dir\\ema_test.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\ema_test.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/ema_test.cpp",
+  "output": "CMakeFiles/ema_test.dir/ema_test.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/historical_ema_test.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\historical_ema_test.dir\\Database\\database_simple.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\Database\\database_simple.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/Database/database_simple.cpp",
+  "output": "CMakeFiles/historical_ema_test.dir/Database/database_simple.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/historical_ema_test.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\historical_ema_test.dir\\historical_ema_test.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\historical_ema_test.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/historical_ema_test.cpp",
+  "output": "CMakeFiles/historical_ema_test.dir/historical_ema_test.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/nexday_main.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\nexday_main.dir\\IQFeedConnection\\main.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\main.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/main.cpp",
+  "output": "CMakeFiles/nexday_main.dir/IQFeedConnection/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/nexday_main.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\nexday_main.dir\\Database\\database_simple.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\Database\\database_simple.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/Database/database_simple.cpp",
+  "output": "CMakeFiles/nexday_main.dir/Database/database_simple.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/nexday_main.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\nexday_main.dir\\IQFeedConnection\\IQFeedConnectionManager.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\IQFeedConnectionManager.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/IQFeedConnectionManager.cpp",
+  "output": "CMakeFiles/nexday_main.dir/IQFeedConnection/IQFeedConnectionManager.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/nexday_main.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\nexday_main.dir\\IQFeedConnection\\Logger.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\Logger.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/Logger.cpp",
+  "output": "CMakeFiles/nexday_main.dir/IQFeedConnection/Logger.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/nexday_main.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\nexday_main.dir\\IQFeedConnection\\HistoricalDataFetcher.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\HistoricalDataFetcher.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/HistoricalDataFetcher.cpp",
+  "output": "CMakeFiles/nexday_main.dir/IQFeedConnection/HistoricalDataFetcher.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/nexday_main.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\nexday_main.dir\\IQFeedConnection\\DailyDataFetcher.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\DailyDataFetcher.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/DailyDataFetcher.cpp",
+  "output": "CMakeFiles/nexday_main.dir/IQFeedConnection/DailyDataFetcher.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/nexday_main.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\nexday_main.dir\\IQFeedConnection\\FifteenMinDataFetcher.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\FifteenMinDataFetcher.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/FifteenMinDataFetcher.cpp",
+  "output": "CMakeFiles/nexday_main.dir/IQFeedConnection/FifteenMinDataFetcher.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/nexday_main.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\nexday_main.dir\\IQFeedConnection\\ThirtyMinDataFetcher.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\ThirtyMinDataFetcher.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/ThirtyMinDataFetcher.cpp",
+  "output": "CMakeFiles/nexday_main.dir/IQFeedConnection/ThirtyMinDataFetcher.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/nexday_main.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\nexday_main.dir\\IQFeedConnection\\OneHourDataFetcher.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\OneHourDataFetcher.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/OneHourDataFetcher.cpp",
+  "output": "CMakeFiles/nexday_main.dir/IQFeedConnection/OneHourDataFetcher.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/nexday_main.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\nexday_main.dir\\IQFeedConnection\\TwoHourDataFetcher.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\TwoHourDataFetcher.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/TwoHourDataFetcher.cpp",
+  "output": "CMakeFiles/nexday_main.dir/IQFeedConnection/TwoHourDataFetcher.cpp.obj"
+},
+{
+  "directory": "C:/Users/Ross/Documents/IQFeed/nexday/build",
+  "command": "C:\\mingw64\\bin\\g++.exe -DNOMINMAX -DWIN32_LEAN_AND_MEAN @CMakeFiles/nexday_main.dir/includes_CXX.rsp -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\nexday_main.dir\\IQFeedConnection\\FetchScheduler.cpp.obj -c C:\\Users\\Ross\\Documents\\IQFeed\\nexday\\IQFeedConnection\\FetchScheduler.cpp",
+  "file": "C:/Users/Ross/Documents/IQFeed/nexday/IQFeedConnection/FetchScheduler.cpp",
+  "output": "CMakeFiles/nexday_main.dir/IQFeedConnection/FetchScheduler.cpp.obj"
+}
+]

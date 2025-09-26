@@ -10,5 +10,5 @@ C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/test_ema.dir
 C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/test_minimal.dir
 C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/test_historical_ema.dir
 C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/verify_components.dir
-C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/edit_cache.dir
+C:/Users/Ross/Documents/IQFeed/nexday/build/CMakeFiles/rebuild_cache.dir
