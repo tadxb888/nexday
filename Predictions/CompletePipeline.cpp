@@ -2,6 +2,12 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <chrono>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+#include <algorithm>
+#include <cctype>
 
 // Include your working components
 #include "EMACalculator.h"
@@ -83,117 +89,137 @@ public:
     }
     
     // Helper function to fetch and process intraday data
-    // Helper function to fetch and process intraday data
-// Helper function to fetch and process intraday data
-bool fetch_and_process_intraday_data(const std::string& symbol, 
-                                    const std::string& timeframe,
-                                    std::vector<HistoricalBar>& bars,
-                                    int bars_to_fetch = 100) {
-    
-    std::cout << "📡 Fetching " << timeframe << " data for " << symbol << "..." << std::endl;
-    
-    bool fetch_success = false;
-    
-    if (timeframe == "15min") {
-        fetch_success = fifteen_min_fetcher->fetch_historical_data(symbol, bars_to_fetch, bars);
-    } else if (timeframe == "30min") {
-        fetch_success = thirty_min_fetcher->fetch_historical_data(symbol, bars_to_fetch, bars);
-    } else if (timeframe == "1hour") {
-        fetch_success = one_hour_fetcher->fetch_historical_data(symbol, bars_to_fetch, bars);
-    } else if (timeframe == "2hours") {
-        fetch_success = two_hour_fetcher->fetch_historical_data(symbol, bars_to_fetch, bars);
-    }
-    
-    if (!fetch_success) {
-        std::cout << "❌ Failed to fetch " << timeframe << " data" << std::endl;
-        return false;
-    }
-    
-    std::cout << "✅ Retrieved " << bars.size() << " " << timeframe << " bars" << std::endl;
-    
-    if (bars.size() < 15) {
-        std::cout << "⚠️  Insufficient " << timeframe << " data: " << bars.size() << " bars (need 15+)" << std::endl;
-        return false;
-    }
-    
-    // PERSIST THE INTRADAY BARS TO DATABASE
-    if (!persist_intraday_bars(symbol, timeframe, bars)) {
-        std::cout << "❌ Failed to persist " << timeframe << " bars to database" << std::endl;
-        return false;
-    }
-    
-    return true;
-}
-    
-    // PERSIST THE INTRADAY BARS TO DATABASE
-    if (!persist_intraday_bars(symbol, timeframe, bars)) {
-        std::cout << "❌ Failed to persist " << timeframe << " bars to database" << std::endl;
-        return false;
-    }
-    
-    return true;
-}
-
-    // Helper function to persist intraday bars using existing database methods
-bool persist_intraday_bars(const std::string& symbol, 
-                          const std::string& timeframe,
-                          const std::vector<HistoricalBar>& bars) {
-    
-    std::cout << "💾 Persisting " << timeframe << " historical data to database..." << std::endl;
-    std::cout << "[DEBUG] Symbol: " << symbol << std::endl;
-    std::cout << "[DEBUG] Timeframe: " << timeframe << std::endl;
-    std::cout << "[DEBUG] Bars to persist: " << bars.size() << std::endl;
-    
-    int saved_count = 0;
-    int failed_count = 0;
-    
-    // Show first few bars being processed for debugging
-    int debug_count = std::min(3, (int)bars.size());
-    for (int i = 0; i < debug_count; i++) {
-        std::cout << "[DEBUG] Bar[" << i << "] date: '" << bars[i].date << "' time: '" << bars[i].time << "'" << std::endl;
-    }
-    
-    for (const auto& bar : bars) {
-        bool success = false;
+    bool fetch_and_process_intraday_data(const std::string& symbol, 
+                                         const std::string& timeframe,
+                                         std::vector<HistoricalBar>& bars,
+                                         int bars_to_fetch = 100) {
         
-        // Use your existing working database insertion methods
+        std::cout << "📡 Fetching " << timeframe << " data for " << symbol << "..." << std::endl;
+        
+        bool fetch_success = false;
+        
         if (timeframe == "15min") {
-            success = db_manager->insert_historical_data_15min(symbol, bar.date, bar.time,
-                bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
+            fetch_success = fifteen_min_fetcher->fetch_historical_data(symbol, bars_to_fetch, bars);
         } else if (timeframe == "30min") {
-            success = db_manager->insert_historical_data_30min(symbol, bar.date, bar.time,
-                bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
+            fetch_success = thirty_min_fetcher->fetch_historical_data(symbol, bars_to_fetch, bars);
         } else if (timeframe == "1hour") {
-            success = db_manager->insert_historical_data_1hour(symbol, bar.date, bar.time,
-                bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
+            fetch_success = one_hour_fetcher->fetch_historical_data(symbol, bars_to_fetch, bars);
         } else if (timeframe == "2hours") {
-            success = db_manager->insert_historical_data_2hours(symbol, bar.date, bar.time,
-                bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
-        } else {
-            std::cout << "[ERROR] Unknown timeframe for database save: " << timeframe << std::endl;
-            failed_count++;
-            continue;
+            fetch_success = two_hour_fetcher->fetch_historical_data(symbol, bars_to_fetch, bars);
         }
         
-        if (success) {
-            saved_count++;
-            if (saved_count <= 3) {
-                std::cout << "[DEBUG] Successfully saved bar " << saved_count << " for " << bar.date << " " << bar.time << std::endl;
-            }
-        } else {
-            failed_count++;
-            if (failed_count <= 3) {
-                std::cout << "[ERROR] Failed to save bar: " << bar.date << " " << bar.time << std::endl;
-                std::cout << "[ERROR] Database error: " << db_manager->get_last_error() << std::endl;
-            }
+        if (!fetch_success) {
+            std::cout << "❌ Failed to fetch " << timeframe << " data" << std::endl;
+            return false;
         }
+        
+        std::cout << "✅ Retrieved " << bars.size() << " " << timeframe << " bars" << std::endl;
+        
+        if (bars.size() < 15) {
+            std::cout << "⚠️  Insufficient " << timeframe << " data: " << bars.size() << " bars (need 15+)" << std::endl;
+            return false;
+        }
+        
+        // PERSIST THE INTRADAY BARS TO DATABASE
+        if (!persist_intraday_bars(symbol, timeframe, bars)) {
+            std::cout << "❌ Failed to persist " << timeframe << " bars to database" << std::endl;
+            return false;
+        }
+        
+        return true;
     }
     
-    std::cout << "✅ Database save for " << symbol << " " << timeframe << ": " 
-              << saved_count << " saved, " << failed_count << " failed" << std::endl;
-    
-    return failed_count == 0;
-}
+    // Helper function to persist intraday bars using existing database methods
+    bool persist_intraday_bars(const std::string& symbol, 
+                               const std::string& timeframe,
+                               const std::vector<HistoricalBar>& bars) {
+        
+        std::cout << "💾 Persisting " << timeframe << " historical data to database..." << std::endl;
+        std::cout << "[DEBUG] Symbol: " << symbol << std::endl;
+        std::cout << "[DEBUG] Timeframe: " << timeframe << std::endl;
+        std::cout << "[DEBUG] Bars to persist: " << bars.size() << std::endl;
+        
+        int saved_count = 0;
+        int failed_count = 0;
+        
+        // Show first few bars being processed for debugging
+        int debug_count = std::min(3, static_cast<int>(bars.size()));
+        for (int i = 0; i < debug_count; i++) {
+            std::cout << "[DEBUG] Bar[" << i << "] date: '" << bars[i].date << "' time: '" << bars[i].time << "'" << std::endl;
+        }
+        
+        for (const auto& bar : bars) {
+            bool success = false;
+            
+            // ADJUST TIMESTAMP: Convert from interval START to interval END
+            std::string adjusted_time = bar.time;
+            if (!bar.time.empty()) {
+                // Parse the time
+                std::istringstream ss(bar.date + " " + bar.time);
+                std::tm tm = {};
+                ss >> std::get_time(&tm, "%Y-%m-%d %H:%M:%S");
+                
+                if (!ss.fail()) {
+                    auto time_point = std::chrono::system_clock::from_time_t(std::mktime(&tm));
+                    
+                    // Add the interval duration to get END time
+                    if (timeframe == "15min") {
+                        time_point += std::chrono::minutes(15);
+                    } else if (timeframe == "30min") {
+                        time_point += std::chrono::minutes(30);
+                    } else if (timeframe == "1hour") {
+                        time_point += std::chrono::minutes(60);
+                    } else if (timeframe == "2hours") {
+                        time_point += std::chrono::minutes(120);
+                    }
+                    
+                    // Convert back to string
+                    auto adjusted_time_t = std::chrono::system_clock::to_time_t(time_point);
+                    std::tm adjusted_tm = *std::localtime(&adjusted_time_t);
+                    std::ostringstream oss;
+                    oss << std::put_time(&adjusted_tm, "%H:%M:%S");
+                    adjusted_time = oss.str();
+                }
+            }
+            
+            // Use adjusted time for database insertion
+            if (timeframe == "15min") {
+                success = db_manager->insert_historical_data_15min(symbol, bar.date, adjusted_time,
+                    bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
+            } else if (timeframe == "30min") {
+                success = db_manager->insert_historical_data_30min(symbol, bar.date, adjusted_time,
+                    bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
+            } else if (timeframe == "1hour") {
+                success = db_manager->insert_historical_data_1hour(symbol, bar.date, adjusted_time,
+                    bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
+            } else if (timeframe == "2hours") {
+                success = db_manager->insert_historical_data_2hours(symbol, bar.date, adjusted_time,
+                    bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
+            } else {
+                std::cout << "[ERROR] Unknown timeframe for database save: " << timeframe << std::endl;
+                failed_count++;
+                continue;
+            }
+            
+            if (success) {
+                saved_count++;
+                if (saved_count <= 3) {
+                    std::cout << "[DEBUG] Successfully saved bar " << saved_count << " for " << bar.date << " " << bar.time << std::endl;
+                }
+            } else {
+                failed_count++;
+                if (failed_count <= 3) {
+                    std::cout << "[ERROR] Failed to save bar: " << bar.date << " " << bar.time << std::endl;
+                    std::cout << "[ERROR] Database error: " << db_manager->get_last_error() << std::endl;
+                }
+            }
+        }
+        
+        std::cout << "✅ Database save for " << symbol << " " << timeframe << ": " 
+                  << saved_count << " saved, " << failed_count << " failed" << std::endl;
+        
+        return failed_count == 0;
+    }
     
     // Calculate and save intraday predictions
     bool process_intraday_predictions(const std::string& symbol, 
@@ -225,6 +251,7 @@ bool persist_intraday_bars(const std::string& symbol,
         
         // Save to predictions_all_symbols table
         std::string current_time = PredictionPersister::get_current_timestamp();
+        (void)current_time; // placeholder if needed for logging
         std::string target_time = get_next_interval_time(timeframe);
         
         bool high_saved = PredictionPersister::save_prediction_components(
@@ -245,8 +272,8 @@ bool persist_intraday_bars(const std::string& symbol,
     // Helper to calculate next interval time
     std::string get_next_interval_time(const std::string& timeframe) {
         auto now = std::chrono::system_clock::now();
-        auto time_t = std::chrono::system_clock::to_time_t(now);
-        auto tm = *std::localtime(&time_t);
+        auto time_t_now = std::chrono::system_clock::to_time_t(now);
+        std::tm tm = *std::localtime(&time_t_now);
         
         // Round to next interval based on timeframe
         if (timeframe == "15min") {
@@ -262,7 +289,7 @@ bool persist_intraday_bars(const std::string& symbol,
         }
         
         tm.tm_sec = 0;
-        mktime(&tm); // Normalize
+        std::mktime(&tm); // Normalize
         
         std::stringstream ss;
         ss << std::put_time(&tm, "%Y-%m-%d %H:%M:%S");
@@ -322,7 +349,7 @@ bool persist_intraday_bars(const std::string& symbol,
             std::vector<HistoricalBar> intraday_bars;
             
             if (fetch_and_process_intraday_data(symbol, timeframe, intraday_bars)) {
-                total_intraday_bars_saved += intraday_bars.size();
+                total_intraday_bars_saved += static_cast<int>(intraday_bars.size());
                 if (process_intraday_predictions(symbol, timeframe, intraday_bars)) {
                     successful_intraday++;
                 } else {
@@ -455,7 +482,7 @@ bool persist_intraday_bars(const std::string& symbol,
             
             // Convert to uppercase
             for (char& c : symbol) {
-                c = std::toupper(c);
+                c = static_cast<char>(std::toupper(static_cast<unsigned char>(c)));
             }
             
             std::cout << "\nProcessing symbol: " << symbol << std::endl;
