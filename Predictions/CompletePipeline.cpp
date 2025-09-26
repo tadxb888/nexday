@@ -129,7 +129,7 @@ public:
         return true;
     }
     
-    // Helper function to persist intraday bars using existing database methods
+    // FIXED: Helper function to persist intraday bars - NO TIMESTAMP ADJUSTMENT
     bool persist_intraday_bars(const std::string& symbol, 
                                const std::string& timeframe,
                                const std::vector<HistoricalBar>& bars) {
@@ -151,49 +151,23 @@ public:
         for (const auto& bar : bars) {
             bool success = false;
             
-            // ADJUST TIMESTAMP: Convert from interval START to interval END
-            std::string adjusted_time = bar.time;
-            if (!bar.time.empty()) {
-                // Parse the time
-                std::istringstream ss(bar.date + " " + bar.time);
-                std::tm tm = {};
-                ss >> std::get_time(&tm, "%Y-%m-%d %H:%M:%S");
-                
-                if (!ss.fail()) {
-                    auto time_point = std::chrono::system_clock::from_time_t(std::mktime(&tm));
-                    
-                    // Add the interval duration to get END time
-                    if (timeframe == "15min") {
-                        time_point += std::chrono::minutes(15);
-                    } else if (timeframe == "30min") {
-                        time_point += std::chrono::minutes(30);
-                    } else if (timeframe == "1hour") {
-                        time_point += std::chrono::minutes(60);
-                    } else if (timeframe == "2hours") {
-                        time_point += std::chrono::minutes(120);
-                    }
-                    
-                    // Convert back to string
-                    auto adjusted_time_t = std::chrono::system_clock::to_time_t(time_point);
-                    std::tm adjusted_tm = *std::localtime(&adjusted_time_t);
-                    std::ostringstream oss;
-                    oss << std::put_time(&adjusted_tm, "%H:%M:%S");
-                    adjusted_time = oss.str();
-                }
-            }
+            // USE ORIGINAL TIMESTAMPS - NO ADJUSTMENT NEEDED
+            // IQFeed's LabelAtBeginning=1 (default) provides correct interval start times
+            // The OHLCV data represents the complete interval, timestamps are already correct
+            std::string original_time = bar.time;
             
-            // Use adjusted time for database insertion
+            // Use original timestamp for database insertion
             if (timeframe == "15min") {
-                success = db_manager->insert_historical_data_15min(symbol, bar.date, adjusted_time,
+                success = db_manager->insert_historical_data_15min(symbol, bar.date, original_time,
                     bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
             } else if (timeframe == "30min") {
-                success = db_manager->insert_historical_data_30min(symbol, bar.date, adjusted_time,
+                success = db_manager->insert_historical_data_30min(symbol, bar.date, original_time,
                     bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
             } else if (timeframe == "1hour") {
-                success = db_manager->insert_historical_data_1hour(symbol, bar.date, adjusted_time,
+                success = db_manager->insert_historical_data_1hour(symbol, bar.date, original_time,
                     bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
             } else if (timeframe == "2hours") {
-                success = db_manager->insert_historical_data_2hours(symbol, bar.date, adjusted_time,
+                success = db_manager->insert_historical_data_2hours(symbol, bar.date, original_time,
                     bar.open, bar.high, bar.low, bar.close, bar.volume, bar.open_interest);
             } else {
                 std::cout << "[ERROR] Unknown timeframe for database save: " << timeframe << std::endl;
@@ -269,22 +243,49 @@ public:
         }
     }
     
-    // Helper to calculate next interval time
+    // FIXED: Helper to calculate next interval time - PROPER interval alignment
     std::string get_next_interval_time(const std::string& timeframe) {
         auto now = std::chrono::system_clock::now();
         auto time_t_now = std::chrono::system_clock::to_time_t(now);
         std::tm tm = *std::localtime(&time_t_now);
         
-        // Round to next interval based on timeframe
+        // Calculate next aligned interval start time (not shifted ahead)
         if (timeframe == "15min") {
-            tm.tm_min = ((tm.tm_min / 15) + 1) * 15;
+            // Round up to next 15-minute boundary
+            int current_minutes = tm.tm_min;
+            int next_15_min = ((current_minutes / 15) + 1) * 15;
+            if (next_15_min >= 60) {
+                tm.tm_hour += 1;
+                tm.tm_min = next_15_min - 60;
+            } else {
+                tm.tm_min = next_15_min;
+            }
         } else if (timeframe == "30min") {
-            tm.tm_min = ((tm.tm_min / 30) + 1) * 30;
+            // Round up to next 30-minute boundary
+            int current_minutes = tm.tm_min;
+            int next_30_min = ((current_minutes / 30) + 1) * 30;
+            if (next_30_min >= 60) {
+                tm.tm_hour += 1;
+                tm.tm_min = next_30_min - 60;
+            } else {
+                tm.tm_min = next_30_min;
+            }
         } else if (timeframe == "1hour") {
+            // Next hour boundary
             tm.tm_hour += 1;
             tm.tm_min = 0;
         } else if (timeframe == "2hours") {
-            tm.tm_hour += 2;
+            // Round up to next 2-hour boundary
+            int next_2hour = ((tm.tm_hour / 2) + 1) * 2;
+            if (next_2hour >= 24) {
+                // Move to next day
+                auto tomorrow = now + std::chrono::hours(24);
+                auto tomorrow_time_t = std::chrono::system_clock::to_time_t(tomorrow);
+                tm = *std::localtime(&tomorrow_time_t);
+                tm.tm_hour = next_2hour - 24;
+            } else {
+                tm.tm_hour = next_2hour;
+            }
             tm.tm_min = 0;
         }
         
@@ -444,6 +445,7 @@ public:
             std::cout << "✅ Intraday EMA predictions calculated (High/Low)" << std::endl;
             std::cout << "✅ All predictions persisted to database" << std::endl;
             std::cout << "✅ Error calculation framework active" << std::endl;
+            std::cout << "✅ TIMESTAMPS: Using correct IQFeed interval start times" << std::endl;
         } else {
             std::cout << "⚠️  COMPLETE PIPELINE: PARTIAL SUCCESS" << std::endl;
             std::cout << "Some steps completed successfully, others had issues" << std::endl;
@@ -462,7 +464,7 @@ public:
         }
         
         std::cout << "\n================================================" << std::endl;
-        std::cout << "NEXDAY COMPLETE PIPELINE - INTRADAY MODE" << std::endl;
+        std::cout << "NEXDAY COMPLETE PIPELINE - TIMESTAMP FIXED" << std::endl;
         std::cout << "================================================" << std::endl;
         
         while (true) {
@@ -492,7 +494,7 @@ public:
             std::cout << "  3. Retrieve intraday data (15min, 30min, 1hour, 2hours)" << std::endl;
             std::cout << "  4. Calculate daily EMA predictions (OHLC)" << std::endl;
             std::cout << "  5. Calculate intraday EMA predictions (High/Low)" << std::endl;
-            std::cout << "  6. Persist all predictions" << std::endl;
+            std::cout << "  6. Persist all predictions with CORRECT timestamps" << std::endl;
             std::cout << "  7. Calculate and persist errors" << std::endl;
             
             std::cout << "\nProceed? (y/n): ";
@@ -516,9 +518,9 @@ public:
 
 int main() {
     std::cout << "================================================" << std::endl;
-    std::cout << "NEXDAY MARKETS - COMPLETE PIPELINE WITH INTRADAY" << std::endl;
+    std::cout << "NEXDAY MARKETS - COMPLETE PIPELINE (TIMESTAMPS FIXED)" << std::endl;
     std::cout << "================================================" << std::endl;
-    std::cout << "One execution runs it all:" << std::endl;
+    std::cout << "Timestamp fix: Using IQFeed's correct interval start times" << std::endl;
     std::cout << "• Connect to IQFeed" << std::endl;
     std::cout << "• Fetch daily + intraday data (15m, 30m, 1h, 2h)" << std::endl;
     std::cout << "• Calculate timeframe-specific EMA predictions" << std::endl;
