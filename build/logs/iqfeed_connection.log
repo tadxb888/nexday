@@ -299,3 +299,41 @@
 [DEBUG] 2025-09-26 12:04:58 - Sending command: HIX,QGC#,7200,100,0,HIST_QGC#_2Hour,100,s,1
 
 [DEBUG] 2025-09-26 12:04:58 - Lookup socket closed
+[DEBUG] 2025-09-26 12:11:53 - Winsock initialized successfully
+[INFO] 2025-09-26 12:11:53 - Initializing IQFeed connection...
+[SUCCESS] 2025-09-26 12:11:53 - IQFeed connection initialized successfully
+[DEBUG] 2025-09-26 12:11:59 - Creating lookup socket...
+[DEBUG] 2025-09-26 12:11:59 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-26 12:11:59 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-26 12:11:59 - Sending command: HDX,QGC#,100,0,HIST_QGC#_Daily,100,0
+
+[DEBUG] 2025-09-26 12:12:00 - Lookup socket closed
+[DEBUG] 2025-09-26 12:12:00 - Creating lookup socket...
+[DEBUG] 2025-09-26 12:12:00 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-26 12:12:00 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-26 12:12:00 - Sending command: HIX,QGC#,900,100,0,HIST_QGC#_15Min,100,s,1
+
+[DEBUG] 2025-09-26 12:12:00 - Lookup socket closed
+[DEBUG] 2025-09-26 12:12:00 - Creating lookup socket...
+[DEBUG] 2025-09-26 12:12:00 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-26 12:12:00 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-26 12:12:00 - Sending command: HIX,QGC#,1800,100,0,HIST_QGC#_30Min,100,s,1
+
+[DEBUG] 2025-09-26 12:12:01 - Lookup socket closed
+[DEBUG] 2025-09-26 12:12:01 - Creating lookup socket...
+[DEBUG] 2025-09-26 12:12:01 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-26 12:12:01 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-26 12:12:01 - Sending command: HIX,QGC#,3600,100,0,HIST_QGC#_1Hour,100,s,1
+
+[DEBUG] 2025-09-26 12:12:02 - Lookup socket closed
+[DEBUG] 2025-09-26 12:12:02 - Creating lookup socket...
+[DEBUG] 2025-09-26 12:12:02 - Protocol response: S,CURRENT PROTOCOL,6.2
+
+[DEBUG] 2025-09-26 12:12:02 - Lookup socket created and configured successfully
+[DEBUG] 2025-09-26 12:12:02 - Sending command: HIX,QGC#,7200,100,0,HIST_QGC#_2Hour,100,s,1
+
+[DEBUG] 2025-09-26 12:12:02 - Lookup socket closed
